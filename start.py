@@ -5,6 +5,15 @@ Railway sets PORT automatically.
 """
 import os
 import sys
+
+# Ensure agents directory is on Python path
+_agent_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "agents")
+if os.path.isdir(_agent_path):
+    sys.path.insert(0, _agent_path)
+_docker_path = "/app/agents"
+if os.path.isdir(_docker_path) and _docker_path not in sys.path:
+    sys.path.insert(0, _docker_path)
+
 import uvicorn
 
 if __name__ == "__main__":
