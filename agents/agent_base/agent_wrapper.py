@@ -7,7 +7,7 @@ from agent_base.llm_client import LLMClient
 
 DEFAULT_LLM_CONFIG = {
     "provider": os.getenv("LLM_PROVIDER", "openrouter"),
-    "tier": os.getenv("LLM_TIER", "auto"),
+    "tier": os.getenv("LLM_TIER", "complex"),
 }
 
 class AgentIntelligence:

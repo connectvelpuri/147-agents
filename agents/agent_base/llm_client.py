@@ -21,15 +21,15 @@ class LLMClient:
 
     TIER_MODELS = {
         "complex": {
-            "openrouter": "openrouter/auto",
+            "openrouter": "openrouter/free",
             "anthropic": "claude-opus-4-20250514",
         },
         "moderate": {
-            "openrouter": "openrouter/auto",
+            "openrouter": "openrouter/free",
             "anthropic": "claude-sonnet-4-20250514",
         },
         "simple": {
-            "openrouter": "openrouter/auto",
+            "openrouter": "openrouter/free",
             "anthropic": "claude-haiku-3-5-20241022",
         },
     }
@@ -168,3 +168,24 @@ class LLMResult:
         self.model = model
         self.usage = usage or {}
         self.used_fallback = used_fallback
+_MODEL_TIERS = {
+    "complex": {
+        "openrouter": "openrouter/free",
+        "anthropic": "claude-opus-4-20250514",
+    },
+    "analysis": {
+        "openrouter": "openrouter/free",
+        "anthropic": "claude-sonnet-4-20250514",
+    },
+    "simple": {
+        "openrouter": "openrouter/free",
+        "anthropic": "claude-haiku-3-5-20241022",
+    },
+}
+
+# Free model candidates (OpenRouter rates these at $0):
+# nvidia/nemotron-3-ultra-550b-a55b:free  - 550B params, 1M ctx - best for complex reasoning
+# nvidia/nemotron-3-super-120b-a12b:free  - 120B params, 1M ctx - best for analysis
+# nousresearch/hermes-3-llama-3.1-405b:free - 405B params - best for instruction following
+# meta-llama/llama-3.3-70b-instruct:free  - 70B params - reliable general purpose
+# openrouter/free - auto-routes to best available free model
