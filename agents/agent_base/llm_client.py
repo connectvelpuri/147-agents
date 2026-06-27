@@ -105,7 +105,14 @@ class LLMClient:
             text = resp.choices[0].message.content or ""
             return LLMResult(success=True, text=text, model=model, usage=resp.usage.model_dump() if resp.usage else {})
         except Exception as e:
-            return LLMResult(success=False, error=str(e))
+            error_msg = str(e)
+            if "401" in error_msg or "Unauthorized" in error_msg:
+                error_msg = "OpenRouter API key is invalid or deactivated. Generate a new key at https://openrouter.ai/keys"
+            elif "402" in error_msg or "insufficient" in error_msg.lower():
+                error_msg = "OpenRouter account has insufficient credits. Add funds at https://openrouter.ai/settings/credits"
+            elif "429" in error_msg or "rate" in error_msg.lower():
+                error_msg = "OpenRouter rate limit exceeded. Try again in a few seconds."
+            return LLMResult(success=False, error=error_msg)
 
     def _call_anthropic(self, model: str, system: str, user: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
         try:
@@ -121,7 +128,14 @@ class LLMClient:
             text = resp.content[0].text if resp.content else ""
             return LLMResult(success=True, text=text, model=model, usage={"input_tokens": resp.usage.input_tokens, "output_tokens": resp.usage.output_tokens})
         except Exception as e:
-            return LLMResult(success=False, error=str(e))
+            error_msg = str(e)
+            if "401" in error_msg or "Unauthorized" in error_msg:
+                error_msg = "OpenRouter API key is invalid or deactivated. Generate a new key at https://openrouter.ai/keys"
+            elif "402" in error_msg or "insufficient" in error_msg.lower():
+                error_msg = "OpenRouter account has insufficient credits. Add funds at https://openrouter.ai/settings/credits"
+            elif "429" in error_msg or "rate" in error_msg.lower():
+                error_msg = "OpenRouter rate limit exceeded. Try again in a few seconds."
+            return LLMResult(success=False, error=error_msg)
 
     def _rule_based_fallback(self, system: str, user: str) -> LLMResult:
         return LLMResult(
