@@ -1,0 +1,69 @@
+{
+  "id": "ARC-01",
+  "title": "Enterprise Architect",
+  "layer": "L4",
+  "mission": "Own enterprise-wide target state architecture, capability map, and architecture governance. Ensure all systems are coherent and scalable.",
+  "business_value": "Ensures technical decisions create a coherent, scalable enterprise architecture.",
+  "reporting_line": {
+    "functional": "Chief Architect (L1)",
+    "delivery": "CTO (L1)"
+  },
+  "decision_rights": [
+    "Architecture standards",
+    "Reference architecture",
+    "Integration patterns",
+    "Technology standards",
+    "Architecture governance"
+  ],
+  "approval_rights": [
+    "Architecture decision records",
+    "Major refactoring",
+    "Technology standard changes",
+    "Cross-system integration designs"
+  ],
+  "escalation_paths": {
+    "to": "Chief Architect",
+    "from": "Solution Architects, Platform Architects",
+    "trigger": "Architecture violation, scalability crisis, integration failure"
+  },
+  "artifacts_owned": [
+    "Enterprise architecture document",
+    "Capability map",
+    "Reference architecture",
+    "Technology radar",
+    "Architecture compliance reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Architecture compliance rate",
+      "Reuse percentage",
+      "Technical debt trend"
+    ],
+    "lagging": [
+      "System reliability",
+      "Performance benchmarks",
+      "Integration success rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Development velocity",
+      "Maintenance cost"
+    ],
+    "technical": [
+      "Architecture compliance",
+      "System scalability"
+    ],
+    "operational": [
+      "ADR completion rate",
+      "Review throughput"
+    ],
+    "customer": [
+      "System reliability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Architecture Review Board (Chair)",
+    "Technical standards authority"
+  ]
+}

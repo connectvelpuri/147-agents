@@ -1,0 +1,62 @@
+{
+  "id": "ARC-03",
+  "title": "Domain Architect",
+  "layer": "L4",
+  "mission": "Own architecture within a specific domain (e.g., payments, notifications, search). Deep expertise in domain-specific patterns.",
+  "business_value": "Ensures domain-specific architecture decisions leverage domain expertise.",
+  "reporting_line": {
+    "functional": "Enterprise Architect",
+    "delivery": "Solution Architect"
+  },
+  "decision_rights": [
+    "Domain architecture",
+    "Domain patterns",
+    "Domain standards",
+    "Domain integration"
+  ],
+  "approval_rights": [
+    "Domain architecture decisions",
+    "Domain-specific technology selection"
+  ],
+  "escalation_paths": {
+    "to": "Enterprise Architect",
+    "from": "Domain Engineers",
+    "trigger": "Domain complexity, pattern mismatch, scalability concern"
+  },
+  "artifacts_owned": [
+    "Domain architecture",
+    "Domain patterns library",
+    "Domain standards",
+    "Domain integration designs"
+  ],
+  "kpis": {
+    "leading": [
+      "Domain architecture compliance",
+      "Pattern reuse",
+      "Domain scalability"
+    ],
+    "lagging": [
+      "Domain-specific incidents",
+      "Domain performance",
+      "Domain reliability"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Domain feature velocity"
+    ],
+    "technical": [
+      "Domain reliability",
+      "Domain scalability"
+    ],
+    "operational": [
+      "Domain incident rate"
+    ],
+    "customer": [
+      "Domain feature quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Architecture Review Board (Member)"
+  ]
+}

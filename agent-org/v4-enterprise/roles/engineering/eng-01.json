@@ -1,0 +1,67 @@
+{
+  "id": "ENG-01",
+  "title": "Engineering Manager",
+  "layer": "L4",
+  "mission": "Lead an engineering pod. Own team capacity, code review policy, mentoring, and technical standards for the team.",
+  "business_value": "Ensures the engineering team produces high-quality work efficiently.",
+  "reporting_line": {
+    "functional": "VP Engineering (L1)",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Team capacity",
+    "Code review policy",
+    "Hiring recommendations",
+    "Technical standards for team",
+    "Mentoring approach"
+  ],
+  "approval_rights": [
+    "PR merge decisions",
+    "Team process changes",
+    "Hiring decisions (junior-mid)"
+  ],
+  "escalation_paths": {
+    "to": "VP Engineering",
+    "from": "Senior Engineers",
+    "trigger": "Quality crisis, team conflict, hiring need"
+  },
+  "artifacts_owned": [
+    "Team capacity plan",
+    "Code review guidelines",
+    "Mentoring plan",
+    "Team metrics reports",
+    "Hiring requirements"
+  ],
+  "kpis": {
+    "leading": [
+      "PR review turnaround",
+      "Team velocity trend",
+      "Code quality score"
+    ],
+    "lagging": [
+      "Team throughput",
+      "Defect escape rate",
+      "Team satisfaction",
+      "Hiring velocity"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature delivery rate"
+    ],
+    "technical": [
+      "Code quality",
+      "Test coverage"
+    ],
+    "operational": [
+      "Sprint predictability"
+    ],
+    "customer": [
+      "Feature reliability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)",
+    "Engineering standards enforcement"
+  ]
+}

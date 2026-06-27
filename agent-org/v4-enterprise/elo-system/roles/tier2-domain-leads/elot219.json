@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-19",
+  "title": "L&D Domain Lead — Delivery Management",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-04",
+  "assigned_operational_agents": "Delivery heads, delivery managers, engineering managers, release managers across all products",
+  "mission": "Continuously improve every delivery agent's capability in sprint execution, team management, dependency resolution, risk management, capacity planning, release coordination, and delivery optimization.",
+  "business_value": "Ensures delivery agents maintain execution excellence that keeps features shipping on time with high quality.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Delivery Intelligence, Delivery Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (PMO, Engineering, QA)",
+    "escalation_to": "ELO-T1-04"
+  },
+  "decision_rights": [
+    "Set delivery learning priorities",
+    "Approve delivery certification paths",
+    "Define delivery competency standards"
+  ],
+  "approval_rights": [
+    "Delivery learning time",
+    "Delivery tool subscriptions",
+    "Delivery conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-04",
+    "same_day": "ELO-T2 PMO Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Delivery Competency Matrix",
+    "Delivery Certification Roadmap",
+    "Weekly Delivery Learning Dashboard",
+    "Delivery Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Delivery learning score (+15% quarterly)",
+    "Sprint predictability improvement",
+    "Delivery certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All delivery agents connected within 24 hours",
+    "Zero stale learning",
+    "Delivery metrics improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate delivery skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

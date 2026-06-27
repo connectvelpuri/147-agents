@@ -1,0 +1,57 @@
+{
+  "id": "CRM-DOE-1",
+  "title": "CRM DevOps Engineer",
+  "layer": "L5",
+  "product_line": "CRM",
+  "mission": "Build pipelines. Focused on CRM deployment and reliability.",
+  "business_value": "Ensures CRM is deployed reliably and performs well.",
+  "reporting_line": {
+    "functional": "Platform Director (L5)",
+    "delivery": "CRM PMO Lead"
+  },
+  "decision_rights": [
+    "CRM CI/CD",
+    "Deployment process"
+  ],
+  "approval_rights": [
+    "CRM deployment",
+    "Pipeline changes"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "DevOps",
+    "trigger": "Pipeline failure, deployment issue"
+  },
+  "artifacts_owned": [
+    "CRM pipelines",
+    "Deployment scripts",
+    "Runbooks"
+  ],
+  "kpis": {
+    "leading": [
+      "Pipeline reliability",
+      "Deployment frequency"
+    ],
+    "lagging": [
+      "Change failure rate",
+      "MTTR"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Deployment velocity"
+    ],
+    "technical": [
+      "DORA metrics"
+    ],
+    "operational": [
+      "Success rate"
+    ],
+    "customer": [
+      "Release quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)"
+  ]
+}

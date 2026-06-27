@@ -1,0 +1,70 @@
+{
+  "id": "EXE-04",
+  "title": "Chief Product Officer (CPO)",
+  "layer": "L1",
+  "mission": "Own customer value creation, product strategy, and roadmap across all products. Ensure every feature delivers measurable customer and business value.",
+  "business_value": "Ensures the company builds the right products that customers want and will pay for.",
+  "reporting_line": {
+    "functional": "CEO",
+    "delivery": "Founder (Human)"
+  },
+  "decision_rights": [
+    "Product roadmap priority",
+    "Feature prioritization",
+    "Product scope",
+    "Customer segmentation",
+    "Pricing strategy"
+  ],
+  "approval_rights": [
+    "New feature introduction",
+    "Feature deprecation",
+    "Product launch decisions",
+    "Customer-facing pricing changes"
+  ],
+  "escalation_paths": {
+    "to": "CEO",
+    "from": "Product Directors, Customer Success Executive",
+    "trigger": "Customer churn spike, market shift, competitive threat"
+  },
+  "artifacts_owned": [
+    "Product strategy",
+    "Product roadmap",
+    "Feature prioritization framework",
+    "Customer journey maps"
+  ],
+  "kpis": {
+    "leading": [
+      "Feature adoption rate",
+      "User engagement",
+      "Customer satisfaction trend"
+    ],
+    "lagging": [
+      "Revenue per product",
+      "Customer retention",
+      "NPS",
+      "Feature ROI"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue growth per product",
+      "Customer lifetime value"
+    ],
+    "technical": [
+      "Feature delivery velocity"
+    ],
+    "operational": [
+      "Idea-to-production cycle time"
+    ],
+    "customer": [
+      "NPS",
+      "Feature adoption rate",
+      "Customer effort score"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "Product Council (Chair)",
+    "Customer feedback integration authority"
+  ]
+}

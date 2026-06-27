@@ -1,0 +1,60 @@
+{
+  "id": "PRD-05",
+  "title": "Product Operations",
+  "layer": "L3",
+  "mission": "Own product operations \u2014 process, tools, metrics, and operational efficiency for the product team.",
+  "business_value": "Ensures the product team operates efficiently with consistent processes and clear metrics.",
+  "reporting_line": {
+    "functional": "Product Director",
+    "delivery": "PMO Director"
+  },
+  "decision_rights": [
+    "Product process",
+    "Product tools",
+    "Metrics framework",
+    "Reporting standards"
+  ],
+  "approval_rights": [
+    "Process changes",
+    "Tool selection",
+    "Metric definition changes"
+  ],
+  "escalation_paths": {
+    "to": "Product Director",
+    "from": "Product Managers",
+    "trigger": "Process inefficiency, tool failure, metrics discrepancy"
+  },
+  "artifacts_owned": [
+    "Product process documentation",
+    "Product metrics dashboard",
+    "Tool configuration",
+    "Reporting templates"
+  ],
+  "kpis": {
+    "leading": [
+      "Process compliance",
+      "Tool adoption",
+      "Metrics accuracy"
+    ],
+    "lagging": [
+      "Process efficiency",
+      "Reporting timeliness",
+      "Tool satisfaction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Product team efficiency"
+    ],
+    "technical": [
+      "Process automation rate"
+    ],
+    "operational": [
+      "Process cycle time"
+    ],
+    "customer": [
+      "Product team satisfaction"
+    ]
+  },
+  "governance_responsibilities": []
+}

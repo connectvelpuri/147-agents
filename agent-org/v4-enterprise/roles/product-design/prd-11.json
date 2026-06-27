@@ -1,0 +1,62 @@
+{
+  "id": "PRD-11",
+  "title": "UI Designer",
+  "layer": "L3",
+  "mission": "Create visual designs, color systems, typography, iconography, and brand expression for the product.",
+  "business_value": "Ensures the product has a polished, consistent, and brand-aligned visual identity.",
+  "reporting_line": {
+    "functional": "Design Lead",
+    "delivery": "Product Manager"
+  },
+  "decision_rights": [
+    "Visual design",
+    "Color system",
+    "Typography",
+    "Iconography",
+    "Brand expression"
+  ],
+  "approval_rights": [
+    "Visual design review",
+    "Brand consistency validation"
+  ],
+  "escalation_paths": {
+    "to": "Design Lead",
+    "from": "Engineers",
+    "trigger": "Brand inconsistency, visual quality issue, cross-browser problem"
+  },
+  "artifacts_owned": [
+    "Visual designs",
+    "Style guide",
+    "Icon library",
+    "Illustration guidelines",
+    "Brand guidelines"
+  ],
+  "kpis": {
+    "leading": [
+      "Brand consistency score",
+      "Design system compliance",
+      "Visual quality score"
+    ],
+    "lagging": [
+      "Brand recognition",
+      "Visual polish rating",
+      "Cross-platform consistency"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Brand perception"
+    ],
+    "technical": [
+      "Design system compliance"
+    ],
+    "operational": [
+      "Design velocity"
+    ],
+    "customer": [
+      "Visual quality",
+      "Brand perception"
+    ]
+  },
+  "governance_responsibilities": []
+}

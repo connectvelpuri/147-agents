@@ -1,0 +1,42 @@
+# Runbook: Human Escalation Bridge
+type: human_escalation
+severity: P1-P4 (inherited)
+trigger: any_failure_exceeding_auto_recovery_time
+auto_recovery_target: N/A (human process)
+steps:
+  - id: rb8-s1
+    action: notify
+    params:
+      channels: [sms, email, slack, dashboard]
+      sms_gateway: twilio_api
+      email_gateway: smtp
+      templates:
+        sms: "[ELO ALERT] {severity}: {incident_summary} - {action_url}"
+        email: "ELO Incident Report #{ticket_id}\nSeverity: {severity}\nSummary: {incident_summary}\nAffected: {affected_agents}\nAction: {action_url}\nTimeline: {timeline}"
+        slack: "ELO {severity} alert in #{channel}: {incident_summary}"
+    timeout: 60
+  - id: rb8-s2
+    action: wait
+    params:
+      condition: human_acknowledged
+      max_wait_seconds: 300
+      escalation_after: 120
+      second_tier_channels: [phone]
+    timeout: 300
+    on_failure: goto_s3
+  - id: rb8-s3
+    action: escalate
+    params:
+      to: T1_Executive
+      channels: [phone_dialer, sms]
+      incident_summary_updated: true
+    timeout: 600
+  - id: rb8-s4
+    action: post_mortem_trigger
+    params:
+      auto_generate: true
+      collect_telemetry: true
+      notify_pmo: true
+fallback: none
+escalate_to: T1
+post_mortem: true

@@ -1,0 +1,55 @@
+{
+  "id": "FIN-POps",
+  "title": "Finance Product Operations",
+  "layer": "L3",
+  "product_line": "Finance",
+  "mission": "Own product operations \u2014 process, tools, metrics, and efficiency. Focused on Finance product.",
+  "business_value": "Ensures Finance has excellent product management, design, and requirements.",
+  "reporting_line": {
+    "functional": "Finance Product Director",
+    "delivery": "Finance PMO Lead"
+  },
+  "decision_rights": [
+    "Finance-specific requirements",
+    "Design decisions within guidelines"
+  ],
+  "approval_rights": [
+    "Finance feature review",
+    "Design review"
+  ],
+  "escalation_paths": {
+    "to": "Finance Product Director",
+    "from": "Team",
+    "trigger": "Requirement issue, design concern"
+  },
+  "artifacts_owned": [
+    "Finance PRDs",
+    "Design specs",
+    "User stories"
+  ],
+  "kpis": {
+    "leading": [
+      "Discovery velocity",
+      "Requirement quality"
+    ],
+    "lagging": [
+      "Feature adoption",
+      "Customer satisfaction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature ROI"
+    ],
+    "technical": [
+      "Requirement quality"
+    ],
+    "operational": [
+      "Cycle time"
+    ],
+    "customer": [
+      "Usability"
+    ]
+  },
+  "governance_responsibilities": []
+}

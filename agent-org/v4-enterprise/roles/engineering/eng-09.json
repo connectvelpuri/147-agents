@@ -1,0 +1,66 @@
+{
+  "id": "ENG-09",
+  "title": "Platform Engineer",
+  "layer": "L4",
+  "mission": "Build and maintain the product platform \u2014 shared services, infrastructure as code, deployment pipelines.",
+  "business_value": "Ensures the platform is reliable, scalable, and supports all product features.",
+  "reporting_line": {
+    "functional": "Platform Director",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Platform implementation",
+    "Infrastructure as code",
+    "Deployment pipeline design",
+    "Monitoring configuration"
+  ],
+  "approval_rights": [
+    "Infrastructure changes",
+    "Pipeline modifications",
+    "Monitoring alert changes"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "SRE Engineers",
+    "trigger": "Infrastructure failure, deployment issue, monitoring gap"
+  },
+  "artifacts_owned": [
+    "Infrastructure as code",
+    "Deployment pipelines",
+    "Monitoring dashboards",
+    "Runbooks",
+    "Capacity plans"
+  ],
+  "kpis": {
+    "leading": [
+      "Pipeline reliability",
+      "Infrastructure cost",
+      "Deployment frequency"
+    ],
+    "lagging": [
+      "Infrastructure uptime",
+      "Incident count",
+      "Mean time to recovery"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Infrastructure cost efficiency"
+    ],
+    "technical": [
+      "Reliability",
+      "Performance",
+      "Scalability"
+    ],
+    "operational": [
+      "Deployment frequency",
+      "Incident response time"
+    ],
+    "customer": [
+      "Platform reliability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Architecture Review Board (Member)"
+  ]
+}

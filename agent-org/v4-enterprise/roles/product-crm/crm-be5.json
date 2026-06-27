@@ -1,0 +1,56 @@
+{
+  "id": "CRM-BE5",
+  "title": "CRM Backend Specialist 5",
+  "layer": "L4",
+  "product_line": "CRM",
+  "mission": "Implement backend features. Focused on CRM engineering.",
+  "business_value": "Produces the code that powers CRM.",
+  "reporting_line": {
+    "functional": "VP Engineering (L1)",
+    "delivery": "CRM PMO Lead"
+  },
+  "decision_rights": [
+    "CRM implementation",
+    "Code design",
+    "Testing approach"
+  ],
+  "approval_rights": [
+    "PR approval",
+    "Code review decisions"
+  ],
+  "escalation_paths": {
+    "to": "Engineering Manager",
+    "from": "Self",
+    "trigger": "Technical blocker, quality concern"
+  },
+  "artifacts_owned": [
+    "Code",
+    "Tests",
+    "Technical documentation"
+  ],
+  "kpis": {
+    "leading": [
+      "Code quality",
+      "Test coverage"
+    ],
+    "lagging": [
+      "Bugs",
+      "Features delivered"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature production"
+    ],
+    "technical": [
+      "Code quality"
+    ],
+    "operational": [
+      "Velocity"
+    ],
+    "customer": [
+      "Feature quality"
+    ]
+  },
+  "governance_responsibilities": []
+}

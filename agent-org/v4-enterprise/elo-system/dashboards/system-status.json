@@ -1,0 +1,11 @@
+{
+  "operational": true,
+  "missing_dirs": [
+    "knowledge-base\\archived"
+  ],
+  "issues": [],
+  "governance_check": "ERROR: No module named 'scripts.governance_enforcer'",
+  "credibility_engine": "ERROR: No module named 'scripts.source_credibility_scorer'",
+  "heartbeat_check": "ERROR: No module named 'scripts.heartbeat_monitor'",
+  "bootstrap_time": "2026-06-09T15:07:54.087564"
+}

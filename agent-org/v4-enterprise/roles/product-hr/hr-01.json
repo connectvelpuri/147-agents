@@ -1,0 +1,62 @@
+{
+  "id": "HR-01",
+  "title": "HR Product Director",
+  "layer": "L3",
+  "product_line": "HR",
+  "mission": "Own HR strategy, roadmap, and P&L. Ensure HR delivers maximum customer and business value.",
+  "business_value": "Ensures HR is the best product in its category, driving revenue and customer satisfaction.",
+  "reporting_line": {
+    "functional": "CPO (L1)",
+    "delivery": "COO (L1)"
+  },
+  "decision_rights": [
+    "HR roadmap",
+    "Feature prioritization",
+    "Product scope",
+    "Pricing"
+  ],
+  "approval_rights": [
+    "HR feature introduction",
+    "Feature deprecation",
+    "Product launch"
+  ],
+  "escalation_paths": {
+    "to": "CPO",
+    "from": "HR PMs",
+    "trigger": "Market shift, customer churn"
+  },
+  "artifacts_owned": [
+    "HR strategy",
+    "Product roadmap",
+    "Business case"
+  ],
+  "kpis": {
+    "leading": [
+      "Feature adoption",
+      "User engagement"
+    ],
+    "lagging": [
+      "Revenue",
+      "NPS",
+      "Retention"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue growth"
+    ],
+    "technical": [
+      "Feature velocity"
+    ],
+    "operational": [
+      "Cycle time"
+    ],
+    "customer": [
+      "NPS"
+    ]
+  },
+  "governance_responsibilities": [
+    "Product Council (Member)",
+    "HR release authority"
+  ]
+}

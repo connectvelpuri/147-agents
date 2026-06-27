@@ -1,0 +1,57 @@
+{
+  "id": "PMO-02",
+  "title": "Program Director",
+  "layer": "L2",
+  "mission": "Coordinate across multiple programs within a product line. Manage cross-program dependencies and risks.",
+  "business_value": "Ensures programs within a product line are aligned and dependencies are managed.",
+  "reporting_line": {
+    "functional": "PMO Director",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Program coordination",
+    "Cross-program dependency management",
+    "Program risk management"
+  ],
+  "approval_rights": [
+    "Program scope changes",
+    "Cross-program resource allocation"
+  ],
+  "escalation_paths": {
+    "to": "PMO Director",
+    "from": "Program Managers",
+    "trigger": "Cross-program conflict, dependency failure"
+  },
+  "artifacts_owned": [
+    "Program dashboard",
+    "Dependency map",
+    "Risk register"
+  ],
+  "kpis": {
+    "leading": [
+      "Dependency resolution speed",
+      "Risk closure rate"
+    ],
+    "lagging": [
+      "Program delivery rate",
+      "Cross-program alignment"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Program ROI"
+    ],
+    "technical": [
+      "Dependency resolution time"
+    ],
+    "operational": [
+      "Program predictability"
+    ],
+    "customer": [
+      "Program delivery satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "Delivery Governance Board (Member)"
+  ]
+}

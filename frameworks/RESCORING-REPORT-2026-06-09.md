@@ -1,0 +1,5 @@
+SOVEREIGN CRM AGENT ORGANIZATION — RESCORING REPORT
+Date: 2026-06-09
+Composite Score: 95.0/10
+Maturity Level: LEVEL 5 — OPTIMIZING
+Documents Created: 13

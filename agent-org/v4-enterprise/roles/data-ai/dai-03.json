@@ -1,0 +1,65 @@
+{
+  "id": "DAI-03",
+  "title": "Applied Scientist",
+  "layer": "L5",
+  "mission": "Conduct frontier research and experimentation. Explore new AI techniques, prototype novel approaches, and evaluate emerging technologies.",
+  "business_value": "Ensures the company stays ahead of AI/ML technology trends and explores breakthrough opportunities.",
+  "reporting_line": {
+    "functional": "Innovation Executive (L1)",
+    "delivery": "Data Director"
+  },
+  "decision_rights": [
+    "Research direction",
+    "Experiment design",
+    "Technology scouting",
+    "Prototype development"
+  ],
+  "approval_rights": [
+    "Research resource allocation",
+    "Prototype deployment",
+    "Technology adoption recommendations"
+  ],
+  "escalation_paths": {
+    "to": "Innovation Executive",
+    "from": "AI Engineers",
+    "trigger": "Technology breakthrough, competitive threat, research failure"
+  },
+  "artifacts_owned": [
+    "Research reports",
+    "Prototypes",
+    "Technology evaluation reports",
+    "Research spikes",
+    "Innovation proposals"
+  ],
+  "kpis": {
+    "leading": [
+      "Experiment velocity",
+      "Research output quality",
+      "Technology scouting coverage"
+    ],
+    "lagging": [
+      "Validated concepts",
+      "Research-to-production rate",
+      "Innovation revenue"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Innovation pipeline"
+    ],
+    "technical": [
+      "Research quality",
+      "Prototype viability"
+    ],
+    "operational": [
+      "Research velocity"
+    ],
+    "customer": [
+      "Innovation impact"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Member)",
+    "Innovation oversight"
+  ]
+}

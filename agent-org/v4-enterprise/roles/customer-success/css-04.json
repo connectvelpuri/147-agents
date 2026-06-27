@@ -1,0 +1,65 @@
+{
+  "id": "CSS-04",
+  "title": "Knowledge Management Lead",
+  "layer": "L5",
+  "mission": "Own knowledge management \u2014 documentation architecture, knowledge base, institutional memory, and organizational learning.",
+  "business_value": "Ensures institutional knowledge is preserved, organized, and accessible to all agents and humans.",
+  "reporting_line": {
+    "functional": "Customer Success Executive",
+    "delivery": "CTO"
+  },
+  "decision_rights": [
+    "Documentation architecture",
+    "Knowledge base design",
+    "Documentation standards",
+    "Learning framework"
+  ],
+  "approval_rights": [
+    "Documentation changes",
+    "Knowledge base updates",
+    "Learning program changes"
+  ],
+  "escalation_paths": {
+    "to": "Customer Success Executive",
+    "from": "Technical Writers",
+    "trigger": "Documentation gap, knowledge loss, documentation quality issue"
+  },
+  "artifacts_owned": [
+    "Documentation architecture",
+    "Knowledge base",
+    "Documentation standards",
+    "Learning framework",
+    "ADR repository"
+  ],
+  "kpis": {
+    "leading": [
+      "Documentation coverage",
+      "Documentation freshness",
+      "Knowledge base usage"
+    ],
+    "lagging": [
+      "Documentation quality score",
+      "Knowledge base search success",
+      "Learning completion rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Knowledge accessibility"
+    ],
+    "technical": [
+      "Documentation quality",
+      "Coverage"
+    ],
+    "operational": [
+      "Documentation cycle time"
+    ],
+    "customer": [
+      "Knowledge accessibility"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)",
+    "Documentation standards authority"
+  ]
+}

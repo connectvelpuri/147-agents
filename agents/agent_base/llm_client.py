@@ -1,0 +1,170 @@
+"""LLM inference client with tier management and fallback chains.
+
+Supports OpenRouter (auto-routing) and Anthropic directly.
+Fallback chain: primary → fallback model → rule-based → graceful degradation.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+from typing import Any, Optional
+
+
+class LLMClient:
+    """LLM inference with tier-aware routing and fallback.
+
+    Usage:
+        client = LLMClient(provider="openrouter", tier="complex")
+        result = client.complete(system_prompt="...", user_prompt="...")
+    """
+
+    TIER_MODELS = {
+        "complex": {
+            "openrouter": "openrouter/auto",
+            "anthropic": "claude-opus-4-20250514",
+        },
+        "moderate": {
+            "openrouter": "openrouter/auto",
+            "anthropic": "claude-sonnet-4-20250514",
+        },
+        "simple": {
+            "openrouter": "openrouter/auto",
+            "anthropic": "claude-haiku-3-5-20241022",
+        },
+    }
+
+    def __init__(
+        self,
+        provider: str = "openrouter",
+        tier: str = "moderate",
+        temperature: float = 0.3,
+        max_tokens: int = 4000,
+        fallback_tier: str = "simple",
+    ):
+        self.provider = provider
+        self.tier = tier
+        self.fallback_tier = fallback_tier
+        self.temperature = temperature
+        self.max_tokens = max_tokens
+
+    def complete(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        temperature: float | None = None,
+        max_tokens: int | None = None,
+    ) -> LLMResult:
+        """Run LLM completion with fallback chain."""
+        result = self._try_provider(system_prompt, user_prompt, temperature, max_tokens)
+        if result.success:
+            return result
+        result = self._try_fallback(system_prompt, user_prompt, temperature, max_tokens)
+        if result.success:
+            result.used_fallback = True
+            return result
+        return self._rule_based_fallback(system_prompt, user_prompt)
+
+    #  Internal
+
+    def _try_provider(self, system_prompt: str, user_prompt: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
+        model = self.TIER_MODELS.get(self.tier, {}).get(self.provider)
+        if not model:
+            return LLMResult(success=False, error=f"No model for tier={self.tier} provider={self.provider}")
+        if self.provider == "openrouter":
+            return self._call_openrouter(model, system_prompt, user_prompt, temperature, max_tokens)
+        elif self.provider == "anthropic":
+            return self._call_anthropic(model, system_prompt, user_prompt, temperature, max_tokens)
+        return LLMResult(success=False, error=f"Unknown provider: {self.provider}")
+
+    def _try_fallback(self, system_prompt: str, user_prompt: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
+        fallback_provider = "anthropic" if self.provider == "openrouter" else "openrouter"
+        model = self.TIER_MODELS.get(self.fallback_tier, {}).get(fallback_provider)
+        if not model:
+            return LLMResult(success=False, error="No fallback model")
+        if fallback_provider == "openrouter":
+            return self._call_openrouter(model, system_prompt, user_prompt, temperature, max_tokens)
+        return self._call_anthropic(model, system_prompt, user_prompt, temperature, max_tokens)
+
+    def _call_openrouter(self, model: str, system: str, user: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
+        try:
+            import openai
+            client = openai.OpenAI(
+                api_key=os.getenv("OPENROUTER_API_KEY"),
+                base_url="https://openrouter.ai/api/v1",
+            )
+            resp = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": system},
+                    {"role": "user", "content": user},
+                ],
+                temperature=temperature or self.temperature,
+                max_tokens=max_tokens or self.max_tokens,
+            )
+            text = resp.choices[0].message.content or ""
+            return LLMResult(success=True, text=text, model=model, usage=resp.usage.model_dump() if resp.usage else {})
+        except Exception as e:
+            return LLMResult(success=False, error=str(e))
+
+    def _call_anthropic(self, model: str, system: str, user: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
+        try:
+            import anthropic
+            client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+            resp = client.messages.create(
+                model=model,
+                system=system,
+                messages=[{"role": "user", "content": user}],
+                temperature=temperature or self.temperature,
+                max_tokens=max_tokens or self.max_tokens,
+            )
+            text = resp.content[0].text if resp.content else ""
+            return LLMResult(success=True, text=text, model=model, usage={"input_tokens": resp.usage.input_tokens, "output_tokens": resp.usage.output_tokens})
+        except Exception as e:
+            return LLMResult(success=False, error=str(e))
+
+    def _rule_based_fallback(self, system: str, user: str) -> LLMResult:
+        return LLMResult(
+            success=True,
+            text=f"[RULE-BASED FALLBACK] All LLM providers unavailable.\n  System: {system[:200]}\n  User: {user[:200]}",
+            model="rule-based",
+            used_fallback=True,
+        )
+
+    def format_json(self, text: str) -> dict[str, Any] | None:
+        """Try to extract JSON from LLM output."""
+        try:
+            return json.loads(text)
+        except json.JSONDecodeError:
+            import re
+            match = re.search(r'```(?:json)?\s*(\{.*?\}|\[.*?\])\s*```', text, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(1))
+                except json.JSONDecodeError:
+                    pass
+            match = re.search(r'(\{.*\})', text, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(1))
+                except json.JSONDecodeError:
+                    pass
+            return None
+
+
+class LLMResult:
+    def __init__(
+        self,
+        success: bool,
+        text: str = "",
+        error: str = "",
+        model: str = "",
+        usage: dict | None = None,
+        used_fallback: bool = False,
+    ):
+        self.success = success
+        self.text = text
+        self.error = error
+        self.model = model
+        self.usage = usage or {}
+        self.used_fallback = used_fallback

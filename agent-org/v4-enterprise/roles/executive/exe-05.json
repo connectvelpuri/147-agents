@@ -1,0 +1,70 @@
+{
+  "id": "EXE-05",
+  "title": "Chief Design Officer (CDO)",
+  "layer": "L1",
+  "mission": "Own design strategy, user experience quality, and design governance across all products. Ensure every user interaction is intuitive, accessible, and delightful.",
+  "business_value": "Ensures products are usable, accessible, and create positive user experiences that drive adoption and retention.",
+  "reporting_line": {
+    "functional": "CEO",
+    "delivery": "CPO"
+  },
+  "decision_rights": [
+    "Design standards",
+    "UX principles",
+    "Accessibility requirements",
+    "Design system direction",
+    "Brand guidelines"
+  ],
+  "approval_rights": [
+    "Major UI/UX changes",
+    "Design system architectural decisions",
+    "Accessibility compliance level",
+    "Brand identity changes"
+  ],
+  "escalation_paths": {
+    "to": "CEO",
+    "from": "Design Leads, UX Research Leads",
+    "trigger": "Usability crisis, accessibility failure, brand inconsistency"
+  },
+  "artifacts_owned": [
+    "Design principles",
+    "Design system documentation",
+    "Accessibility guidelines",
+    "Brand guidelines"
+  ],
+  "kpis": {
+    "leading": [
+      "Design system adoption",
+      "Component reuse rate",
+      "Accessibility compliance trend"
+    ],
+    "lagging": [
+      "Usability score",
+      "Task completion rate",
+      "Customer satisfaction",
+      "Accessibility audit pass rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "User retention",
+      "Feature adoption"
+    ],
+    "technical": [
+      "Design system component coverage",
+      "Accessibility WCAG compliance"
+    ],
+    "operational": [
+      "Design-to-development handoff efficiency"
+    ],
+    "customer": [
+      "Usability score",
+      "Customer satisfaction with UI"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "Design Review Board (Chair)",
+    "Design system governance authority"
+  ]
+}

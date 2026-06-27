@@ -1,0 +1,71 @@
+{
+  "id": "EXE-03",
+  "title": "Chief Technology Officer (CTO)",
+  "layer": "L1",
+  "mission": "Own technology strategy, platform investment, and engineering standards. Ensure technical decisions create competitive advantage and scale.",
+  "business_value": "Ensures technology choices create sustainable competitive advantage and enable business scaling.",
+  "reporting_line": {
+    "functional": "CEO",
+    "delivery": "Founder (Human)"
+  },
+  "decision_rights": [
+    "Technology stack selection",
+    "Engineering standards",
+    "Platform architecture direction",
+    "Technical hiring standards",
+    "Build vs buy decisions"
+  ],
+  "approval_rights": [
+    "Major technology investments (>$100K)",
+    "Architecture paradigm shifts",
+    "New technology adoption",
+    "Technical debt repayment priorities"
+  ],
+  "escalation_paths": {
+    "to": "CEO",
+    "from": "Chief Architect, VP Engineering, Security Director",
+    "trigger": "Technology risk, security incident, architectural crisis"
+  },
+  "artifacts_owned": [
+    "Technology roadmap",
+    "Engineering standards",
+    "Architecture principles",
+    "Technology radar"
+  ],
+  "kpis": {
+    "leading": [
+      "Technology adoption velocity",
+      "Engineering productivity",
+      "Technical debt ratio"
+    ],
+    "lagging": [
+      "Platform uptime",
+      "Deployment frequency",
+      "Mean time to recovery",
+      "Engineering throughput"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Technology competitive advantage",
+      "Engineering cost efficiency"
+    ],
+    "technical": [
+      "System reliability",
+      "Performance metrics",
+      "Security posture"
+    ],
+    "operational": [
+      "DORA metrics"
+    ],
+    "customer": [
+      "Platform reliability perception"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "Architecture Review Board (Co-Chair)",
+    "AI Governance Board (Co-Chair)",
+    "Security Review Board (Observer)"
+  ]
+}

@@ -1,0 +1,32 @@
+# Runbook: Orchestrator Failure Recovery
+type: orchestrator_failure
+severity: P1
+trigger: planner_timeout | loop_detected | deadlock
+auto_recovery_target: 90%
+steps:
+  - id: rb6-s1
+    action: circuit_breaker
+    params:
+      open_circuit: true
+      cool_down_seconds: 60
+    timeout: 5
+    on_failure: goto_s2
+  - id: rb6-s2
+    action: retry
+    params:
+      max_attempts: 1
+      simplified_plan: true
+      reduced_scope: true
+    timeout: 60
+    on_failure: goto_s3
+  - id: rb6-s3
+    action: escalate
+    params:
+      to: T1_CTO | T2_DevOps_Lead
+      notify_channels: [dashboard, slack, sms]
+      ticket_priority: P1
+      context: orchestrator_failure_details
+    timeout: 900
+fallback: runbook-full-outage
+escalate_to: T1_CTO
+post_mortem: true

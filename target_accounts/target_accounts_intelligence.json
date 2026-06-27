@@ -1,0 +1,264 @@
+{
+  "accounts": [
+    {
+      "id": "SIE-001",
+      "company": "Siemens AG",
+      "industry": "Industrial / Manufacturing / Technology",
+      "hq": "Munich, Germany (Werner-von-Siemens-Strasse 1, 80333)",
+      "revenue": "\u20ac75.9B (FY2025), record results",
+      "net_income": "~\u20ac9B (FY2025)",
+      "employees": 320000,
+      "ceo": "Roland Busch (since 2021)",
+      "cfo": "Ralf P. Thomas",
+      "cio": "Not publicly disclosed at group level (decentralized IT per business unit)",
+      "cdo_chro": "Janina Kugel (former CHRO, stepped down 2020); current unclear",
+      "erp_stack": "SAP ECC 6.0 (heavily customized), migrating to S/4HANA via partnership with SAP. Siemens and SAP announced joint partnership to integrate Teamcenter (PLM) with SAP Intelligent Asset Management.",
+      "cloud_adoption": "Azure preferred cloud provider; Siemens Xcelerator open digital business platform; MindSphere IoT platform",
+      "key_it_initiatives": [
+        "Siemens Xcelerator platform launch",
+        "SAP-Siemens joint PLM/ERP integration partnership",
+        "Digital twin expansion across manufacturing",
+        "AI integration via industrial Metaverse strategy"
+      ],
+      "pain_points": [
+        "Highly customized SAP ECC \u2014 difficult/expensive to upgrade",
+        "Decentralized IT creates fragmentation",
+        "German works council constraints on automation speed",
+        "Integration complexity: PLM (Teamcenter) vs ERP (SAP) vs IoT (MindSphere)"
+      ],
+      "office_locations": [
+        "Munich (HQ)",
+        "Erlangen",
+        "Berlin",
+        "Nuremberg",
+        "Bangalore (India)",
+        "Atlanta (US)",
+        "Beijing (China)"
+      ],
+      "recent_news": "Siemens announced ONE Tech Company program \u2014 record FY2025 results, 6-8% growth outlook for FY2026, strong digital industry performance",
+      "visit_route": "Munich HQ \u2192 Erlangen digital factory \u2192 Berlin",
+      "competitors_in_deal": [
+        "Accenture",
+        "Deloitte",
+        "Capgemini",
+        "IBM"
+      ],
+      "sap_consulting_opportunity": "HIGH \u2014 Siemens is both a SAP customer AND partner. Deep integration between Teamcenter and SAP opens consulting pipeline for PLM-ERP harmonization. S/4HANA migration is multi-year.",
+      "glassdoor_rating": 4.1,
+      "last30days_sentiment": "Positive on digital transformation; employees praise innovation but cite bureaucracy"
+    },
+    {
+      "id": "WMT-001",
+      "company": "Walmart Inc.",
+      "industry": "Retail / E-commerce",
+      "hq": "Bentonville, Arkansas, USA (702 SW 8th St)",
+      "revenue": "$681B (FY2025), surpassed $700B annual sales in FY2026",
+      "net_income": "$20.2B (FY2025)",
+      "employees": 2100000,
+      "ceo": "John Furner (Walmart U.S. CEO; Doug McMillon is Group CEO)",
+      "cfo": "John David Rainey",
+      "cio": "David Glick (SVP & CTO \u2014 leads tech architecture); Sravana Karnati (SVP, Technology & Data \u2014 Walmart International IT)",
+      "erp_stack": "Custom-built retail systems for core operations, SAP for finance/supply chain back-end. Heavy investment in proprietary tech stack rather than vanilla SAP. Has been migrating workloads to cloud-native architectures.",
+      "cloud_adoption": "Walmart Cloud (internal) + Google Cloud (e-commerce) + Azure (productivity)",
+      "key_it_initiatives": [
+        "Supply chain automation \u2014 automated distribution centers using Symbotic",
+        "GenAI-powered shopping assistant and product design",
+        "Agentic AI for retail operations (2025 Retail Rewired Report)",
+        "Global supply chain playbook rollout (July 2025)"
+      ],
+      "pain_points": [
+        "2.1M employees creates massive HR/payroll complexity",
+        "Regulatory pressure on labor practices and wages",
+        "Global supply chain disruption resilience",
+        "Integrating acquisitions (Vizio, Flipkart) into tech stack",
+        "Security at massive scale (most visited retail site globally)"
+      ],
+      "office_locations": [
+        "Bentonville (HQ)",
+        "San Bruno (Walmart Labs/Global Tech)",
+        "Sunnyvale (Walmart Labs)",
+        "Reston (VA)",
+        "Dallas (TX)",
+        "Bengaluru (India)"
+      ],
+      "recent_news": "FY27 Q1 earnings released May 2026 \u2014 continued strong. Walmart supply chain playbook going global. Vizio acquisition closed. Retail Rewired 2025 report on agentic AI published.",
+      "visit_route": "Bentonville HQ \u2192 Walmart Labs San Bruno \u2192 Walmart Tech Sunnyvale",
+      "competitors_in_deal": [
+        "Deloitte",
+        "Accenture",
+        "Tata Consultancy Services"
+      ],
+      "sap_consulting_opportunity": "MODERATE \u2014 Walmart is not a traditional SAP shop. They run heavily custom retail tech. Finance/supply chain SAP back-end is a potential entry point. Better angle: industry-specific consulting on supply chain AI, automation.",
+      "glassdoor_rating": 3.6,
+      "last30days_sentiment": "Mixed \u2014 supply chain innovations praised, but associate wages and working conditions remain hot topics on Reddit"
+    },
+    {
+      "id": "JPM-001",
+      "company": "JPMorgan Chase & Co.",
+      "industry": "Financial Services / Banking",
+      "hq": "New York, NY, USA (383 Madison Ave)",
+      "revenue": "$158B+ (2024), $19.8B annual tech budget",
+      "net_income": "$49.6B (2024)",
+      "employees": 319000,
+      "ceo": "Jamie Dimon (Chairman & CEO)",
+      "cfo": "Jeremy Barnum",
+      "cio": "Lori Beer (Global CIO since 2018, on Operating Committee, leads 63,000+ technologists, manages $17-19.8B tech budget)",
+      "cdo": "James Reid (promoted to CIO alongside Melissa Goldman \u2014 2024 promotions show modernization focus)",
+      "erp_stack": "SAP for finance/ERP + large Oracle footprint. Heavy custom financial systems. Multi-cloud infrastructure. Modernizing mainframe systems with generative AI.",
+      "cloud_adoption": "Hybrid cloud: AWS + Azure + Google Cloud + private data centers. 70% of data in cloud.",
+      "key_it_initiatives": [
+        "$19.8B annual tech investment \u2014 largest in banking globally",
+        "AI agents reshaping work (Lori Beer featured in Fortune Apr 2026)",
+        "1,000+ cloud applications deployed",
+        "Mainframe modernization via generative AI (Chase card division)",
+        "Hybrid cloud cost-performance optimization"
+      ],
+      "pain_points": [
+        "Massive mainframe legacy \u2014 expensive to maintain, scarce COBOL talent",
+        "Regulatory pressure intensified post-SVB crisis",
+        "Cybersecurity at global systemic scale",
+        "Talent war for AI/ML engineers vs big tech",
+        "70% data in cloud but still needs modernization for AI readiness"
+      ],
+      "office_locations": [
+        "New York (HQ)",
+        "London (Canary Wharf)",
+        "Plano (TX \u2014 tech hub)",
+        "Columbus (OH)",
+        "Bengaluru (India)",
+        "Mumbai (India)",
+        "Glasgow (UK)",
+        "Buenos Aires (Argentina)"
+      ],
+      "recent_news": "Fortune Apr 2026: How JPMorgan's CIO Lori Beer reshaping work with $19.8B AI/tech budget. Described as 'the NVIDIA of banking' by analyst Mike Mayo. AI agents being deployed across business lines.",
+      "visit_route": "JPM NYC HQ \u2192 Plano Tech Hub \u2192 Columbus Tech Center",
+      "competitors_in_deal": [
+        "Deloitte",
+        "Accenture",
+        "IBM",
+        "Capgemini",
+        "TCS"
+      ],
+      "sap_consulting_opportunity": "HIGH \u2014 $19.8B tech budget is the largest addressable spend globally. Finance/ERP modernization is a key priority. SAP S/4HANA migration + cloud migration + AI agents consulting create massive pipeline. Lori Beer is aggressively investing in technology partnerships.",
+      "glassdoor_rating": 3.9,
+      "last30days_sentiment": "Positive on tech investment scale; negative on return-to-office mandates (5 days/week). Jamie Dimon leadership widely respected."
+    },
+    {
+      "id": "PFE-001",
+      "company": "Pfizer Inc.",
+      "industry": "Pharmaceuticals / Biotech",
+      "hq": "New York, NY, USA (66 Hudson Blvd E)",
+      "revenue": "$58.5B (2024, post-COVID revenue normalization)",
+      "net_income": "~$8B (2024, declined from COVID peak as expected)",
+      "employees": 88000,
+      "ceo": "Albert Bourla",
+      "cfo": "David M. Denton",
+      "cio": "Scott Groth (SAP S/4HANA transformation lead); broader IT leadership reports to VP level",
+      "cdo": "Lidia Fonseca (Chief Digital Officer, leads digital transformation)",
+      "erp_stack": "SAP ECC 6.0 \u2192 S/4HANA migration COMPLETED using SNP Bluefield + IBM Rapid Move. 85TB ECC database migrated in <18 months. Order to Cash digital transformation underway with Conexiom.",
+      "cloud_adoption": "AWS + Azure hybrid. RISE with SAP / S/4HANA Cloud.",
+      "key_it_initiatives": [
+        "Completed SAP S/4HANA migration \u2014 85TB, <18 months, on time/on budget",
+        "IBM partnership for RISE with SAP on IBM Power",
+        "Order-to-Cash digital transformation (Conexiom partnership)",
+        "AI in drug discovery and clinical trials",
+        "Manufacturing Optimization Program for COGS reduction"
+      ],
+      "pain_points": [
+        "Revenue normalization post-COVID (Comirnaty/Paxlovid decline) \u2014 cost pressures",
+        "Regulatory compliance (FDA, GxP, SOX) slows IT changes",
+        "Post-acquisition integration: Seagen ($43B), Metsera, Biohaven",
+        "Global supply chain complexity across 125+ countries",
+        "Enterprise-wide cost realignment program underway"
+      ],
+      "office_locations": [
+        "New York (HQ)",
+        "Groton (CT \u2014 R&D)",
+        "Cambridge (MA \u2014 research)",
+        "Lachry (Belgium)",
+        "Puurs (Belgium)",
+        "Havana (IL \u2014 site)",
+        "Bangalore (India \u2014 global shared services)"
+      ],
+      "recent_news": "Strategic review announced. AI push in drug discovery. Metsera acquisition. Manufacturing Optimization Program active. Voluntary pricing agreement with US Government for TrumpRx platform.",
+      "visit_route": "NYC HQ \u2192 Groton R&D \u2192 Cambridge MA research hub",
+      "competitors_in_deal": [
+        "IBM (already embedded \u2014 partnered with SNP for S/4HANA)",
+        "Accenture",
+        "Deloitte",
+        "Cognizant"
+      ],
+      "sap_consulting_opportunity": "MODERATE-HIGH \u2014 S/4HANA migration is complete but Order-to-Cash transformation, Manufacturing Optimization, and AI consulting pipeline are open. IBM is the incumbent SI for S/4HANA. Competing against IBM's entrenched position requires differentiated AI/digital operations angle.",
+      "glassdoor_rating": 3.8,
+      "last30days_sentiment": "Mixed \u2014 strong reputation in scientific community, but post-COVID revenue decline and layoffs in non-R&D functions caused negative sentiment on Reddit. Cost-cutting is visible."
+    },
+    {
+      "id": "SHE-001",
+      "company": "Shell plc",
+      "industry": "Energy / Oil & Gas / Renewables",
+      "hq": "London, UK (Shell Centre, SE1 7NA) + The Hague, Netherlands",
+      "revenue": "~$323B (2024)",
+      "net_income": "$16.1B (2024, down 17% from $19.4B in 2023)",
+      "employees": 96000,
+      "ceo": "Wael Sawan (since Jan 2023, strategy: 'More value, fewer emissions')",
+      "cfo": "Sinead Gorman",
+      "cio": "Robbert Van Rutten (Group CIO since July 2023, previously CISO). Located London/Netherlands.",
+      "cto": "Selda Gunsel (CTO & EVP Technology since Apr 2024, Houston-based)",
+      "erp_stack": "~30 ERP systems (mostly SAP ECC 6.0, heavily customized). Multi-year S/4HANA transformation underway (greenfield approach, ~10-year program). 7 small S/4HANA tenants live as of 2020. Target: multi-tenant S/4HANA, 100% cloud end state.",
+      "cloud_adoption": "AWS (primary \u2014 migrating Subsurface Data Universe), Microsoft (potential Azure for SAP), NVIDIA partnership for AI. Open AI Energy Initiative with Baker Hughes, C3.ai.",
+      "key_it_initiatives": [
+        "SAP S/4HANA transformation (10-year program, greenfield)",
+        "100+ AI applications deployed",
+        "NVIDIA partnership: digital rock physics, CCS AI, generative AI (NeMo)",
+        "C3.ai platform: 2M+ ML models for predictive maintenance",
+        "20+ petabytes seismic data in data lake",
+        "Cost reduction: $3.1B structural savings delivered through 2024"
+      ],
+      "pain_points": [
+        "30 heavily customized legacy SAP systems \u2014 siloed between upstream/downstream",
+        "10-year transformation horizon \u2014 difficult to sustain executive commitment",
+        "Market lacks deep S/4HANA expertise (Shell acknowledged this openly)",
+        "20% workforce cut in exploration (Aug 2024) \u2014 organizational distraction",
+        "Bureaucracy and slow decision-making cited by employees",
+        "Political/change management challenges across 70+ country operations"
+      ],
+      "office_locations": [
+        "London (HQ)",
+        "The Hague (Netherlands)",
+        "Houston (TX \u2014 CTO & Shell Energy HQ)",
+        "Amsterdam (Energy Transition Campus)",
+        "Bangalore (India \u2014 IT hub, 52 acres)",
+        "Singapore (APAC HQ)",
+        "Hamburg (Germany)",
+        "Calgary (Canada)"
+      ],
+      "recent_news": "FY2024: income $16.1B, FCF $39.5B. Q4 2024 weak ($928M) due to $2.2B impairments. 20% workforce cut in E&P. NVIDIA partnership deepening for AI. AI pivot from internal optimization to commercial offerings (data center cooling fluids). Shell.ai Hackathon 2025.",
+      "visit_route": "Shell Centre London (Group CIO) \u2192 The Hague (IT ops) \u2192 Houston (CTO, Shell Energy CIO)",
+      "competitors_in_deal": [
+        "Accenture",
+        "Deloitte",
+        "IBM",
+        "Wipro",
+        "TCS"
+      ],
+      "sap_consulting_opportunity": "VERY HIGH \u2014 30 heavily customized legacy SAP systems to rationalize, acknowledged lack of in-house S/4HANA expertise, 10-year program horizon ensures long-term recurring revenue, greenfield approach means full reimplementation, $39.5B FCF provides budget capacity. Shell NEEDS SI partners with S/4HANA depth.",
+      "glassdoor_rating": 4.0,
+      "last30days_sentiment": "Generally positive employer (4.0/5). IT transformation criticized for bureaucracy and legacy systems. Layoffs in E&P drew negative Reddit attention but digital/IT functions are being invested in."
+    }
+  ],
+  "metadata": {
+    "generated": "2026-06-19",
+    "sap_consulting_practice": "Enterprise SAP Consulting",
+    "total_addressable_revenue": "$1.3T+ combined enterprise revenue",
+    "total_tech_spend_visible": "$19.8B (JPM) alone",
+    "priority_accounts": [
+      "Shell (S/4HANA greenfield, 30 systems, 10-year program)",
+      "JPMorgan Chase ($19.8B tech budget, AI/modernization focus)",
+      "Siemens (SAP partner + S/4HANA migration)"
+    ],
+    "secondary_accounts": [
+      "Pfizer (S/4HANA complete but O2C/manufacturing AI open)",
+      "Walmart (custom stack, supply chain AI angle)"
+    ]
+  }
+}

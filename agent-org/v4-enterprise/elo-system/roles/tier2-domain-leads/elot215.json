@@ -1,0 +1,55 @@
+{
+  "id": "ELO-T2-15",
+  "title": "L&D Domain Lead — AI/ML Engineering",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-03",
+  "assigned_operational_agents": "AI engineers, ML engineers, applied scientists, data scientists, AI architects, ML Ops engineers, NLP engineers across all products",
+  "mission": "Continuously improve every AI/ML agent's capability in LLM operations, RAG pipelines, model evaluation, prompt engineering, AI safety, MLOps, model deployment, and emerging AI practices.",
+  "business_value": "Ensures AI/ML agents maintain cutting-edge AI capabilities that drive product differentiation and competitive advantage.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (3): AI Intelligence, AI Practitioner, AI Research Scanner",
+    "functional_peers": "ELO-T2 Domain Leads (Data, Security, Innovation)",
+    "escalation_to": "ELO-T1-03"
+  },
+  "decision_rights": [
+    "Set AI/ML learning priorities",
+    "Approve AI certification paths",
+    "Define AI competency standards",
+    "Approve AI ethics learning requirements"
+  ],
+  "approval_rights": [
+    "AI/ML learning time",
+    "AI tool subscriptions",
+    "AI conference budgets",
+    "AI research paper access"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-03",
+    "same_day": "ELO-T2 Security Lead for AI safety",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "AI/ML Competency Matrix",
+    "AI Certification Roadmap",
+    "Weekly AI Learning Dashboard",
+    "AI Learning Pack (daily)",
+    "AI Ethics Digest (weekly)"
+  ],
+  "kpis": [
+    "AI/ML learning score (+15% quarterly)",
+    "AI output quality delta (positive trend)",
+    "AI certification readiness (>80%)",
+    "AI model quality improvement (measurable)"
+  ],
+  "success_metrics": [
+    "All AI/ML agents connected within 24 hours",
+    "Zero stale learning",
+    "AI capabilities improving measurably"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate AI skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

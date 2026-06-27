@@ -1,0 +1,65 @@
+{
+  "id": "QA-07",
+  "title": "Security Testing Specialist",
+  "layer": "L5",
+  "mission": "Perform security testing \u2014 vulnerability scanning, penetration testing, security code review, and compliance testing.",
+  "business_value": "Identifies security vulnerabilities before they can be exploited by attackers.",
+  "reporting_line": {
+    "functional": "Security Director",
+    "delivery": "QA Lead"
+  },
+  "decision_rights": [
+    "Security test strategy",
+    "Vulnerability scanning scope",
+    "Penetration test scope",
+    "Security test tools"
+  ],
+  "approval_rights": [
+    "Security test execution",
+    "Vulnerability severity classification",
+    "Security sign-off"
+  ],
+  "escalation_paths": {
+    "to": "Security Director",
+    "from": "Security Engineers",
+    "trigger": "Critical vulnerability, security incident, compliance gap"
+  },
+  "artifacts_owned": [
+    "Security test plan",
+    "Vulnerability reports",
+    "Penetration test reports",
+    "Security code review findings",
+    "Compliance test results"
+  ],
+  "kpis": {
+    "leading": [
+      "Vulnerability discovery rate",
+      "Security test coverage",
+      "Remediation speed"
+    ],
+    "lagging": [
+      "Security incidents",
+      "Vulnerability count",
+      "Compliance audit results"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Security posture"
+    ],
+    "technical": [
+      "Vulnerability count",
+      "Security compliance"
+    ],
+    "operational": [
+      "Security test cycle time"
+    ],
+    "customer": [
+      "Security trust"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)",
+    "Quality Council (Member)"
+  ]
+}

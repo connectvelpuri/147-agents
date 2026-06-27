@@ -1,0 +1,66 @@
+{
+  "id": "DAI-07",
+  "title": "AI Governance Lead",
+  "layer": "L5",
+  "mission": "Own AI governance \u2014 safety policies, ethical guidelines, compliance, and responsible AI practices.",
+  "business_value": "Ensures AI systems are safe, ethical, and compliant with regulations.",
+  "reporting_line": {
+    "functional": "CDAO (L1)",
+    "delivery": "CISO (L1)"
+  },
+  "decision_rights": [
+    "AI governance policy",
+    "Safety guidelines",
+    "Ethical guidelines",
+    "Compliance framework"
+  ],
+  "approval_rights": [
+    "AI governance policy changes",
+    "Safety exception approvals",
+    "Ethical review decisions"
+  ],
+  "escalation_paths": {
+    "to": "CDAO",
+    "from": "AI Engineers",
+    "trigger": "Ethical concern, safety incident, compliance violation"
+  },
+  "artifacts_owned": [
+    "AI governance policy",
+    "Safety guidelines",
+    "Ethical guidelines",
+    "Compliance framework",
+    "AI audit reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Safety compliance",
+      "Ethical review completion",
+      "Audit readiness"
+    ],
+    "lagging": [
+      "Safety incidents",
+      "Compliance violations",
+      "Ethical complaints"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Regulatory compliance",
+      "Reputation protection"
+    ],
+    "technical": [
+      "Safety compliance",
+      "Audit readiness"
+    ],
+    "operational": [
+      "Governance efficiency"
+    ],
+    "customer": [
+      "Trust in AI"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Chair)",
+    "Ethics oversight"
+  ]
+}

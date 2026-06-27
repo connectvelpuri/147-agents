@@ -1,0 +1,61 @@
+{
+  "id": "PMO-08",
+  "title": "Work Management Administrator",
+  "layer": "L2",
+  "mission": "Maintain the tracking system (Plane). Configure workflows, boards, automations, and reports.",
+  "business_value": "Ensures the tracking system is configured optimally and data quality is high.",
+  "reporting_line": {
+    "functional": "PMO Director",
+    "delivery": "PMO Director"
+  },
+  "decision_rights": [
+    "Workflow configuration",
+    "Board configuration",
+    "Automation rules",
+    "Report design"
+  ],
+  "approval_rights": [
+    "Major workflow changes",
+    "New automation rules"
+  ],
+  "escalation_paths": {
+    "to": "PMO Director",
+    "from": "Any agent",
+    "trigger": "Tracking system issue, data quality problem"
+  },
+  "artifacts_owned": [
+    "Workflow configuration",
+    "Board layouts",
+    "Automation rules",
+    "Report templates",
+    "Data quality reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Workflow compliance",
+      "Data quality score",
+      "Stale ticket rate"
+    ],
+    "lagging": [
+      "Report accuracy",
+      "System uptime",
+      "User satisfaction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Data-driven decision quality"
+    ],
+    "technical": [
+      "System uptime",
+      "Automation reliability"
+    ],
+    "operational": [
+      "Workflow compliance"
+    ],
+    "customer": [
+      "User satisfaction with tracking"
+    ]
+  },
+  "governance_responsibilities": []
+}

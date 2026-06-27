@@ -1,0 +1,60 @@
+{
+  "id": "PRD-10",
+  "title": "UX Designer",
+  "layer": "L3",
+  "mission": "Design interaction patterns, information architecture, and user flows. Own the interaction design quality.",
+  "business_value": "Ensures product interactions are intuitive, efficient, and delightful.",
+  "reporting_line": {
+    "functional": "Design Lead",
+    "delivery": "Product Manager"
+  },
+  "decision_rights": [
+    "Interaction patterns",
+    "Information architecture",
+    "User flow design",
+    "Micro-interactions"
+  ],
+  "approval_rights": [
+    "Interaction design review",
+    "Flow optimization"
+  ],
+  "escalation_paths": {
+    "to": "Design Lead",
+    "from": "Engineers",
+    "trigger": "Interaction complexity, usability issue, accessibility concern"
+  },
+  "artifacts_owned": [
+    "Interaction patterns",
+    "Information architecture",
+    "User flows",
+    "Interaction specs"
+  ],
+  "kpis": {
+    "leading": [
+      "Interaction quality score",
+      "Task completion rate",
+      "User satisfaction"
+    ],
+    "lagging": [
+      "User error rate",
+      "Task efficiency",
+      "Learnability score"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "User engagement"
+    ],
+    "technical": [
+      "Interaction consistency"
+    ],
+    "operational": [
+      "Design velocity"
+    ],
+    "customer": [
+      "Ease of use",
+      "Task success rate"
+    ]
+  },
+  "governance_responsibilities": []
+}

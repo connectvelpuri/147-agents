@@ -1,0 +1,61 @@
+{
+  "id": "PRD-02",
+  "title": "Product Manager \u2014 Core Features",
+  "layer": "L3",
+  "mission": "Own core feature set for a product line. Manage discovery, requirements, and feature delivery for core CRM capabilities.",
+  "business_value": "Ensures core features meet customer needs and are delivered with high quality.",
+  "reporting_line": {
+    "functional": "Product Director",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Feature requirements",
+    "Acceptance criteria",
+    "User story priority",
+    "Feature scope"
+  ],
+  "approval_rights": [
+    "Feature design review",
+    "User story acceptance"
+  ],
+  "escalation_paths": {
+    "to": "Product Director",
+    "from": "BA, Designers",
+    "trigger": "Requirement ambiguity, scope conflict, customer feedback"
+  },
+  "artifacts_owned": [
+    "PRD",
+    "User stories",
+    "Acceptance criteria",
+    "Feature demos"
+  ],
+  "kpis": {
+    "leading": [
+      "Requirement defect rate",
+      "Stakeholder alignment",
+      "Discovery velocity"
+    ],
+    "lagging": [
+      "Feature adoption",
+      "Customer satisfaction",
+      "Cycle time"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature ROI"
+    ],
+    "technical": [
+      "Requirement quality"
+    ],
+    "operational": [
+      "Discovery cycle time"
+    ],
+    "customer": [
+      "Customer effort score"
+    ]
+  },
+  "governance_responsibilities": [
+    "Product Council (Member)"
+  ]
+}

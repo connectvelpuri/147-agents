@@ -1,0 +1,58 @@
+{
+  "id": "ERP-02",
+  "title": "ERP PMO Lead",
+  "layer": "L3",
+  "product_line": "ERP",
+  "mission": "Own delivery governance, sprint health, and metrics for ERP.",
+  "business_value": "Ensures ERP is delivered predictably with high quality.",
+  "reporting_line": {
+    "functional": "PMO Director (L2)",
+    "delivery": "ERP Product Director"
+  },
+  "decision_rights": [
+    "ERP sprint cadence",
+    "Release process",
+    "Quality gates"
+  ],
+  "approval_rights": [
+    "Sprint scope changes",
+    "Release scheduling"
+  ],
+  "escalation_paths": {
+    "to": "PMO Director",
+    "from": "Delivery Managers",
+    "trigger": "Sprint failure, delivery delay"
+  },
+  "artifacts_owned": [
+    "Sprint health reports",
+    "Release readiness",
+    "Delivery metrics"
+  ],
+  "kpis": {
+    "leading": [
+      "Sprint velocity",
+      "Blocker aging"
+    ],
+    "lagging": [
+      "On-time delivery",
+      "Deployment frequency"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Delivery rate"
+    ],
+    "technical": [
+      "DORA metrics"
+    ],
+    "operational": [
+      "Predictability"
+    ],
+    "customer": [
+      "Delivery satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "Delivery Governance Board (Member)"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "description": "L&D profile for every operational agent — stored in elo-system/mappings/ as individual files",
+  "fields": {
+    "agent_id": "string — unique agent identifier",
+    "role": "string — agent role title",
+    "domain": "string — primary domain",
+    "product_line": "string — CRM/ERP/HR/Finance/Shared",
+    "assigned_tier2_lead": "string — ELO-T2-XX",
+    "assigned_tier3_feeders": "array — list of Tier 3 feeder IDs",
+    "current_skill_map": {
+      "technical_depth": "number 1-10",
+      "applied_practice": "number 1-10",
+      "strategic_thinking": "number 1-10",
+      "creativity": "number 1-10",
+      "human_context": "number 1-10"
+    },
+    "competency_profile": {
+      "core_competencies": "array of competencies with levels",
+      "emerging_competencies": "array of competencies being developed",
+      "deprecated_competencies": "array of competencies no longer relevant"
+    },
+    "current_learning_needs": "array — active learning requirements",
+    "daily_learning_feed": "array — last 7 days of learning packs received",
+    "applied_learning_log": "array — learning events connected to output improvements",
+    "certification_track": {
+      "active_certifications": "array — certifications being pursued",
+      "completed_certifications": "array — certifications earned",
+      "recommended_certifications": "array — next certifications to pursue",
+      "exam_readiness_scores": "map — certification to readiness %"
+    },
+    "progress_history": "array — weekly progress snapshots",
+    "30_day_trend": "array — last 30 daily scores",
+    "90_day_trend": "array — last 90 daily scores",
+    "quality_delta_history": "array — quality delta measurements",
+    "escalation_flags": "array — active escalation flags",
+    "learning_score": "number — composite learning score",
+    "application_score": "number — composite application score",
+    "consistency_score": "number — learning consistency score",
+    "last_learning_cycle": "datetime — last time learning was delivered",
+    "last_self_report": "datetime — last time agent submitted self-report",
+    "status": "string — active/inactive/stagnant/escalated"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "id": "EXE-12",
+  "title": "Innovation Executive",
+  "layer": "L1",
+  "mission": "Own innovation strategy, R&D, and emerging technology exploration. Ensure the company stays ahead of market and technology trends.",
+  "business_value": "Ensures the company identifies and capitalizes on emerging opportunities before competitors.",
+  "reporting_line": {
+    "functional": "CEO",
+    "delivery": "CTO"
+  },
+  "decision_rights": [
+    "Innovation strategy",
+    "R&D allocation",
+    "Technology scouting",
+    "Innovation process",
+    "Incubation criteria"
+  ],
+  "approval_rights": [
+    "Innovation budget allocation",
+    "New technology experiments",
+    "Incubation project launch",
+    "Innovation partnership"
+  ],
+  "escalation_paths": {
+    "to": "CEO",
+    "from": "Applied Scientists, AI Engineers",
+    "trigger": "Competitive threat, technology disruption, missed opportunity"
+  },
+  "artifacts_owned": [
+    "Innovation strategy",
+    "Technology scouting reports",
+    "Incubation pipeline",
+    "Innovation metrics"
+  ],
+  "kpis": {
+    "leading": [
+      "Experiment velocity",
+      "Technology scouting coverage",
+      "Incubation pipeline health"
+    ],
+    "lagging": [
+      "Innovation revenue",
+      "Patent count",
+      "Technology adoption rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue from new products",
+      "Market timing advantage"
+    ],
+    "technical": [
+      "Experiment success rate",
+      "Technology maturity"
+    ],
+    "operational": [
+      "Innovation cycle time"
+    ],
+    "customer": [
+      "Innovation perception"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "AI Governance Board (Member)",
+    "Innovation oversight"
+  ]
+}

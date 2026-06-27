@@ -1,0 +1,66 @@
+{
+  "id": "SEC-04",
+  "title": "Privacy Lead",
+  "layer": "L5",
+  "mission": "Own privacy protection, data privacy compliance, and privacy-by-design practices. Ensure user data is protected.",
+  "business_value": "Ensures user privacy is protected and privacy regulations are met.",
+  "reporting_line": {
+    "functional": "CISO (L1)",
+    "delivery": "CPO (L1)"
+  },
+  "decision_rights": [
+    "Privacy policy",
+    "Privacy-by-design requirements",
+    "Data handling rules",
+    "Privacy impact assessments"
+  ],
+  "approval_rights": [
+    "Privacy exception approvals",
+    "Privacy policy changes",
+    "Data processing agreement changes"
+  ],
+  "escalation_paths": {
+    "to": "CISO",
+    "from": "Privacy Analysts",
+    "trigger": "Privacy violation, data breach, privacy regulation change"
+  },
+  "artifacts_owned": [
+    "Privacy policy",
+    "Privacy impact assessments",
+    "Data handling rules",
+    "Privacy training materials",
+    "Privacy compliance reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Privacy compliance",
+      "PIA completion rate",
+      "Training completion"
+    ],
+    "lagging": [
+      "Privacy incidents",
+      "Data breach count",
+      "Privacy audit results"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Privacy compliance",
+      "User trust"
+    ],
+    "technical": [
+      "Privacy controls",
+      "Data protection"
+    ],
+    "operational": [
+      "PIA turnaround time"
+    ],
+    "customer": [
+      "Privacy trust"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)",
+    "Privacy oversight"
+  ]
+}

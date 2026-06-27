@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-05",
+  "title": "L&D Domain Lead — DevOps/Platform Engineering",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-01",
+  "assigned_operational_agents": "DevOps leads, DevOps engineers, junior DevOps, platform architects, CI/CD engineers, IaC engineers, release managers",
+  "mission": "Continuously improve every DevOps/Platform agent's capability in CI/CD, infrastructure as code, container orchestration, GitOps, observability, deployment strategies, environment management, and platform engineering best practices.",
+  "business_value": "Ensures DevOps agents maintain reliable, scalable deployment and infrastructure systems that enable rapid and safe delivery.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): DevOps Intelligence, DevOps Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (SRE, Security, Architecture)",
+    "escalation_to": "ELO-T1-01"
+  },
+  "decision_rights": [
+    "Set DevOps learning priorities",
+    "Approve DevOps certification paths",
+    "Define DevOps competency standards"
+  ],
+  "approval_rights": [
+    "DevOps learning time",
+    "DevOps platform subscriptions",
+    "DevOps conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-01",
+    "same_day": "ELO-T2 SRE Lead for reliability coordination",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "DevOps Competency Matrix",
+    "DevOps Certification Roadmap",
+    "Weekly DevOps Learning Dashboard",
+    "DevOps Learning Pack (daily)"
+  ],
+  "kpis": [
+    "DevOps learning score (+15% quarterly)",
+    "DevOps quality delta (positive trend)",
+    "DevOps certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All DevOps agents connected within 24 hours",
+    "Zero stale learning",
+    "Deployment reliability improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate DevOps skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

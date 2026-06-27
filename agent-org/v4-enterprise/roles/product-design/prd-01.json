@@ -1,0 +1,67 @@
+{
+  "id": "PRD-01",
+  "title": "Product Director",
+  "layer": "L3",
+  "mission": "Own product strategy and roadmap for a specific product line. Ensure product-market fit and customer value creation.",
+  "business_value": "Ensures a product line delivers maximum customer and business value.",
+  "reporting_line": {
+    "functional": "CPO (L1)",
+    "delivery": "COO (L1)"
+  },
+  "decision_rights": [
+    "Product roadmap priority",
+    "Feature prioritization",
+    "Product scope",
+    "Product pricing"
+  ],
+  "approval_rights": [
+    "New feature introduction",
+    "Feature deprecation",
+    "Product launch",
+    "Pricing changes"
+  ],
+  "escalation_paths": {
+    "to": "CPO",
+    "from": "Product Managers, BA",
+    "trigger": "Market shift, customer churn, competitive threat"
+  },
+  "artifacts_owned": [
+    "Product strategy",
+    "Product roadmap",
+    "Business case",
+    "Feature priority matrix"
+  ],
+  "kpis": {
+    "leading": [
+      "Feature adoption rate",
+      "User engagement",
+      "Customer satisfaction trend"
+    ],
+    "lagging": [
+      "Revenue per product",
+      "Customer retention",
+      "NPS",
+      "Feature ROI"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue growth",
+      "Customer retention"
+    ],
+    "technical": [
+      "Feature delivery velocity"
+    ],
+    "operational": [
+      "Idea-to-production cycle"
+    ],
+    "customer": [
+      "NPS",
+      "Feature adoption"
+    ]
+  },
+  "governance_responsibilities": [
+    "Product Council (Member)",
+    "Release approval authority"
+  ]
+}

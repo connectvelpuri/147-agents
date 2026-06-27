@@ -1,0 +1,52 @@
+{
+  "id": "ELO-T2-10",
+  "title": "L&D Domain Lead — Finance Domain",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-02",
+  "assigned_operational_agents": "All Finance product agents (91 agents): Finance PM, Finance Engineers, Finance QA, Finance Design, Finance AI, Finance DevOps, Finance Data, Finance Security",
+  "mission": "Continuously improve every Finance agent's deep domain expertise in general ledger, accounts payable/receivable, invoicing, budgeting, forecasting, tax management, audit, financial reporting, and regulatory compliance.",
+  "business_value": "Ensures Finance agents build a world-class financial system with deep domain knowledge that meets regulatory requirements and drives financial accuracy.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (3): Finance Intelligence, Finance Practitioner, Finance Domain Expert",
+    "functional_peers": "ELO-T2 Domain Leads (CRM, ERP, HR, Compliance)",
+    "escalation_to": "ELO-T1-02"
+  },
+  "decision_rights": [
+    "Set Finance domain learning priorities",
+    "Approve Finance certification paths",
+    "Define Finance domain competency standards"
+  ],
+  "approval_rights": [
+    "Finance domain learning time",
+    "Finance tool subscriptions",
+    "Finance industry conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-02",
+    "same_day": "ELO-T2 Compliance Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Finance Domain Competency Matrix",
+    "Finance Certification Roadmap",
+    "Weekly Finance Learning Dashboard",
+    "Finance Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Finance domain learning score (+15% quarterly)",
+    "Finance quality delta (positive trend)",
+    "Finance domain depth (>8/10)",
+    "Finance certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All 91 Finance agents connected within 24 hours",
+    "Zero stale learning",
+    "Finance domain knowledge improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate Finance skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "PMO-01",
+  "title": "PMO Director",
+  "layer": "L2",
+  "mission": "Own portfolio governance, reporting, and organizational alignment across all product lines.",
+  "business_value": "Ensures the organization works on the right things and resources are optimally allocated.",
+  "reporting_line": {
+    "functional": "PMO Head (L1)",
+    "delivery": "COO (L1)"
+  },
+  "decision_rights": [
+    "Portfolio governance",
+    "Resource planning",
+    "Capacity allocation",
+    "Reporting standards"
+  ],
+  "approval_rights": [
+    "Portfolio priority changes",
+    "Resource reallocation >10%",
+    "New project intake"
+  ],
+  "escalation_paths": {
+    "to": "PMO Head",
+    "from": "Program Managers, Delivery Managers",
+    "trigger": "Portfolio overload, resource conflict"
+  },
+  "artifacts_owned": [
+    "Portfolio dashboard",
+    "Resource allocation plan",
+    "Capacity forecast",
+    "Governance framework"
+  ],
+  "kpis": {
+    "leading": [
+      "Portfolio utilization",
+      "Governance compliance"
+    ],
+    "lagging": [
+      "Forecast accuracy",
+      "Portfolio ROI"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Portfolio ROI"
+    ],
+    "technical": [
+      "Portfolio balance"
+    ],
+    "operational": [
+      "Forecast accuracy"
+    ],
+    "customer": [
+      "Stakeholder satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council (Member)",
+    "Delivery Governance Board (Member)"
+  ]
+}

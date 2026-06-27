@@ -1,0 +1,58 @@
+{
+  "id": "ERP-DS",
+  "title": "ERP Data Scientist",
+  "layer": "L5",
+  "product_line": "ERP",
+  "mission": "Experiments and models. Focused on ERP data and AI.",
+  "business_value": "Ensures ERP has excellent data and AI capabilities.",
+  "reporting_line": {
+    "functional": "Data Director (L5)",
+    "delivery": "ERP Product Director"
+  },
+  "decision_rights": [
+    "ERP data pipelines",
+    "AI feature implementation"
+  ],
+  "approval_rights": [
+    "ERP data changes",
+    "AI deployment"
+  ],
+  "escalation_paths": {
+    "to": "Data Director",
+    "from": "Data/AI",
+    "trigger": "Data quality issue, AI accuracy drop"
+  },
+  "artifacts_owned": [
+    "ERP data pipelines",
+    "AI models",
+    "Analytics reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Data quality",
+      "AI accuracy"
+    ],
+    "lagging": [
+      "Pipeline reliability",
+      "AI feature adoption"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Data-driven decisions"
+    ],
+    "technical": [
+      "Data quality",
+      "AI accuracy"
+    ],
+    "operational": [
+      "Pipeline uptime"
+    ],
+    "customer": [
+      "AI feature satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Member)"
+  ]
+}

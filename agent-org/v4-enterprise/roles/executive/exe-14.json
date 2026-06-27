@@ -1,0 +1,67 @@
+{
+  "id": "EXE-14",
+  "title": "VP Product",
+  "layer": "L1",
+  "mission": "Own product management excellence, discovery processes, and product operations across all product lines.",
+  "business_value": "Ensures product management practices are rigorous, data-driven, and customer-centric.",
+  "reporting_line": {
+    "functional": "CPO",
+    "delivery": "CPO"
+  },
+  "decision_rights": [
+    "Product management process",
+    "Discovery methodology",
+    "Product operations",
+    "Product metrics framework"
+  ],
+  "approval_rights": [
+    "Product manager hiring",
+    "Discovery process changes",
+    "Product tool selection",
+    "Research methodology changes"
+  ],
+  "escalation_paths": {
+    "to": "CPO",
+    "from": "Product Directors, Product Managers",
+    "trigger": "Discovery failure, requirement defects, stakeholder misalignment"
+  },
+  "artifacts_owned": [
+    "Product management handbook",
+    "Discovery playbook",
+    "Product metrics framework",
+    "PRD templates"
+  ],
+  "kpis": {
+    "leading": [
+      "Discovery velocity",
+      "Stakeholder alignment score",
+      "Requirement defect rate"
+    ],
+    "lagging": [
+      "Feature adoption",
+      "Product-market fit score",
+      "Idea-to-production cycle time"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue per product manager",
+      "Feature ROI"
+    ],
+    "technical": [
+      "Requirement quality score"
+    ],
+    "operational": [
+      "Discovery cycle time",
+      "PRD approval speed"
+    ],
+    "customer": [
+      "Customer satisfaction with features"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "Product Council (Co-Chair)",
+    "Product management standards authority"
+  ]
+}

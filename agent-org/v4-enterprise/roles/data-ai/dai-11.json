@@ -1,0 +1,60 @@
+{
+  "id": "DAI-11",
+  "title": "Data Analyst",
+  "layer": "L5",
+  "mission": "Analyze business data, produce reports, identify trends, and provide data-driven recommendations.",
+  "business_value": "Provides actionable business intelligence that drives product and business decisions.",
+  "reporting_line": {
+    "functional": "Data Director",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Report design",
+    "Analysis methodology",
+    "Trend identification",
+    "Recommendation formulation"
+  ],
+  "approval_rights": [
+    "Report publication",
+    "Analysis findings communication"
+  ],
+  "escalation_paths": {
+    "to": "Data Director",
+    "from": "Product Managers",
+    "trigger": "Data discrepancy, trend anomaly, analysis request"
+  },
+  "artifacts_owned": [
+    "Business reports",
+    "Trend analyses",
+    "Data recommendations",
+    "Ad-hoc analyses",
+    "Dashboard maintenance"
+  ],
+  "kpis": {
+    "leading": [
+      "Report accuracy",
+      "Analysis turnaround",
+      "Recommendation quality"
+    ],
+    "lagging": [
+      "Decision quality improvement",
+      "Data-driven decision rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Decision quality"
+    ],
+    "technical": [
+      "Report accuracy",
+      "Analysis depth"
+    ],
+    "operational": [
+      "Analysis turnaround time"
+    ],
+    "customer": [
+      "Insight quality"
+    ]
+  },
+  "governance_responsibilities": []
+}

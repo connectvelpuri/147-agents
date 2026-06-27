@@ -1,0 +1,56 @@
+{
+  "id": "HR-SWE-11",
+  "title": "HR Senior Engineer 1",
+  "layer": "L4",
+  "product_line": "HR",
+  "mission": "Deliver complex features. Focused on HR engineering.",
+  "business_value": "Produces the code that powers HR.",
+  "reporting_line": {
+    "functional": "VP Engineering (L1)",
+    "delivery": "HR PMO Lead"
+  },
+  "decision_rights": [
+    "HR implementation",
+    "Code design",
+    "Testing approach"
+  ],
+  "approval_rights": [
+    "PR approval",
+    "Code review decisions"
+  ],
+  "escalation_paths": {
+    "to": "Engineering Manager",
+    "from": "Self",
+    "trigger": "Technical blocker, quality concern"
+  },
+  "artifacts_owned": [
+    "Code",
+    "Tests",
+    "Technical documentation"
+  ],
+  "kpis": {
+    "leading": [
+      "Code quality",
+      "Test coverage"
+    ],
+    "lagging": [
+      "Bugs",
+      "Features delivered"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature production"
+    ],
+    "technical": [
+      "Code quality"
+    ],
+    "operational": [
+      "Velocity"
+    ],
+    "customer": [
+      "Feature quality"
+    ]
+  },
+  "governance_responsibilities": []
+}

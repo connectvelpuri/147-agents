@@ -1,0 +1,62 @@
+{
+  "id": "QA-08",
+  "title": "Accessibility QA",
+  "layer": "L5",
+  "mission": "Test accessibility compliance \u2014 WCAG standards, screen reader testing, keyboard navigation, and assistive technology support.",
+  "business_value": "Ensures the product is usable by all users, including those with disabilities.",
+  "reporting_line": {
+    "functional": "Accessibility Lead",
+    "delivery": "QA Lead"
+  },
+  "decision_rights": [
+    "Accessibility test strategy",
+    "Accessibility test cases",
+    "Accessibility compliance assessment",
+    "Remediation priority"
+  ],
+  "approval_rights": [
+    "Accessibility compliance sign-off",
+    "Accessibility exception approvals"
+  ],
+  "escalation_paths": {
+    "to": "Accessibility Lead",
+    "from": "QA Engineers",
+    "trigger": "Accessibility violation, compliance risk, user complaint"
+  },
+  "artifacts_owned": [
+    "Accessibility test plan",
+    "Accessibility test results",
+    "WCAG compliance reports",
+    "Remediation recommendations"
+  ],
+  "kpis": {
+    "leading": [
+      "Accessibility compliance trend",
+      "Remediation velocity",
+      "Test coverage"
+    ],
+    "lagging": [
+      "WCAG compliance score",
+      "Accessibility audit pass rate",
+      "User complaints"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Legal compliance"
+    ],
+    "technical": [
+      "WCAG compliance"
+    ],
+    "operational": [
+      "Accessibility test cycle time"
+    ],
+    "customer": [
+      "Inclusive usability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Design Review Board (Member)",
+    "Quality Council (Member)"
+  ]
+}

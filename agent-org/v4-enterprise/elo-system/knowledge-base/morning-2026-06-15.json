@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "type": "elo_morning_intelligence",
+    "cycle_date": "2026-06-15",
+    "cycle_time": "07:00 IST",
+    "generated_by": "ELO Morning Intelligence Cycle",
+    "domains_covered": [
+      "Frontend",
+      "Backend",
+      "Architecture",
+      "QA",
+      "DevOps",
+      "SRE",
+      "Security",
+      "CRM",
+      "ERP",
+      "HR",
+      "Finance",
+      "Product",
+      "Design",
+      "Data",
+      "AI/ML",
+      "Innovation"
+    ]
+  },
+  "top_trends": [
+    {
+      "rank": 1,
+      "title": "Agentic AI Goes Mainstream Across Every Domain",
+      "domains": [
+        "AI/ML",
+        "Data",
+        "CRM",
+        "ERP",
+        "Architecture",
+        "Product"
+      ],
+      "summary": "Snowflake Summit 2026 (June 2-7) announced the Agentic Enterprise with 26+ new capabilities. Dynamics 365 2026 Wave 1 introduces agentic AI across CRM. AI SRE agents deployed in production.",
+      "sources": [
+        "https://futurumgroup.com/insights/snowflake-summit-2026-four-infrastructure-bets-that-determine-whether-the-agentic-enterprise-delivers/",
+        "https://diginomica.com/snowflake-summit-2026-how-snowflake-making-strategic-shift-towards-agentic-ai",
+        "https://www.gigatorb.com/blog/microsoft-dynamics-365-crm-2026-release-wave-1"
+      ],
+      "timeliness_days": 8
+    },
+    {
+      "rank": 2,
+      "title": "CISA BOD 26-04: 3-Day Patching Mandate Resets Federal Cybersecurity",
+      "domains": [
+        "Security",
+        "DevOps",
+        "SRE"
+      ],
+      "summary": "CISA issued Binding Operational Directive 26-04 on June 11, 2026, replacing BOD 19-02 and 22-01. Mandates 3-day remediation for critical exploited vulnerabilities.",
+      "sources": [
+        "https://www.automox.com/blog/cisa-bod-26-04-three-day-clock",
+        "https://www.bleepingcomputer.com/news/security/cisa-tells-govt-agencies-to-patch-critical-exploited-flaws-in-3-days/",
+        "https://www.darkreading.com/cyber-risk/cisa-rewrites-federal-patching-requirements-ai-threat-era"
+      ],
+      "timeliness_days": 4
+    },
+    {
+      "rank": 3,
+      "title": "Microsoft Patch Tuesday June 2026 \u2014 198 Vulnerabilities, 6 Zero-Days",
+      "domains": [
+        "Security",
+        "Backend",
+        "DevOps",
+        "SRE"
+      ],
+      "summary": "Microsoft fixed 198 vulns including 6 zero-days, 33 critical (28 RCE). RDP Client: 11 RCE patches. Largest single-month patch in 2026.",
+      "sources": [
+        "https://cybersecuritynews.com/microsoft-patch-tuesday-june-2026/",
+        "https://www.bleepingcomputer.com/news/microsoft/microsoft-june-2026-patch-tuesday-fixes-6-zero-days-200-flaws/",
+        "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-june-2026-snort-rules-and-prominent-vulnerabilities/"
+      ],
+      "timeliness_days": 5
+    },
+    {
+      "rank": 4,
+      "title": "Critical Linux Kernel Exploit (CVE-2026-23111) \u2014 Root via One-Character Bug",
+      "domains": [
+        "Security",
+        "Backend",
+        "DevOps",
+        "SRE"
+      ],
+      "summary": "Use-after-free in nf_tables (single logic error) allows unprivileged users root + container escape. Exploit published June 8, 2026 by Exodus Intelligence.",
+      "sources": [
+        "https://thehackernews.com/2026/06/one-character-linux-kernel-flaw-enables.html",
+        "https://securityarsenal.com/blog/cve-2026-23111-linux-kernel-nftables-privilege-escalation-detection-and-hardening",
+        "https://securityaffairs.com/193352/hacking/cve-2026-23111-linux-nf_tables-flaw-enables-root-exploits.html"
+      ],
+      "timeliness_days": 7
+    },
+    {
+      "rank": 5,
+      "title": "Oracle PeopleSoft Zero-Day (CVE-2026-35273) Actively Exploited by ShinyHunters",
+      "domains": [
+        "Security",
+        "ERP",
+        "HR",
+        "Finance"
+      ],
+      "summary": "Oracle emergency mitigation for PeopleSoft zero-day. ShinyHunters extortion gang targeting higher education (May 27 - June 9, 2026).",
+      "sources": [
+        "https://www.rapid7.com/blog/post/etr-active-exploitation-of-oracle-peoplesoft-zero-day-cve-2026-35273/",
+        "https://www.darkreading.com/vulnerabilities-threats/shinyhunters-oracle-zero-day-higher-ed",
+        "https://www.bleepingcomputer.com/news/security/oracle-mitigates-peoplesoft-zero-day-exploited-in-data-theft-attacks/"
+      ],
+      "timeliness_days": 3
+    }
+  ],
+  "new_tools_and_releases": [
+    {
+      "domain": "Frontend",
+      "item": "Farm vs Vite vs Turbopack bundler competition. Astro gaining. Svelte ~12%. Figma June updates.",
+      "source": "https://www.pkgpulse.com/guides/farm-vs-vite-vs-turbopack-2026",
+      "timeliness": "ongoing"
+    },
+    {
+      "domain": "Backend",
+      "item": "Spring Boot 4.0 / Spring Framework 7.0 \u2014 cloud-native, virtual threads, AI tooling.",
+      "source": "https://quartzdevs.com/resources/best-backend-frameworks-2026-top-server-side-tools",
+      "timeliness": "2026-04"
+    },
+    {
+      "domain": "QA",
+      "item": "AI-Augmented Software Testing Tools \u2014 Gartner MQ, UiPath Leader, autonomous QA agents.",
+      "source": "https://www.accelq.com/blog/software-testing-trends/",
+      "timeliness": "2026"
+    },
+    {
+      "domain": "CRM",
+      "item": "Dynamics 365 2026 Wave 1 live with agentic AI, unified Copilot, Sales Qualification Assistant.",
+      "source": "https://www.syvantis.com/blogs/microsoft-dynamics-release-update/2026-crm-dynamics-365-release-wave-1",
+      "timeliness": "2026-06-02"
+    },
+    {
+      "domain": "ERP",
+      "item": "SAP June Security Patch Day (15 notes). S/4HANA Cloud Private Edition FPS1 with 750+ enhancements.",
+      "source": "https://erp.today/sap-security-patch-day-june-2026-trust-controls/",
+      "timeliness": "2026-06-11"
+    },
+    {
+      "domain": "Data/AI/ML",
+      "item": "Snowflake Summit 2026: Cortex Sense (agentic AI), Iceberg v3, Datastream, Adaptive Compute. 26+ capabs.",
+      "source": "https://diginomica.com/snowflake-summit-2026-how-snowflake-making-strategic-shift-towards-agentic-ai",
+      "timeliness": "2026-06-02"
+    },
+    {
+      "domain": "Design",
+      "item": "Figma June 2026 updates \u2014 AI design tools, Figma Make prototyping.",
+      "source": "https://www.figma.com/release-notes/",
+      "timeliness": "2026-06-11"
+    },
+    {
+      "domain": "Innovation",
+      "item": "Quantum computing: Google Willow chip, 100-logical-qubit roadmaps, post-quantum security.",
+      "source": "https://redstaglabs.com/pages/latest-breakthroughs-in-quantum-computing/",
+      "timeliness": "2026-06"
+    },
+    {
+      "domain": "Product",
+      "item": "17+ AI PM tools ranked. Vibe coding enables PM prototyping. MCP standardizing AI-tool connections.",
+      "source": "https://www.institutepm.com/knowledge-hub/ai-product-management-2026",
+      "timeliness": "2026-05"
+    },
+    {
+      "domain": "DevOps/SRE",
+      "item": "Platform Engineering vs SRE vs DevOps role wave. AI SRE agents. Contractor rates \u00a3523-700+/day.",
+      "source": "https://www.itcontracting.com/devops-sre-platform-engineering-rates/",
+      "timeliness": "2026-06-08"
+    },
+    {
+      "domain": "HR/Finance",
+      "item": "AI payroll automation surging. HR tech +8.31B market. FinOps skills premium.",
+      "source": "https://techdailyshot.com/blog/top-ai-tools-payroll-automation-2026",
+      "timeliness": "2026-06"
+    },
+    {
+      "domain": "Architecture",
+      "item": "Event-driven + CQRS for AI-native apps. Edge computing + cloud-native dominant.",
+      "source": "https://www.gartner.com/en/documents/6986266",
+      "timeliness": "2026"
+    }
+  ],
+  "security_advisories": [
+    {
+      "severity": "CRITICAL",
+      "id": "CISA BOD 26-04",
+      "title": "CISA 3-Day Patching Mandate",
+      "description": "New directive (June 11). 3-day remediation for critical exploited vulns.",
+      "affected": "US federal agencies",
+      "action": "Align patch SLAs to 3-day",
+      "date": "2026-06-11"
+    },
+    {
+      "severity": "CRITICAL",
+      "id": "CVE-2026-23111",
+      "title": "Linux Kernel nf_tables Root Exploit",
+      "description": "Use-after-free to local root + container escape. Exploit published.",
+      "affected": "Ubuntu, Debian, container hosts",
+      "action": "Patch immediately",
+      "date": "2026-06-08"
+    },
+    {
+      "severity": "CRITICAL",
+      "id": "CVE-2026-35273",
+      "title": "Oracle PeopleSoft Zero-Day",
+      "description": "Actively exploited by ShinyHunters. Data theft on higher ed.",
+      "affected": "Oracle PeopleSoft",
+      "action": "Apply emergency mitigations",
+      "date": "2026-06-12"
+    },
+    {
+      "severity": "CRITICAL",
+      "id": "MSFT June 2026",
+      "title": "Microsoft Patch Tuesday \u2014 198 CVEs, 6 Zero-Days",
+      "description": "33 critical, 166 important. RDP 11 RCE patches.",
+      "affected": "Windows, Office, .NET, Exchange",
+      "action": "Deploy June patches",
+      "date": "2026-06-10"
+    },
+    {
+      "severity": "HIGH",
+      "id": "CVE-2026-5027",
+      "title": "Langflow RCE",
+      "description": "File upload validation flaw in Langflow AI.",
+      "affected": "Langflow deployments",
+      "action": "Update to patched version",
+      "date": "2026-06"
+    },
+    {
+      "severity": "HIGH",
+      "id": "CVE-2026-3300",
+      "title": "Everest Forms Pro WP Takeover",
+      "description": "Critical WP plugin vuln exploited.",
+      "affected": "WordPress sites",
+      "action": "Update or disable plugin",
+      "date": "2026-06"
+    },
+    {
+      "severity": "HIGH",
+      "id": "CVE-2026-11645",
+      "title": "Chrome Zero-Day (74 CVEs)",
+      "description": "High-severity zero-day exploited in wild.",
+      "affected": "Chrome users",
+      "action": "Update Chrome",
+      "date": "2026-06"
+    },
+    {
+      "severity": "HIGH",
+      "id": "CVE-2025-48595",
+      "title": "Android Zero-Day",
+      "description": "Actively exploited in targeted attacks.",
+      "affected": "Android devices",
+      "action": "Apply June 2026 update",
+      "date": "2026-06-01"
+    }
+  ],
+  "priority_learning_agenda": [
+    {
+      "priority": 1,
+      "topic": "Agentic AI Architectures & Tooling",
+      "reason": "Dominant across all domains",
+      "suggested_resources": [
+        "Snowflake Summit 2026",
+        "D365 Copilot agentic",
+        "AI SRE patterns"
+      ]
+    },
+    {
+      "priority": 2,
+      "topic": "CISA BOD 26-04 Compliance & 3-Day Patch Workflow",
+      "reason": "Most significant federal policy change",
+      "suggested_resources": [
+        "CISA BOD 26-04 text",
+        "Automox guide",
+        "DarkReading analysis"
+      ]
+    },
+    {
+      "priority": 3,
+      "topic": "June 2026 Patch Triage \u2014 Microsoft + Linux + Oracle",
+      "reason": "198 MS CVEs + Linux root + Oracle zero-day active",
+      "suggested_resources": [
+        "CVE-2026-23111 hardening",
+        "MS June Patch analysis",
+        "Oracle mitigation"
+      ]
+    },
+    {
+      "priority": 4,
+      "topic": "AI-Augmented QA & Testing Tools",
+      "reason": "Autonomous testing production-ready",
+      "suggested_resources": [
+        "Gartner MQ AI Testing",
+        "Top 13 AI testing tools"
+      ]
+    },
+    {
+      "priority": 5,
+      "topic": "Frontend Bundler Landscape \u2014 Farm, Vite, Turbopack",
+      "reason": "Reshaping frontend toolchain",
+      "suggested_resources": [
+        "Farm vs Vite vs Turbopack",
+        "Astro docs"
+      ]
+    },
+    {
+      "priority": 6,
+      "topic": "Platform Engineering vs SRE vs DevOps Evolution",
+      "reason": "Role clarification for team structuring",
+      "suggested_resources": [
+        "Practical role guide",
+        "2026 IaC Report"
+      ]
+    },
+    {
+      "priority": 7,
+      "topic": "Dynamics 365 / SAP 2026 Updates",
+      "reason": "Agentic AI in enterprise platforms",
+      "suggested_resources": [
+        "D365 Wave 1 docs",
+        "SAP FPS1 notes"
+      ]
+    }
+  ]
+}

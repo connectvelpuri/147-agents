@@ -1,0 +1,63 @@
+{
+  "id": "PRD-12",
+  "title": "Accessibility Lead",
+  "layer": "L3",
+  "mission": "Own accessibility standards, testing, and compliance across the product. Ensure WCAG 2.1 AA compliance.",
+  "business_value": "Ensures the product is usable by all users, including those with disabilities.",
+  "reporting_line": {
+    "functional": "CDO (L1)",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Accessibility standards",
+    "Accessibility testing strategy",
+    "Accessibility requirements",
+    "Remediation priority"
+  ],
+  "approval_rights": [
+    "Accessibility compliance sign-off",
+    "Accessibility exception approvals"
+  ],
+  "escalation_paths": {
+    "to": "CDO",
+    "from": "Accessibility QA, Designers",
+    "trigger": "Accessibility violation, compliance risk, legal concern"
+  },
+  "artifacts_owned": [
+    "Accessibility guidelines",
+    "Accessibility test plan",
+    "Accessibility audit reports",
+    "Remediation backlog"
+  ],
+  "kpis": {
+    "leading": [
+      "Accessibility compliance trend",
+      "Remediation velocity",
+      "Training completion"
+    ],
+    "lagging": [
+      "WCAG compliance score",
+      "Accessibility audit pass rate",
+      "Legal risk reduction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Legal compliance",
+      "Market accessibility"
+    ],
+    "technical": [
+      "WCAG compliance"
+    ],
+    "operational": [
+      "Remediation speed"
+    ],
+    "customer": [
+      "Inclusive usability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Design Review Board (Member)",
+    "Quality Council (Member)"
+  ]
+}

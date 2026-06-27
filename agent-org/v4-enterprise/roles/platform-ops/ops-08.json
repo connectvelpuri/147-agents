@@ -1,0 +1,62 @@
+{
+  "id": "OPS-08",
+  "title": "Cloud Engineer",
+  "layer": "L5",
+  "mission": "Manage cloud infrastructure \u2014 provisioning, configuration, scaling, and cost management across cloud providers.",
+  "business_value": "Ensures cloud infrastructure is provisioned correctly, scales automatically, and is cost-effective.",
+  "reporting_line": {
+    "functional": "Platform Director",
+    "delivery": "Platform Engineer"
+  },
+  "decision_rights": [
+    "Cloud provisioning",
+    "Configuration management",
+    "Scaling policies",
+    "Cost optimization"
+  ],
+  "approval_rights": [
+    "Cloud resource provisioning",
+    "Configuration changes",
+    "Scaling policy changes"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "SRE Engineers",
+    "trigger": "Cloud incident, cost spike, scaling failure"
+  },
+  "artifacts_owned": [
+    "Cloud provisioning scripts",
+    "Configuration management",
+    "Scaling policies",
+    "Cost optimization reports",
+    "Cloud architecture docs"
+  ],
+  "kpis": {
+    "leading": [
+      "Cloud utilization",
+      "Cost efficiency",
+      "Provisioning speed"
+    ],
+    "lagging": [
+      "Cloud uptime",
+      "Cost variance",
+      "Incident count"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Cloud cost efficiency"
+    ],
+    "technical": [
+      "Cloud reliability",
+      "Scalability"
+    ],
+    "operational": [
+      "Provisioning speed"
+    ],
+    "customer": [
+      "Cloud reliability"
+    ]
+  },
+  "governance_responsibilities": []
+}

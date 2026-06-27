@@ -1,0 +1,64 @@
+{
+  "id": "OPS-02",
+  "title": "DevOps Lead",
+  "layer": "L5",
+  "mission": "Own CI/CD pipelines, deployment processes, and release automation. Ensure reliable, fast, and safe deployments.",
+  "business_value": "Ensures code changes reach production reliably, quickly, and safely.",
+  "reporting_line": {
+    "functional": "Platform Director",
+    "delivery": "Delivery Head"
+  },
+  "decision_rights": [
+    "CI/CD pipeline design",
+    "Deployment process",
+    "Release automation",
+    "Environment management"
+  ],
+  "approval_rights": [
+    "Pipeline changes",
+    "Deployment process changes",
+    "Environment configuration changes"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "DevOps Engineers",
+    "trigger": "Pipeline failure, deployment issue, environment instability"
+  },
+  "artifacts_owned": [
+    "CI/CD pipeline configs",
+    "Deployment runbooks",
+    "Environment configuration",
+    "Release automation scripts"
+  ],
+  "kpis": {
+    "leading": [
+      "Pipeline reliability",
+      "Deployment frequency",
+      "Build success rate"
+    ],
+    "lagging": [
+      "Change failure rate",
+      "Mean time to recovery",
+      "Deployment lead time"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Deployment velocity"
+    ],
+    "technical": [
+      "DORA metrics",
+      "Pipeline reliability"
+    ],
+    "operational": [
+      "Deployment success rate"
+    ],
+    "customer": [
+      "Release quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)",
+    "Delivery Governance Board (Member)"
+  ]
+}

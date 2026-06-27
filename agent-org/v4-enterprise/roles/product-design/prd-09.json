@@ -1,0 +1,61 @@
+{
+  "id": "PRD-09",
+  "title": "Product Designer",
+  "layer": "L3",
+  "mission": "Create end-to-end product designs \u2014 wireframes, flows, prototypes, and visual design. Own the complete user experience.",
+  "business_value": "Creates intuitive, delightful user experiences that drive adoption and retention.",
+  "reporting_line": {
+    "functional": "Design Lead",
+    "delivery": "Product Manager"
+  },
+  "decision_rights": [
+    "Design decisions within guidelines",
+    "Interaction patterns",
+    "Visual hierarchy",
+    "Component design"
+  ],
+  "approval_rights": [
+    "Component design review",
+    "Prototype validation"
+  ],
+  "escalation_paths": {
+    "to": "Design Lead",
+    "from": "Engineers",
+    "trigger": "Design feasibility issue, accessibility concern, brand inconsistency"
+  },
+  "artifacts_owned": [
+    "Wireframes",
+    "User flows",
+    "Prototypes",
+    "Visual designs",
+    "Design specs"
+  ],
+  "kpis": {
+    "leading": [
+      "Design quality score",
+      "Handoff readiness",
+      "Prototype speed"
+    ],
+    "lagging": [
+      "User task completion rate",
+      "Design-to-dev accuracy",
+      "Accessibility compliance"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature adoption"
+    ],
+    "technical": [
+      "Design-to-dev accuracy"
+    ],
+    "operational": [
+      "Design cycle time"
+    ],
+    "customer": [
+      "Usability",
+      "Visual quality"
+    ]
+  },
+  "governance_responsibilities": []
+}

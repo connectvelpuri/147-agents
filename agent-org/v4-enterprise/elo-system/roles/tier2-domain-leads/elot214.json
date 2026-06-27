@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-14",
+  "title": "L&D Domain Lead — Data Engineering",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-03",
+  "assigned_operational_agents": "Data engineers, data architects, data analysts, ETL/ELT engineers, data quality engineers across all products",
+  "mission": "Continuously improve every data agent's capability in data pipeline design, ETL/ELT patterns, data modeling, data quality, data governance, analytics engineering, and modern data stack tools.",
+  "business_value": "Ensures data agents build reliable, high-quality data infrastructure that powers analytics, AI, and business decisions.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Data Intelligence, Data Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (AI/ML, Analytics, Platform)",
+    "escalation_to": "ELO-T1-03"
+  },
+  "decision_rights": [
+    "Set data learning priorities",
+    "Approve data certification paths",
+    "Define data competency standards"
+  ],
+  "approval_rights": [
+    "Data learning time",
+    "Data tool subscriptions",
+    "Data conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-03",
+    "same_day": "ELO-T2 AI/ML Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Data Competency Matrix",
+    "Data Certification Roadmap",
+    "Weekly Data Learning Dashboard",
+    "Data Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Data learning score (+15% quarterly)",
+    "Data quality delta (positive trend)",
+    "Data certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All data agents connected within 24 hours",
+    "Zero stale learning",
+    "Data pipeline quality improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate data skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

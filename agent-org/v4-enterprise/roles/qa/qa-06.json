@@ -1,0 +1,64 @@
+{
+  "id": "QA-06",
+  "title": "Performance Engineer",
+  "layer": "L5",
+  "mission": "Design and execute performance testing \u2014 load testing, stress testing, capacity planning, and performance optimization.",
+  "business_value": "Ensures the product performs well under real-world load conditions.",
+  "reporting_line": {
+    "functional": "QA Lead",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Performance test strategy",
+    "Load test scenarios",
+    "Performance benchmarks",
+    "Capacity planning"
+  ],
+  "approval_rights": [
+    "Performance test execution",
+    "Performance sign-off",
+    "Capacity recommendations"
+  ],
+  "escalation_paths": {
+    "to": "QA Lead",
+    "from": "SRE Engineers",
+    "trigger": "Performance degradation, capacity concern, SLA risk"
+  },
+  "artifacts_owned": [
+    "Performance test plan",
+    "Load test results",
+    "Performance benchmarks",
+    "Capacity planning docs",
+    "Performance optimization recommendations"
+  ],
+  "kpis": {
+    "leading": [
+      "Performance benchmark trend",
+      "Load test coverage",
+      "Capacity headroom"
+    ],
+    "lagging": [
+      "Performance incidents",
+      "SLA compliance",
+      "Response time percentiles"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "User experience quality"
+    ],
+    "technical": [
+      "Performance benchmarks",
+      "Capacity"
+    ],
+    "operational": [
+      "Performance test cycle time"
+    ],
+    "customer": [
+      "Product performance"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)"
+  ]
+}

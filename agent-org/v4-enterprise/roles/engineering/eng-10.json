@@ -1,0 +1,64 @@
+{
+  "id": "ENG-10",
+  "title": "API Designer",
+  "layer": "L4",
+  "mission": "Design and govern API contracts \u2014 REST, GraphQL, webhooks. Ensure APIs are consistent, documented, and developer-friendly.",
+  "business_value": "Ensures APIs are well-designed, consistent, and enable seamless integration.",
+  "reporting_line": {
+    "functional": "Enterprise Architect",
+    "delivery": "Solution Architect"
+  },
+  "decision_rights": [
+    "API design standards",
+    "API contract design",
+    "API versioning strategy",
+    "API documentation standards"
+  ],
+  "approval_rights": [
+    "API design review",
+    "Breaking API changes",
+    "New API introduction"
+  ],
+  "escalation_paths": {
+    "to": "Enterprise Architect",
+    "from": "Backend Engineers",
+    "trigger": "API inconsistency, breaking change, documentation gap"
+  },
+  "artifacts_owned": [
+    "API design standards",
+    "API contracts",
+    "API documentation",
+    "API versioning policy",
+    "API change log"
+  ],
+  "kpis": {
+    "leading": [
+      "API design consistency",
+      "Documentation coverage",
+      "API adoption rate"
+    ],
+    "lagging": [
+      "API breaking change rate",
+      "API uptime",
+      "Developer satisfaction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "API adoption"
+    ],
+    "technical": [
+      "API quality",
+      "Consistency"
+    ],
+    "operational": [
+      "API design cycle time"
+    ],
+    "customer": [
+      "Developer experience"
+    ]
+  },
+  "governance_responsibilities": [
+    "Architecture Review Board (Member)"
+  ]
+}

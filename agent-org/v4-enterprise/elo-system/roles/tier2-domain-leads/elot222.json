@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-22",
+  "title": "L&D Domain Lead — Applied Research",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-05",
+  "assigned_operational_agents": "Research agents, technical research leads, evaluation agents, spike agents across all products",
+  "mission": "Continuously improve every research agent's capability in research methodology, technology evaluation, proof-of-concept design, benchmark analysis, paper analysis, and research-to-practice translation.",
+  "business_value": "Ensures research agents translate cutting-edge research into practical product improvements.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Research Intelligence, Research Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (Innovation, AI/ML, Emerging Practices)",
+    "escalation_to": "ELO-T1-05"
+  },
+  "decision_rights": [
+    "Set research learning priorities",
+    "Approve research programs",
+    "Define research competency standards"
+  ],
+  "approval_rights": [
+    "Research learning time",
+    "Research tool subscriptions",
+    "Academic access budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-05",
+    "same_day": "ELO-T2 Innovation Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Research Competency Matrix",
+    "Research Roadmap",
+    "Weekly Research Learning Dashboard",
+    "Research Intelligence Brief (daily)"
+  ],
+  "kpis": [
+    "Research learning score (+15% quarterly)",
+    "Research-to-practice conversion (>60%)",
+    "Research output quality improvement"
+  ],
+  "success_metrics": [
+    "All research agents connected within 24 hours",
+    "Zero stale learning",
+    "Research translating to practice"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate research gaps",
+    "Maintain continuity during restructures"
+  ]
+}

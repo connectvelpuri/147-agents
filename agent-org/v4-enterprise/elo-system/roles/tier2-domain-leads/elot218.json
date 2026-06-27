@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-18",
+  "title": "L&D Domain Lead — PMO/Governance",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-04",
+  "assigned_operational_agents": "PMO directors, program managers, project managers, project leads, scrum masters, governance agents, Jira/work management admins",
+  "mission": "Continuously improve every PMO/governance agent's capability in program management, project execution, sprint planning, RAID management, stakeholder communication, governance frameworks, and delivery metrics.",
+  "business_value": "Ensures PMO agents maintain delivery excellence that keeps the organization on track and accountable.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): PMO Intelligence, PMO Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (Delivery, Executive)",
+    "escalation_to": "ELO-T1-04"
+  },
+  "decision_rights": [
+    "Set PMO learning priorities",
+    "Approve PMO certification paths",
+    "Define PMO competency standards"
+  ],
+  "approval_rights": [
+    "PMO learning time",
+    "PM tool subscriptions",
+    "PMO conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-04",
+    "same_day": "ELO-T2 Delivery Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "PMO Competency Matrix",
+    "PMO Certification Roadmap",
+    "Weekly PMO Learning Dashboard",
+    "PMO Learning Pack (daily)"
+  ],
+  "kpis": [
+    "PMO learning score (+15% quarterly)",
+    "Delivery predictability improvement (+10% quarterly)",
+    "PMO certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All PMO agents connected within 24 hours",
+    "Zero stale learning",
+    "Delivery metrics improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate PMO skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

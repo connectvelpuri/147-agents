@@ -1,0 +1,56 @@
+{
+  "_meta": {
+    "version": "2.0",
+    "updated": "2026-06-09",
+    "description": "ELO Agent-to-Tier Mapping with Governance Overlay"
+  },
+  "tier_structure": {
+    "T1_Directors": {
+      "count": 5,
+      "role": "Strategy & Platform",
+      "governance_docs": ["content-quality-rubric.md", "content-lifecycle-policy.md"],
+      "decision_authority": ["domain_priority", "quality_exception", "strategic_change"]
+    },
+    "T2_Domain_Leads": {
+      "count": 25,
+      "role": "Domain Quality & Management",
+      "governance_docs": ["audit-trail-version-control.md"],
+      "decision_authority": ["content_creation", "content_publication", "content_retirement"]
+    },
+    "T3_Intelligence_Feeders": {
+      "count": 55,
+      "role": "Content Production & Sourcing",
+      "governance_docs": ["source-credibility-scoring.md"],
+      "decision_authority": ["source_selection", "quality_flag"]
+    }
+  },
+  "governance_documents": [
+    {"id": "GOV-001", "name": "Content Quality Rubric", "path": "governance/content-quality-rubric.md", "version": "1.0"},
+    {"id": "GOV-002", "name": "Content Lifecycle Policy", "path": "governance/content-lifecycle-policy.md", "version": "1.0"},
+    {"id": "GOV-003", "name": "Audit Trail & Version Control", "path": "governance/audit-trail-version-control.md", "version": "1.0"},
+    {"id": "GOV-004", "name": "Source Credibility Scoring", "path": "knowledge-intelligence/source-credibility-scoring.md", "version": "1.0"},
+    {"id": "GOV-005", "name": "Enterprise Learning Metrics", "path": "measurement/enterprise-learning-metrics.md", "version": "1.0"},
+    {"id": "GOV-006", "name": "Failover & Incident Response", "path": "reliability/failover-incident-monitoring.md", "version": "1.0"},
+    {"id": "GOV-007", "name": "4-Tier Federated Architecture", "path": "scalability/4-tier-federated-architecture.md", "version": "1.0"},
+    {"id": "GOV-008", "name": "Orchestration & Decision SLAs", "path": "orchestration/feedback-loops-decision-slas.md", "version": "1.0"}
+  ],
+  "automation_scripts": [
+    {"id": "SCRIPT-001", "name": "governance-enforcer.py", "schedule": "every_cycle", "criticality": "P0"},
+    {"id": "SCRIPT-002", "name": "source-credibility-scorer.py", "schedule": "on_ingestion", "criticality": "P0"},
+    {"id": "SCRIPT-003", "name": "measurement-dashboard.py", "schedule": "weekly", "criticality": "P1"},
+    {"id": "SCRIPT-004", "name": "heartbeat-monitor.py", "schedule": "every_5min", "criticality": "P0"},
+    {"id": "SCRIPT-005", "name": "elo-startup-trigger.py", "schedule": "every_cycle", "criticality": "P0"}
+  ],
+  "sla_metrics": [
+    {"metric": "Content quality score", "target": "> 80", "warning": "< 85", "critical": "< 80"},
+    {"metric": "Cycle delivery on time", "target": "100%", "warning": "5min before", "critical": "missed"},
+    {"metric": "Agent uptime", "target": "99.9%", "warning": "2 missed HB", "critical": "5 missed HB"},
+    {"metric": "Incident response SEV1", "target": "< 5min", "warning": "> 3min", "critical": "> 5min"},
+    {"metric": "Content freshness", "target": "> 80%", "warning": "< 70%", "critical": "< 60%"}
+  ],
+  "scaling_path": [
+    {"phase": "Phase 1", "agents": "1000-2000", "action": "Split T2->T2+T3, batch LLM pipeline, federated governance"},
+    {"phase": "Phase 2", "agents": "2000-2500", "action": "Full 4-tier, 60%+ automation, regional hubs"},
+    {"phase": "Phase 3", "agents": "2500-5000", "action": "Federated hub-and-spoke, predictive AI delivery"}
+  ]
+}

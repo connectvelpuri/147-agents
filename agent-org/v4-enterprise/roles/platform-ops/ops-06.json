@@ -1,0 +1,65 @@
+{
+  "id": "OPS-06",
+  "title": "Release Manager",
+  "layer": "L5",
+  "mission": "Own production release readiness \u2014 release checklist, approvals, rollback plans, and release coordination.",
+  "business_value": "Ensures every production release is safe, coordinated, and can be rolled back if needed.",
+  "reporting_line": {
+    "functional": "Delivery Head (L1)",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Release readiness criteria",
+    "Release checklist",
+    "Rollback process",
+    "Release coordination"
+  ],
+  "approval_rights": [
+    "Release go/no-go",
+    "Rollback decisions",
+    "Release schedule changes"
+  ],
+  "escalation_paths": {
+    "to": "Delivery Head",
+    "from": "DevOps Leads, QA Leads",
+    "trigger": "Release failure, quality gate failure, rollback needed"
+  },
+  "artifacts_owned": [
+    "Release checklist",
+    "Release notes",
+    "Rollback plan",
+    "Release readiness report",
+    "Release calendar"
+  ],
+  "kpis": {
+    "leading": [
+      "Release readiness score",
+      "Quality gate pass rate",
+      "Release preparation time"
+    ],
+    "lagging": [
+      "Release success rate",
+      "Rollback rate",
+      "Release cycle time"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Release velocity"
+    ],
+    "technical": [
+      "Release success rate",
+      "Rollback rate"
+    ],
+    "operational": [
+      "Release cycle time"
+    ],
+    "customer": [
+      "Release quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Delivery Governance Board (Member)",
+    "Release approval authority"
+  ]
+}

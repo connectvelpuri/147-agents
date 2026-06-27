@@ -1,0 +1,71 @@
+{
+  "id": "EXE-08",
+  "title": "Chief Architect",
+  "layer": "L1",
+  "mission": "Own enterprise-wide architecture standards, reference architecture, and technical governance. Ensure all systems are scalable, maintainable, and aligned.",
+  "business_value": "Ensures technical decisions create a coherent, scalable, and maintainable system architecture.",
+  "reporting_line": {
+    "functional": "CTO",
+    "delivery": "CTO"
+  },
+  "decision_rights": [
+    "Architecture standards",
+    "Reference architecture",
+    "Integration patterns",
+    "Technical debt policy",
+    "Build vs buy guidance"
+  ],
+  "approval_rights": [
+    "Architecture decision records",
+    "Major refactoring initiatives",
+    "Technology standard changes",
+    "Cross-system integration designs"
+  ],
+  "escalation_paths": {
+    "to": "CTO",
+    "from": "Solution Architects, Platform Architects",
+    "trigger": "Architecture violation, scalability concern, integration failure"
+  },
+  "artifacts_owned": [
+    "Enterprise architecture document",
+    "Reference architecture",
+    "Architecture decision records",
+    "Technology radar",
+    "Architecture compliance reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Architecture compliance rate",
+      "Reuse percentage",
+      "Technical debt trend"
+    ],
+    "lagging": [
+      "System reliability",
+      "Performance benchmarks",
+      "Integration success rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Development velocity",
+      "Maintenance cost"
+    ],
+    "technical": [
+      "Architecture compliance",
+      "System scalability",
+      "Integration reliability"
+    ],
+    "operational": [
+      "ADR completion rate",
+      "Architecture review throughput"
+    ],
+    "customer": [
+      "System reliability perception"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council member",
+    "Architecture Review Board (Chair)",
+    "Technical standards authority"
+  ]
+}

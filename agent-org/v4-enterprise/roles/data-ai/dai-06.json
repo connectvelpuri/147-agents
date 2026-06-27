@@ -1,0 +1,65 @@
+{
+  "id": "DAI-06",
+  "title": "AI Evaluation Lead",
+  "layer": "L5",
+  "mission": "Own AI evaluation \u2014 metrics, benchmarks, testing, and quality measurement for all AI systems.",
+  "business_value": "Ensures AI systems are measured, evaluated, and held to quality standards.",
+  "reporting_line": {
+    "functional": "CDAO (L1)",
+    "delivery": "AI Architect"
+  },
+  "decision_rights": [
+    "Evaluation framework",
+    "Metrics definition",
+    "Benchmark design",
+    "Quality thresholds"
+  ],
+  "approval_rights": [
+    "Evaluation criteria changes",
+    "Quality threshold changes",
+    "Model promotion decisions"
+  ],
+  "escalation_paths": {
+    "to": "CDAO",
+    "from": "AI Engineers",
+    "trigger": "Model quality drop, evaluation gap, benchmark failure"
+  },
+  "artifacts_owned": [
+    "Evaluation framework",
+    "Benchmarks",
+    "Evaluation reports",
+    "Quality dashboards",
+    "Model comparison reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Evaluation coverage",
+      "Benchmark accuracy",
+      "Quality trend"
+    ],
+    "lagging": [
+      "Model quality score",
+      "Evaluation-to-production cycle",
+      "Quality incident rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "AI quality improvement"
+    ],
+    "technical": [
+      "Evaluation coverage",
+      "Benchmark accuracy"
+    ],
+    "operational": [
+      "Evaluation velocity"
+    ],
+    "customer": [
+      "AI quality perception"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Co-Chair)",
+    "Quality Council (Member)"
+  ]
+}

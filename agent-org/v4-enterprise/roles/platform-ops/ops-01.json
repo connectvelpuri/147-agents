@@ -1,0 +1,67 @@
+{
+  "id": "OPS-01",
+  "title": "Platform Director",
+  "layer": "L5",
+  "mission": "Own platform infrastructure \u2014 cloud, CI/CD, monitoring, and operational excellence across all products.",
+  "business_value": "Ensures the platform is reliable, cost-effective, and supports all product teams.",
+  "reporting_line": {
+    "functional": "CTO (L1)",
+    "delivery": "COO (L1)"
+  },
+  "decision_rights": [
+    "Infrastructure strategy",
+    "Platform standards",
+    "CI/CD strategy",
+    "Monitoring strategy"
+  ],
+  "approval_rights": [
+    "Major infrastructure changes",
+    "Cloud vendor selection",
+    "Platform tool selection"
+  ],
+  "escalation_paths": {
+    "to": "CTO",
+    "from": "DevOps Leads, SRE Leads",
+    "trigger": "Infrastructure failure, cost spike, reliability crisis"
+  },
+  "artifacts_owned": [
+    "Platform strategy",
+    "Infrastructure standards",
+    "CI/CD guidelines",
+    "Monitoring strategy",
+    "Capacity planning"
+  ],
+  "kpis": {
+    "leading": [
+      "Infrastructure utilization",
+      "Cost efficiency",
+      "Deployment frequency"
+    ],
+    "lagging": [
+      "Infrastructure uptime",
+      "Incident count",
+      "Mean time to recovery"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Infrastructure cost efficiency"
+    ],
+    "technical": [
+      "Uptime",
+      "Performance",
+      "Scalability"
+    ],
+    "operational": [
+      "Deployment frequency",
+      "Incident response"
+    ],
+    "customer": [
+      "Platform reliability"
+    ]
+  },
+  "governance_responsibilities": [
+    "Executive Council (Member)",
+    "Architecture Review Board (Member)"
+  ]
+}

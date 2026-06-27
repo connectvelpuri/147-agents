@@ -1,0 +1,63 @@
+{
+  "id": "PRD-08",
+  "title": "Design Lead",
+  "layer": "L3",
+  "mission": "Own design strategy and governance for a product line. Ensure design quality, consistency, and accessibility.",
+  "business_value": "Ensures the product has excellent, consistent, accessible design.",
+  "reporting_line": {
+    "functional": "CDO (L1)",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Design standards",
+    "Design review criteria",
+    "Accessibility requirements",
+    "Design system governance"
+  ],
+  "approval_rights": [
+    "Major design changes",
+    "Design system architectural decisions",
+    "Accessibility compliance level"
+  ],
+  "escalation_paths": {
+    "to": "CDO",
+    "from": "Designers",
+    "trigger": "Design inconsistency, accessibility failure, brand violation"
+  },
+  "artifacts_owned": [
+    "Design principles",
+    "Design governance document",
+    "Design review checklist",
+    "Accessibility guidelines"
+  ],
+  "kpis": {
+    "leading": [
+      "Design system adoption",
+      "Component reuse rate",
+      "Design consistency score"
+    ],
+    "lagging": [
+      "Usability score",
+      "Accessibility compliance",
+      "Design handoff quality"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "User satisfaction"
+    ],
+    "technical": [
+      "Design system coverage"
+    ],
+    "operational": [
+      "Design-to-dev handoff efficiency"
+    ],
+    "customer": [
+      "Visual quality",
+      "Accessibility"
+    ]
+  },
+  "governance_responsibilities": [
+    "Design Review Board (Co-Chair)"
+  ]
+}

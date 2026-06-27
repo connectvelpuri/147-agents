@@ -1,0 +1,31 @@
+# Runbook: Permission Error Recovery
+type: permission_error
+severity: P3
+trigger: access_denied | quota_exceeded | scope_violation
+auto_recovery_target: 90%
+steps:
+  - id: rb4-s1
+    action: retry
+    params:
+      max_attempts: 1
+      refresh_token: true
+      request_new_scope: auto
+    timeout: 10
+    on_failure: goto_s2
+  - id: rb4-s2
+    action: fallback
+    params:
+      degrade_to_readonly: true
+      notify_permission_owner: true
+    timeout: 10
+    on_failure: goto_s3
+  - id: rb4-s3
+    action: escalate
+    params:
+      to: T2_DevOps_Lead
+      notify_channels: [dashboard, slack]
+      ticket_priority: P3
+    timeout: 600
+fallback: runbook-tool-failure
+escalate_to: T2_DevOps
+post_mortem: false

@@ -1,0 +1,65 @@
+{
+  "id": "SEC-03",
+  "title": "Compliance Lead",
+  "layer": "L5",
+  "mission": "Own compliance monitoring, audit preparation, and regulatory adherence. Ensure the company meets all legal and regulatory requirements.",
+  "business_value": "Ensures the company avoids regulatory penalties and maintains compliance certifications.",
+  "reporting_line": {
+    "functional": "CISO (L1)",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Compliance framework",
+    "Audit preparation",
+    "Regulatory monitoring",
+    "Compliance training"
+  ],
+  "approval_rights": [
+    "Compliance exception approvals",
+    "Audit response decisions",
+    "Compliance process changes"
+  ],
+  "escalation_paths": {
+    "to": "CISO",
+    "from": "GRC Analysts",
+    "trigger": "Compliance gap, audit finding, regulatory change"
+  },
+  "artifacts_owned": [
+    "Compliance framework",
+    "Audit preparation docs",
+    "Regulatory monitoring reports",
+    "Compliance training materials",
+    "Compliance dashboards"
+  ],
+  "kpis": {
+    "leading": [
+      "Compliance readiness",
+      "Audit finding closure",
+      "Training completion"
+    ],
+    "lagging": [
+      "Compliance score",
+      "Audit pass rate",
+      "Regulatory penalties"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Regulatory compliance",
+      "Penalty avoidance"
+    ],
+    "technical": [
+      "Compliance readiness"
+    ],
+    "operational": [
+      "Audit preparation time"
+    ],
+    "customer": [
+      "Trust and compliance"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)",
+    "Compliance oversight"
+  ]
+}

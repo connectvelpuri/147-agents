@@ -1,0 +1,55 @@
+{
+  "id": "ERP-PM-AI",
+  "title": "ERP Product Manager \u2014 AI & Analytics",
+  "layer": "L3",
+  "product_line": "ERP",
+  "mission": "Own AI-powered features and analytics. Manage AI feature discovery and delivery. Focused on ERP product.",
+  "business_value": "Ensures ERP has excellent product management, design, and requirements.",
+  "reporting_line": {
+    "functional": "ERP Product Director",
+    "delivery": "ERP PMO Lead"
+  },
+  "decision_rights": [
+    "ERP-specific requirements",
+    "Design decisions within guidelines"
+  ],
+  "approval_rights": [
+    "ERP feature review",
+    "Design review"
+  ],
+  "escalation_paths": {
+    "to": "ERP Product Director",
+    "from": "Team",
+    "trigger": "Requirement issue, design concern"
+  },
+  "artifacts_owned": [
+    "ERP PRDs",
+    "Design specs",
+    "User stories"
+  ],
+  "kpis": {
+    "leading": [
+      "Discovery velocity",
+      "Requirement quality"
+    ],
+    "lagging": [
+      "Feature adoption",
+      "Customer satisfaction"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature ROI"
+    ],
+    "technical": [
+      "Requirement quality"
+    ],
+    "operational": [
+      "Cycle time"
+    ],
+    "customer": [
+      "Usability"
+    ]
+  },
+  "governance_responsibilities": []
+}

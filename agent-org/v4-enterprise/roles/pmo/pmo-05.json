@@ -1,0 +1,57 @@
+{
+  "id": "PMO-05",
+  "title": "Project Manager",
+  "layer": "L2",
+  "mission": "Manage specific projects within a delivery track. Own project plan, actions, blockers, and minutes.",
+  "business_value": "Ensures specific projects are tracked, coordinated, and delivered.",
+  "reporting_line": {
+    "functional": "Delivery Manager",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Project plan",
+    "Project schedule",
+    "Project actions",
+    "Project minutes"
+  ],
+  "approval_rights": [
+    "Project scope changes <10%",
+    "Project budget allocation"
+  ],
+  "escalation_paths": {
+    "to": "Delivery Manager",
+    "from": "Project Leads",
+    "trigger": "Project delay, blocker, scope issue"
+  },
+  "artifacts_owned": [
+    "Project plan",
+    "Action log",
+    "Blocker log",
+    "Meeting minutes"
+  ],
+  "kpis": {
+    "leading": [
+      "Action completion rate",
+      "Blocker aging"
+    ],
+    "lagging": [
+      "Project delivery rate",
+      "Budget variance"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Project ROI"
+    ],
+    "technical": [
+      "Project delivery velocity"
+    ],
+    "operational": [
+      "Schedule adherence"
+    ],
+    "customer": [
+      "Stakeholder satisfaction"
+    ]
+  },
+  "governance_responsibilities": []
+}

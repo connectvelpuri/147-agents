@@ -1,0 +1,48 @@
+# RCC-001 Revenue Orchestrator Configuration
+nats:
+  servers:
+    - nats://localhost:4222
+
+env: dev
+
+dags:
+  new_lead:
+    trigger: DealCreated
+    steps:
+      - agent: sdr-001-v1
+        subject: revenue.{env}.deal.{deal_id}.prospecting.discover
+      - agent: ai-001-v1
+        subject: revenue.{env}.deal.{deal_id}.intelligence.research
+      - agent: sdr-003-v1
+        subject: revenue.{env}.deal.{deal_id}.outreach.generate
+        depends_on: [sdr-001-v1, ai-001-v1]
+      - agent: sdr-004-v1
+        subject: revenue.{env}.deal.{deal_id}.sequence.execute
+        depends_on: [sdr-003-v1]
+    human_gates: [sdr-003-v1]
+
+  meeting_completed:
+    trigger: MeetingCompleted
+    steps:
+      - agent: mo-001-v1
+        subject: revenue.{env}.deal.{deal_id}.meeting.transcribe
+      - agent: mo-002-v1
+        subject: revenue.{env}.deal.{deal_id}.meeting.sentiment
+        depends_on: [mo-001-v1]
+      - agent: mo-003-v1
+        subject: revenue.{env}.deal.{deal_id}.meeting.objections
+        depends_on: [mo-001-v1]
+      - agent: mo-004-v1
+        subject: revenue.{env}.deal.{deal_id}.meeting.commitments
+        depends_on: [mo-001-v1]
+      - agent: ql-001-v1
+        subject: revenue.{env}.deal.{deal_id}.qualifying.rescore
+        depends_on: [mo-002-v1, mo-003-v1]
+
+  contract_sent:
+    trigger: ContractSent
+    human_gates: [pl-001-v1]
+
+circuit_breaker:
+  max_failure_streak: 5
+  auto_recovery: true

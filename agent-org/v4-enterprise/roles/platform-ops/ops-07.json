@@ -1,0 +1,64 @@
+{
+  "id": "OPS-07",
+  "title": "FinOps Specialist",
+  "layer": "L5",
+  "mission": "Own cloud cost optimization, cost allocation, and FinOps practices. Ensure infrastructure costs are controlled and optimized.",
+  "business_value": "Ensures infrastructure costs are optimized without sacrificing reliability or performance.",
+  "reporting_line": {
+    "functional": "Platform Director",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Cost optimization strategy",
+    "Cost allocation model",
+    "Budget forecasting",
+    "Cost reporting standards"
+  ],
+  "approval_rights": [
+    "Cost optimization actions",
+    "Budget reallocation",
+    "Cost anomaly response"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "Cloud Engineers",
+    "trigger": "Cost spike, budget overrun, cost anomaly"
+  },
+  "artifacts_owned": [
+    "Cost reports",
+    "Optimization recommendations",
+    "Budget forecasts",
+    "Cost allocation model",
+    "FinOps playbooks"
+  ],
+  "kpis": {
+    "leading": [
+      "Cost trend",
+      "Optimization velocity",
+      "Budget accuracy"
+    ],
+    "lagging": [
+      "Total infrastructure cost",
+      "Cost per transaction",
+      "Cost variance"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Cost efficiency"
+    ],
+    "technical": [
+      "Cost optimization",
+      "Budget accuracy"
+    ],
+    "operational": [
+      "Cost reporting accuracy"
+    ],
+    "customer": [
+      "Cost transparency"
+    ]
+  },
+  "governance_responsibilities": [
+    "Operational Excellence Board (Member)"
+  ]
+}

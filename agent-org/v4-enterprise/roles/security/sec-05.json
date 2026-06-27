@@ -1,0 +1,65 @@
+{
+  "id": "SEC-05",
+  "title": "Risk Manager",
+  "layer": "L5",
+  "mission": "Own risk management \u2014 risk identification, assessment, mitigation, and monitoring across all products.",
+  "business_value": "Ensures risks are identified early, assessed properly, and mitigated effectively.",
+  "reporting_line": {
+    "functional": "CISO (L1)",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Risk framework",
+    "Risk assessment methodology",
+    "Risk mitigation strategies",
+    "Risk monitoring"
+  ],
+  "approval_rights": [
+    "Risk acceptance",
+    "Risk mitigation priorities",
+    "Risk report changes"
+  ],
+  "escalation_paths": {
+    "to": "CISO",
+    "from": "Risk Analysts",
+    "trigger": "Risk escalation, risk threshold breach, new risk discovery"
+  },
+  "artifacts_owned": [
+    "Risk framework",
+    "Risk register",
+    "Risk assessment reports",
+    "Mitigation plans",
+    "Risk monitoring dashboards"
+  ],
+  "kpis": {
+    "leading": [
+      "Risk identification rate",
+      "Risk mitigation velocity",
+      "Risk monitoring coverage"
+    ],
+    "lagging": [
+      "Risk exposure",
+      "Risk incident count",
+      "Mitigation effectiveness"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Risk reduction",
+      "Compliance"
+    ],
+    "technical": [
+      "Risk assessment quality"
+    ],
+    "operational": [
+      "Risk response time"
+    ],
+    "customer": [
+      "Risk management confidence"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)",
+    "Delivery Governance Board (Member)"
+  ]
+}

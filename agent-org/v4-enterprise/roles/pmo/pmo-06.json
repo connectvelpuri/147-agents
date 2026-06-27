@@ -1,0 +1,53 @@
+{
+  "id": "PMO-06",
+  "title": "Project Lead",
+  "layer": "L2",
+  "mission": "Convert scope into delivery tasks. Coordinate technical work and manage handoffs between teams.",
+  "business_value": "Ensures work is properly broken down, sequenced, and handed off between teams.",
+  "reporting_line": {
+    "functional": "Project Manager",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Task sequencing",
+    "Technical coordination",
+    "Handoff management"
+  ],
+  "approval_rights": [
+    "Task reordering",
+    "Handoff timing"
+  ],
+  "escalation_paths": {
+    "to": "Project Manager",
+    "from": "Engineers, QA",
+    "trigger": "Task dependency, handoff issue"
+  },
+  "artifacts_owned": [
+    "Work breakdown structure",
+    "Task sequence map",
+    "Handoff checklist"
+  ],
+  "kpis": {
+    "leading": [
+      "Task completion rate",
+      "Handoff quality"
+    ],
+    "lagging": [
+      "Task delivery time",
+      "Handoff defects"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Task throughput"
+    ],
+    "technical": [
+      "Handoff quality"
+    ],
+    "operational": [
+      "Task predictability"
+    ],
+    "customer": []
+  },
+  "governance_responsibilities": []
+}

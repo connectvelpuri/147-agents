@@ -1,0 +1,57 @@
+{
+  "id": "HR-QAE-1",
+  "title": "HR QA Engineer",
+  "layer": "L5",
+  "product_line": "HR",
+  "mission": "Execute tests. Focused on HR quality.",
+  "business_value": "Ensures HR meets quality standards.",
+  "reporting_line": {
+    "functional": "Quality Director (L5)",
+    "delivery": "HR PMO Lead"
+  },
+  "decision_rights": [
+    "HR test strategy",
+    "Test execution"
+  ],
+  "approval_rights": [
+    "HR quality sign-off",
+    "Test plan approval"
+  ],
+  "escalation_paths": {
+    "to": "Quality Director",
+    "from": "QA",
+    "trigger": "Quality gate failure, defect spike"
+  },
+  "artifacts_owned": [
+    "HR test plan",
+    "Test reports",
+    "Defect reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Test coverage",
+      "Defect discovery"
+    ],
+    "lagging": [
+      "Defect escape rate",
+      "Quality score"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Release quality"
+    ],
+    "technical": [
+      "Test coverage"
+    ],
+    "operational": [
+      "Test cycle time"
+    ],
+    "customer": [
+      "Product quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)"
+  ]
+}

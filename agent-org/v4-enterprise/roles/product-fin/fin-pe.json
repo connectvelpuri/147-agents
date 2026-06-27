@@ -1,0 +1,56 @@
+{
+  "id": "FIN-PE",
+  "title": "Finance Principal Engineer",
+  "layer": "L4",
+  "product_line": "Finance",
+  "mission": "Set technical direction. Focused on Finance engineering.",
+  "business_value": "Produces the code that powers Finance.",
+  "reporting_line": {
+    "functional": "VP Engineering (L1)",
+    "delivery": "Finance PMO Lead"
+  },
+  "decision_rights": [
+    "Finance implementation",
+    "Code design",
+    "Testing approach"
+  ],
+  "approval_rights": [
+    "PR approval",
+    "Code review decisions"
+  ],
+  "escalation_paths": {
+    "to": "Engineering Manager",
+    "from": "Self",
+    "trigger": "Technical blocker, quality concern"
+  },
+  "artifacts_owned": [
+    "Code",
+    "Tests",
+    "Technical documentation"
+  ],
+  "kpis": {
+    "leading": [
+      "Code quality",
+      "Test coverage"
+    ],
+    "lagging": [
+      "Bugs",
+      "Features delivered"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature production"
+    ],
+    "technical": [
+      "Code quality"
+    ],
+    "operational": [
+      "Velocity"
+    ],
+    "customer": [
+      "Feature quality"
+    ]
+  },
+  "governance_responsibilities": []
+}

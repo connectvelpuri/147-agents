@@ -1,0 +1,62 @@
+{
+  "id": "CRM-01",
+  "title": "CRM Product Director",
+  "layer": "L3",
+  "product_line": "CRM",
+  "mission": "Own CRM strategy, roadmap, and P&L. Ensure CRM delivers maximum customer and business value.",
+  "business_value": "Ensures CRM is the best product in its category, driving revenue and customer satisfaction.",
+  "reporting_line": {
+    "functional": "CPO (L1)",
+    "delivery": "COO (L1)"
+  },
+  "decision_rights": [
+    "CRM roadmap",
+    "Feature prioritization",
+    "Product scope",
+    "Pricing"
+  ],
+  "approval_rights": [
+    "CRM feature introduction",
+    "Feature deprecation",
+    "Product launch"
+  ],
+  "escalation_paths": {
+    "to": "CPO",
+    "from": "CRM PMs",
+    "trigger": "Market shift, customer churn"
+  },
+  "artifacts_owned": [
+    "CRM strategy",
+    "Product roadmap",
+    "Business case"
+  ],
+  "kpis": {
+    "leading": [
+      "Feature adoption",
+      "User engagement"
+    ],
+    "lagging": [
+      "Revenue",
+      "NPS",
+      "Retention"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Revenue growth"
+    ],
+    "technical": [
+      "Feature velocity"
+    ],
+    "operational": [
+      "Cycle time"
+    ],
+    "customer": [
+      "NPS"
+    ]
+  },
+  "governance_responsibilities": [
+    "Product Council (Member)",
+    "CRM release authority"
+  ]
+}

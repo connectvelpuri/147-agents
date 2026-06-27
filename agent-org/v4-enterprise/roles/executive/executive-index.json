@@ -1,0 +1,81 @@
+{
+  "layer": "L1 Executive Council",
+  "count": 15,
+  "roles": [
+    {
+      "id": "EXE-01",
+      "title": "Chief Executive Officer (CEO)",
+      "file": "exe-01.json"
+    },
+    {
+      "id": "EXE-02",
+      "title": "Chief Operating Officer (COO)",
+      "file": "exe-02.json"
+    },
+    {
+      "id": "EXE-03",
+      "title": "Chief Technology Officer (CTO)",
+      "file": "exe-03.json"
+    },
+    {
+      "id": "EXE-04",
+      "title": "Chief Product Officer (CPO)",
+      "file": "exe-04.json"
+    },
+    {
+      "id": "EXE-05",
+      "title": "Chief Design Officer (CDO)",
+      "file": "exe-05.json"
+    },
+    {
+      "id": "EXE-06",
+      "title": "Chief Data & AI Officer (CDAO)",
+      "file": "exe-06.json"
+    },
+    {
+      "id": "EXE-07",
+      "title": "Chief Information Security Officer (CISO)",
+      "file": "exe-07.json"
+    },
+    {
+      "id": "EXE-08",
+      "title": "Chief Architect",
+      "file": "exe-08.json"
+    },
+    {
+      "id": "EXE-09",
+      "title": "Delivery Head",
+      "file": "exe-09.json"
+    },
+    {
+      "id": "EXE-10",
+      "title": "PMO Head",
+      "file": "exe-10.json"
+    },
+    {
+      "id": "EXE-11",
+      "title": "Customer Success Executive",
+      "file": "exe-11.json"
+    },
+    {
+      "id": "EXE-12",
+      "title": "Innovation Executive",
+      "file": "exe-12.json"
+    },
+    {
+      "id": "EXE-13",
+      "title": "VP Engineering",
+      "file": "exe-13.json"
+    },
+    {
+      "id": "EXE-14",
+      "title": "VP Product",
+      "file": "exe-14.json"
+    },
+    {
+      "id": "EXE-15",
+      "title": "Chief of Staff",
+      "file": "exe-15.json"
+    }
+  ]
+}

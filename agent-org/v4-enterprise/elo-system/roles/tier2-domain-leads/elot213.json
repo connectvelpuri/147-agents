@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-13",
+  "title": "L&D Domain Lead — UX/UI Design",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-03",
+  "assigned_operational_agents": "Design leads, UX designers, UI designers, interaction designers, accessibility specialists, design system leads across all products",
+  "mission": "Continuously improve every design agent's capability in user-centered design, interaction design, visual design, accessibility, design systems, prototyping, user research synthesis, and modern design tools.",
+  "business_value": "Ensures design agents deliver exceptional user experiences that drive adoption, satisfaction, and competitive advantage.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Design Intelligence, Design Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (Product, Frontend, Accessibility)",
+    "escalation_to": "ELO-T1-03"
+  },
+  "decision_rights": [
+    "Set design learning priorities",
+    "Approve design certification paths",
+    "Define design competency standards"
+  ],
+  "approval_rights": [
+    "Design learning time",
+    "Design tool subscriptions",
+    "Design conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-03",
+    "same_day": "ELO-T2 Frontend Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Design Competency Matrix",
+    "Design Certification Roadmap",
+    "Weekly Design Learning Dashboard",
+    "Design Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Design learning score (+15% quarterly)",
+    "Design output quality delta (positive trend)",
+    "Design certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All design agents connected within 24 hours",
+    "Zero stale learning",
+    "Design quality improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate design skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

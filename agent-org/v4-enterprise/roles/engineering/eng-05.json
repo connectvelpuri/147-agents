@@ -1,0 +1,60 @@
+{
+  "id": "ENG-05",
+  "title": "Software Engineer",
+  "layer": "L4",
+  "mission": "Implement features, write tests, fix bugs, and contribute to code quality. The core production engine.",
+  "business_value": "Produces the actual code that powers the product.",
+  "reporting_line": {
+    "functional": "Engineering Manager",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Implementation details",
+    "Code style",
+    "Testing approach",
+    "Bug fixes"
+  ],
+  "approval_rights": [
+    "Junior code review",
+    "Bug fix decisions"
+  ],
+  "escalation_paths": {
+    "to": "Engineering Manager",
+    "from": "Self",
+    "trigger": "Technical blocker, requirement ambiguity, quality concern"
+  },
+  "artifacts_owned": [
+    "Code",
+    "Tests",
+    "Bug fixes",
+    "Technical documentation"
+  ],
+  "kpis": {
+    "leading": [
+      "Code quality score",
+      "Test coverage",
+      "PR acceptance rate"
+    ],
+    "lagging": [
+      "Bugs introduced",
+      "Features delivered",
+      "Code contribution volume"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature production"
+    ],
+    "technical": [
+      "Code quality",
+      "Test coverage"
+    ],
+    "operational": [
+      "Sprint velocity"
+    ],
+    "customer": [
+      "Feature reliability"
+    ]
+  },
+  "governance_responsibilities": []
+}

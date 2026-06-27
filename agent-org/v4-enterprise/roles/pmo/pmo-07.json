@@ -1,0 +1,57 @@
+{
+  "id": "PMO-07",
+  "title": "Scrum Master",
+  "layer": "L2",
+  "mission": "Facilitate sprint ceremonies, remove impediments, and coach the team on agile practices.",
+  "business_value": "Ensures the team operates efficiently and continuously improves.",
+  "reporting_line": {
+    "functional": "Delivery Manager",
+    "delivery": "Delivery Head"
+  },
+  "decision_rights": [
+    "Sprint ceremony format",
+    "Impediment removal",
+    "Process improvement"
+  ],
+  "approval_rights": [
+    "Process changes <team level"
+  ],
+  "escalation_paths": {
+    "to": "Delivery Manager",
+    "from": "Team members",
+    "trigger": "Impediment unresolved >24h, process failure"
+  },
+  "artifacts_owned": [
+    "Sprint ceremony agenda",
+    "Impediment log",
+    "Retrospective actions",
+    "Process improvement proposals"
+  ],
+  "kpis": {
+    "leading": [
+      "Impediment resolution time",
+      "Team velocity trend",
+      "Process improvement count"
+    ],
+    "lagging": [
+      "Sprint predictability",
+      "Team satisfaction",
+      "Process compliance"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Team productivity"
+    ],
+    "technical": [
+      "Sprint velocity"
+    ],
+    "operational": [
+      "Impediment resolution time"
+    ],
+    "customer": [
+      "Team satisfaction"
+    ]
+  },
+  "governance_responsibilities": []
+}

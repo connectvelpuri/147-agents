@@ -1,0 +1,59 @@
+{
+  "id": "PRD-06",
+  "title": "Business Analyst",
+  "layer": "L3",
+  "mission": "Clarify business rules, process flows, and requirements. Bridge business needs and technical implementation.",
+  "business_value": "Ensures requirements are clear, complete, and accurately reflect business needs.",
+  "reporting_line": {
+    "functional": "Product Director",
+    "delivery": "Product Manager"
+  },
+  "decision_rights": [
+    "Business rule documentation",
+    "Process flow design",
+    "Requirement clarification",
+    "Data mapping"
+  ],
+  "approval_rights": [
+    "Business rule validation",
+    "Process flow sign-off"
+  ],
+  "escalation_paths": {
+    "to": "Product Manager",
+    "from": "Engineers, QA",
+    "trigger": "Requirement ambiguity, business rule conflict"
+  },
+  "artifacts_owned": [
+    "Business rules document",
+    "Process flows",
+    "User stories",
+    "Data dictionaries",
+    "UAT scripts"
+  ],
+  "kpis": {
+    "leading": [
+      "Requirement defect rate",
+      "Stakeholder satisfaction",
+      "Clarification turnaround"
+    ],
+    "lagging": [
+      "Requirement rework rate",
+      "UAT defect rate"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Business rule accuracy"
+    ],
+    "technical": [
+      "Requirement completeness"
+    ],
+    "operational": [
+      "Clarification speed"
+    ],
+    "customer": [
+      "Business need satisfaction"
+    ]
+  },
+  "governance_responsibilities": []
+}

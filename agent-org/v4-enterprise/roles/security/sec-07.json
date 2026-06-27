@@ -1,0 +1,66 @@
+{
+  "id": "SEC-07",
+  "title": "Incident Response Lead",
+  "layer": "L5",
+  "mission": "Lead security incident response \u2014 detection, containment, eradication, recovery, and post-incident review.",
+  "business_value": "Ensures security incidents are handled quickly, effectively, and with minimal damage.",
+  "reporting_line": {
+    "functional": "Security Director",
+    "delivery": "CISO"
+  },
+  "decision_rights": [
+    "Incident response actions",
+    "Incident classification",
+    "Containment decisions",
+    "Recovery procedures"
+  ],
+  "approval_rights": [
+    "Incident severity escalation",
+    "External communication",
+    "Law enforcement notification"
+  ],
+  "escalation_paths": {
+    "to": "CISO",
+    "from": "Security Engineers",
+    "trigger": "Major security incident, data breach, ransomware"
+  },
+  "artifacts_owned": [
+    "Incident response playbook",
+    "Incident reports",
+    "Post-incident reviews",
+    "Lessons learned",
+    "Response metrics"
+  ],
+  "kpis": {
+    "leading": [
+      "Detection speed",
+      "Response speed",
+      "Containment speed"
+    ],
+    "lagging": [
+      "Mean time to detect",
+      "Mean time to respond",
+      "Mean time to recover",
+      "Incident impact"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Incident impact reduction"
+    ],
+    "technical": [
+      "Response time",
+      "Recovery time"
+    ],
+    "operational": [
+      "Response effectiveness"
+    ],
+    "customer": [
+      "Trust preservation"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)",
+    "Incident authority"
+  ]
+}

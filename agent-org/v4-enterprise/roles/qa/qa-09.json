@@ -1,0 +1,62 @@
+{
+  "id": "QA-09",
+  "title": "Quality Governance Lead",
+  "layer": "L5",
+  "mission": "Own quality governance \u2014 quality metrics, quality reporting, quality process improvement, and quality culture.",
+  "business_value": "Ensures quality processes are followed, metrics are tracked, and quality improves over time.",
+  "reporting_line": {
+    "functional": "Quality Director",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Quality governance framework",
+    "Quality metrics definition",
+    "Quality reporting standards",
+    "Quality process improvement"
+  ],
+  "approval_rights": [
+    "Quality governance changes",
+    "Quality metric definition changes",
+    "Quality process improvements"
+  ],
+  "escalation_paths": {
+    "to": "Quality Director",
+    "from": "QA Leads",
+    "trigger": "Quality process gap, metrics discrepancy, governance failure"
+  },
+  "artifacts_owned": [
+    "Quality governance framework",
+    "Quality metrics reports",
+    "Quality process documentation",
+    "Quality improvement proposals"
+  ],
+  "kpis": {
+    "leading": [
+      "Quality governance compliance",
+      "Metrics accuracy",
+      "Process improvement rate"
+    ],
+    "lagging": [
+      "Quality trend",
+      "Process efficiency",
+      "Quality culture score"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Quality improvement rate"
+    ],
+    "technical": [
+      "Quality governance compliance"
+    ],
+    "operational": [
+      "Process efficiency"
+    ],
+    "customer": [
+      "Quality culture"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Co-Chair)"
+  ]
+}

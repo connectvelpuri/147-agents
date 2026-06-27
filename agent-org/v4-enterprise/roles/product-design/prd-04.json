@@ -1,0 +1,63 @@
+{
+  "id": "PRD-04",
+  "title": "Product Manager \u2014 Integration & Platform",
+  "layer": "L3",
+  "mission": "Own platform features, integrations, and API strategy for a product line.",
+  "business_value": "Ensures the product integrates seamlessly with other systems and provides robust APIs.",
+  "reporting_line": {
+    "functional": "Product Director",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Integration requirements",
+    "API strategy",
+    "Platform feature scope",
+    "Third-party integration priority"
+  ],
+  "approval_rights": [
+    "Integration partner selection",
+    "API design review"
+  ],
+  "escalation_paths": {
+    "to": "Product Director",
+    "from": "Integration Architect, API Designer",
+    "trigger": "Integration failure, API breaking change, partner issue"
+  },
+  "artifacts_owned": [
+    "Integration requirements",
+    "API strategy document",
+    "Partner evaluation",
+    "Platform roadmap"
+  ],
+  "kpis": {
+    "leading": [
+      "Integration adoption",
+      "API usage",
+      "Partner satisfaction"
+    ],
+    "lagging": [
+      "Integration reliability",
+      "API uptime",
+      "Partner revenue"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Integration revenue",
+      "Partner count"
+    ],
+    "technical": [
+      "API uptime",
+      "Integration reliability"
+    ],
+    "operational": [
+      "Integration delivery time"
+    ],
+    "customer": [
+      "Integration satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "Architecture Review Board (Member)"
+  ]
+}

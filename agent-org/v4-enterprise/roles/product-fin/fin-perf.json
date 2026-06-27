@@ -1,0 +1,57 @@
+{
+  "id": "FIN-PERF",
+  "title": "Finance Performance Engineer",
+  "layer": "L5",
+  "product_line": "Finance",
+  "mission": "Performance testing. Focused on Finance quality.",
+  "business_value": "Ensures Finance meets quality standards.",
+  "reporting_line": {
+    "functional": "Quality Director (L5)",
+    "delivery": "Finance PMO Lead"
+  },
+  "decision_rights": [
+    "Finance test strategy",
+    "Test execution"
+  ],
+  "approval_rights": [
+    "Finance quality sign-off",
+    "Test plan approval"
+  ],
+  "escalation_paths": {
+    "to": "Quality Director",
+    "from": "QA",
+    "trigger": "Quality gate failure, defect spike"
+  },
+  "artifacts_owned": [
+    "Finance test plan",
+    "Test reports",
+    "Defect reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Test coverage",
+      "Defect discovery"
+    ],
+    "lagging": [
+      "Defect escape rate",
+      "Quality score"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Release quality"
+    ],
+    "technical": [
+      "Test coverage"
+    ],
+    "operational": [
+      "Test cycle time"
+    ],
+    "customer": [
+      "Product quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)"
+  ]
+}

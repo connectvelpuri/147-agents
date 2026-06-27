@@ -1,0 +1,33 @@
+# Runbook: Full System Outage
+type: full_outage
+severity: P1
+trigger: complete_unavailability | data_center_down | provider_outage
+auto_recovery_target: 99.99%
+steps:
+  - id: rb7-s1
+    action: failover
+    params:
+      target_region: secondary
+      dns_switch: true
+      activate_dr_plan: true
+    timeout: 120
+    on_failure: goto_s2
+  - id: rb7-s2
+    action: degrade
+    params:
+      operate_on: critical_path_only
+      non_critical_queued: true
+      estimated_restore: notify
+    timeout: 30
+    on_failure: goto_s3
+  - id: rb7-s3
+    action: escalate
+    params:
+      to: T1_CEO | T1_CTO | T1_COO
+      notify_channels: [sms, phone, slack]
+      ticket_priority: P1
+      incident_channel: auto_create
+    timeout: 1800
+fallback: none
+escalate_to: T1_Executive
+post_mortem: true

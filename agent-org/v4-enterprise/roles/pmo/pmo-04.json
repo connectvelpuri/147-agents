@@ -1,0 +1,61 @@
+{
+  "id": "PMO-04",
+  "title": "Delivery Manager",
+  "layer": "L2",
+  "mission": "Own execution of a specific delivery track. Manage sprints, milestones, blockers, and team coordination.",
+  "business_value": "Ensures features are delivered predictably with high quality.",
+  "reporting_line": {
+    "functional": "Delivery Head (L1)",
+    "delivery": "Product Director"
+  },
+  "decision_rights": [
+    "Sprint scope",
+    "Sprint commitment",
+    "Blocker resolution",
+    "Team coordination"
+  ],
+  "approval_rights": [
+    "Sprint scope changes <15%",
+    "Release scheduling"
+  ],
+  "escalation_paths": {
+    "to": "Delivery Head",
+    "from": "Scrum Masters, Engineering Managers",
+    "trigger": "Sprint failure, blocker aging, quality gate failure"
+  },
+  "artifacts_owned": [
+    "Sprint plan",
+    "Sprint health report",
+    "Blocker log",
+    "Release readiness checklist"
+  ],
+  "kpis": {
+    "leading": [
+      "Sprint velocity",
+      "Blocker aging",
+      "Team morale"
+    ],
+    "lagging": [
+      "On-time delivery",
+      "Deployment frequency",
+      "Sprint predictability"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Feature delivery rate"
+    ],
+    "technical": [
+      "DORA metrics"
+    ],
+    "operational": [
+      "Sprint predictability"
+    ],
+    "customer": [
+      "Delivery satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "Delivery Governance Board (Member)"
+  ]
+}

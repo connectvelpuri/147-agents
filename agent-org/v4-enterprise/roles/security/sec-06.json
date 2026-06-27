@@ -1,0 +1,64 @@
+{
+  "id": "SEC-06",
+  "title": "Audit Manager",
+  "layer": "L5",
+  "mission": "Manage internal and external audits, ensure audit readiness, and track audit findings to resolution.",
+  "business_value": "Ensures the organization passes audits and audit findings are addressed promptly.",
+  "reporting_line": {
+    "functional": "CISO (L1)",
+    "delivery": "COO"
+  },
+  "decision_rights": [
+    "Audit planning",
+    "Audit coordination",
+    "Finding tracking",
+    "Audit reporting"
+  ],
+  "approval_rights": [
+    "Audit scope changes",
+    "Finding severity classification",
+    "Remediation plan approval"
+  ],
+  "escalation_paths": {
+    "to": "CISO",
+    "from": "Compliance Lead",
+    "trigger": "Audit finding, audit risk, compliance gap"
+  },
+  "artifacts_owned": [
+    "Audit plans",
+    "Audit reports",
+    "Finding tracking",
+    "Remediation plans",
+    "Audit readiness checklists"
+  ],
+  "kpis": {
+    "leading": [
+      "Audit readiness score",
+      "Finding closure rate",
+      "Audit preparation time"
+    ],
+    "lagging": [
+      "Audit pass rate",
+      "Finding count",
+      "Audit cost"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Audit success",
+      "Compliance"
+    ],
+    "technical": [
+      "Audit readiness"
+    ],
+    "operational": [
+      "Finding resolution time"
+    ],
+    "customer": [
+      "Audit confidence"
+    ]
+  },
+  "governance_responsibilities": [
+    "Security Review Board (Member)"
+  ]
+}

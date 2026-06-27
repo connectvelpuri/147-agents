@@ -1,0 +1,62 @@
+{
+  "id": "DAI-08",
+  "title": "Data Engineer",
+  "layer": "L5",
+  "mission": "Build and maintain data pipelines, ETL/ELT processes, and data infrastructure. Ensure data is available, clean, and timely.",
+  "business_value": "Ensures data pipelines are reliable, performant, and support analytics and AI needs.",
+  "reporting_line": {
+    "functional": "Data Director",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Pipeline design",
+    "ETL/ELT implementation",
+    "Data transformation",
+    "Data quality checks"
+  ],
+  "approval_rights": [
+    "Pipeline changes",
+    "Data model changes",
+    "New data source integration"
+  ],
+  "escalation_paths": {
+    "to": "Data Director",
+    "from": "Data Analysts",
+    "trigger": "Pipeline failure, data quality issue, performance degradation"
+  },
+  "artifacts_owned": [
+    "Pipeline code",
+    "ETL/ELT scripts",
+    "Data quality checks",
+    "Data model documentation",
+    "Pipeline monitoring"
+  ],
+  "kpis": {
+    "leading": [
+      "Pipeline reliability",
+      "Data freshness",
+      "Pipeline performance"
+    ],
+    "lagging": [
+      "Pipeline uptime",
+      "Data quality score",
+      "Data latency"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Data availability"
+    ],
+    "technical": [
+      "Pipeline reliability",
+      "Performance"
+    ],
+    "operational": [
+      "Pipeline cycle time"
+    ],
+    "customer": [
+      "Data freshness"
+    ]
+  },
+  "governance_responsibilities": []
+}

@@ -1,0 +1,57 @@
+{
+  "id": "HR-SRE",
+  "title": "HR SRE Engineer",
+  "layer": "L5",
+  "product_line": "HR",
+  "mission": "Reliability engineering. Focused on HR deployment and reliability.",
+  "business_value": "Ensures HR is deployed reliably and performs well.",
+  "reporting_line": {
+    "functional": "Platform Director (L5)",
+    "delivery": "HR PMO Lead"
+  },
+  "decision_rights": [
+    "HR CI/CD",
+    "Deployment process"
+  ],
+  "approval_rights": [
+    "HR deployment",
+    "Pipeline changes"
+  ],
+  "escalation_paths": {
+    "to": "Platform Director",
+    "from": "DevOps",
+    "trigger": "Pipeline failure, deployment issue"
+  },
+  "artifacts_owned": [
+    "HR pipelines",
+    "Deployment scripts",
+    "Runbooks"
+  ],
+  "kpis": {
+    "leading": [
+      "Pipeline reliability",
+      "Deployment frequency"
+    ],
+    "lagging": [
+      "Change failure rate",
+      "MTTR"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Deployment velocity"
+    ],
+    "technical": [
+      "DORA metrics"
+    ],
+    "operational": [
+      "Success rate"
+    ],
+    "customer": [
+      "Release quality"
+    ]
+  },
+  "governance_responsibilities": [
+    "Quality Council (Member)"
+  ]
+}

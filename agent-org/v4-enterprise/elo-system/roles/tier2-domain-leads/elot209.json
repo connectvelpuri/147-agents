@@ -1,0 +1,52 @@
+{
+  "id": "ELO-T2-09",
+  "title": "L&D Domain Lead — HR Domain",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-02",
+  "assigned_operational_agents": "All HR product agents (91 agents): HR PM, HR Engineers, HR QA, HR Design, HR AI, HR DevOps, HR Data, HR Security",
+  "mission": "Continuously improve every HR agent's deep domain expertise in employee records, payroll, benefits administration, performance management, recruiting, onboarding, workforce planning, and HR compliance.",
+  "business_value": "Ensures HR agents build a world-class HR product with deep domain knowledge that helps customers manage their workforce effectively.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (3): HR Intelligence, HR Practitioner, HR Domain Expert",
+    "functional_peers": "ELO-T2 Domain Leads (CRM, ERP, Finance, Compliance)",
+    "escalation_to": "ELO-T1-02"
+  },
+  "decision_rights": [
+    "Set HR domain learning priorities",
+    "Approve HR certification paths",
+    "Define HR domain competency standards"
+  ],
+  "approval_rights": [
+    "HR domain learning time",
+    "HR tool subscriptions",
+    "HR industry conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-02",
+    "same_day": "ELO-T2 Compliance Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "HR Domain Competency Matrix",
+    "HR Certification Roadmap",
+    "Weekly HR Learning Dashboard",
+    "HR Learning Pack (daily)"
+  ],
+  "kpis": [
+    "HR domain learning score (+15% quarterly)",
+    "HR quality delta (positive trend)",
+    "HR domain depth (>8/10)",
+    "HR certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All 91 HR agents connected within 24 hours",
+    "Zero stale learning",
+    "HR domain knowledge improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate HR skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

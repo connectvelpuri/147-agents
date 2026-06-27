@@ -1,0 +1,211 @@
+[
+  {
+    "company": "Bharat Fritz Werner (BFW)",
+    "hq": "Bangalore (Peenya Industrial Area + Hosur smart plant)",
+    "sector": "Manufacturing - Machine Tools",
+    "founded": 1961,
+    "group": "Kothari Group (Kolkata)",
+    "est_revenue_cr": "1,200-1,500 (FY2025: \u20b91,452 Cr/ICRA)",
+    "is_unlisted": true,
+    "employees": "~2,200",
+    "leadership": [
+      {
+        "name": "Arun Kumar Kothari",
+        "role": "Chairman"
+      },
+      {
+        "name": "Ravi Raghavan",
+        "role": "Managing Director & CEO"
+      },
+      {
+        "name": "Sujoy Dasgupta",
+        "role": "CFO"
+      },
+      {
+        "name": "Vijaya Krishna KS",
+        "role": "AVP - IT"
+      }
+    ],
+    "sap_erp": "SAP S/4HANA (greenfield via NTT DATA, RISE with SAP)",
+    "key_digital_signals": [
+      "Hosur smart plant (3K\u219210K machines)",
+      "m2nxt I4.0 subsidiary (IRIS platform)",
+      "ADDiTEC additive partnership"
+    ],
+    "pain_points": [
+      "Peenya closure impacted PAT (-50%)",
+      "DSCR at 1.6x (below 1.8x downgrade trigger)",
+      "import competition from DMG/Mazak"
+    ],
+    "key_news": [
+      "S/4HANA project won IDG CIO 100 award",
+      "\u20b9140Cr capex on Hosur plant",
+      "ICRA reaffirmed [ICRA]A/Stable"
+    ]
+  },
+  {
+    "company": "Ace Designers Ltd",
+    "hq": "Bangalore (4 plants) + Ahmedabad + Coimbatore",
+    "sector": "Manufacturing - CNC Machine Tools",
+    "founded": 1979,
+    "group": "Ace Micromatic Group",
+    "est_revenue_cr": "1,818 (FY25 actual), targeting \u20b92,800 (FY26)",
+    "is_unlisted": true,
+    "employees": "~6,000",
+    "leadership": [
+      {
+        "name": "Shrinivas G. Shirgurkar",
+        "role": "Founder & MD"
+      },
+      {
+        "name": "T.K. Ramesh",
+        "role": "Managing Director"
+      },
+      {
+        "name": "Bill Shukla",
+        "role": "Deputy MD (joined 2025)"
+      },
+      {
+        "name": "Ashokan Padmanabhan",
+        "role": "CIO (joined Jun 2025)"
+      }
+    ],
+    "sap_erp": "SAP S/4HANA Cloud (90% data reduction, 91% backup time reduction)",
+    "key_digital_signals": [
+      "AmiT IIoT platform",
+      "flow-line assembly system",
+      "$142M Kotak PE investment for expansion",
+      "IPO in 2 years"
+    ],
+    "pain_points": [
+      "Top 5 customers \u2192 49% revenue",
+      "24-30 month orderbook",
+      "talent drain to IT sector"
+    ],
+    "key_news": [
+      "Kotak \u20b91,200Cr investment Apr 2025",
+      "Three-way merger complete",
+      "\u20b94,412Cr orderbook"
+    ]
+  },
+  {
+    "company": "Biological E Ltd",
+    "hq": "Hyderabad (Jubilee Hills)",
+    "sector": "Life Sciences - Vaccines & Biopharmaceuticals",
+    "founded": 1953,
+    "group": "Rama Family (private)",
+    "est_revenue_cr": "4,700-4,800 (FY2025 est/ICRA)",
+    "is_unlisted": true,
+    "employees": "~5,000+",
+    "leadership": [
+      {
+        "name": "Mahima Datla",
+        "role": "MD & CEO (Vaccines & Branded Formulations)"
+      },
+      {
+        "name": "Narender Dev Mantena",
+        "role": "Jt MD & CEO (Injectables & SynBio)"
+      },
+      {
+        "name": "Dr. Philip Dormitzer",
+        "role": "CSO (ex-Pfizer/BioNTech COVID vaccine lead)"
+      },
+      {
+        "name": "Dr. Vishvesh Kumar",
+        "role": "COO - BE Biosol"
+      }
+    ],
+    "sap_erp": "SAP ECC (18+ yrs), S/4HANA migration in progress",
+    "key_digital_signals": [
+      "Chief People & Transformation Officer role created",
+      "WHO mRNA tech transfer hub",
+      "AI-driven regulatory compliance"
+    ],
+    "pain_points": [
+      "Regulatory filings across 100+ countries",
+      "Cold chain logistics",
+      "thin margins on WHO/UNICEF contracts",
+      "family governance transition"
+    ],
+    "key_news": [
+      "nOPV2 WHO pre-qualified Feb 2026",
+      "HPV9 licensing with Recbio",
+      "ICRA rating upgraded to [ICRA]AA/Stable"
+    ]
+  },
+  {
+    "company": "Pothys Group",
+    "hq": "Chennai, Tamil Nadu",
+    "sector": "Retail - Textiles & Apparel, Jewellery",
+    "founded": 1923,
+    "group": "Pothy family (private)",
+    "est_revenue_cr": "6,188.6 (FY2025 consolidated/Ind-Ra)",
+    "is_unlisted": true,
+    "employees": "~5,000+",
+    "leadership": [
+      {
+        "name": "Pothy Ramesh",
+        "role": "Owner/MD (3rd gen)"
+      },
+      {
+        "name": "Ashok Pothy",
+        "role": "Director - Swarna Mahal (jewellery digital)"
+      }
+    ],
+    "sap_erp": "SAP S/4HANA on AWS (14 servers via Redington)",
+    "key_digital_signals": [
+      "Salesforce AI CRM + Commerce Cloud",
+      "DigiGold app (46% Gen Z users)",
+      "IPO within 2 years"
+    ],
+    "pain_points": [
+      "EBITDA margin compressed to ~12%",
+      "geographic concentration (TN)",
+      "IT raids Sep 2025",
+      "asset-heavy capex \u20b9500Cr"
+    ],
+    "key_news": [
+      "0.5M sq ft Padi mega-store opened",
+      "Income Tax raids Sep 2025",
+      "India Ratings 'IND A'/Stable affirmed"
+    ]
+  },
+  {
+    "company": "Muthoot Pappachan Group",
+    "hq": "Thiruvananthapuram, Kerala",
+    "sector": "BFSI - NBFC, Gold Loans, Financial Services",
+    "founded": 1887,
+    "group": "Muthoot family (private parent, Muthoot Finance listed)",
+    "est_revenue_cr": "15,000-20,000+ (group); FinCorp \u20b95,550Cr (FY25)",
+    "is_unlisted": true,
+    "employees": "26,000+ (4,200+ branches)",
+    "leadership": [
+      {
+        "name": "Thomas John Muthoot",
+        "role": "Chairman & MD"
+      },
+      {
+        "name": "Suresh Sarangapani",
+        "role": "CIO (Top 50 NBFC Tech Leader)"
+      }
+    ],
+    "sap_erp": "Muthoot Pappachan Technologies (MPT) \u2014 in-house IT arm",
+    "key_digital_signals": [
+      "Muthoot FinCorp ONE super app",
+      "400 phygital facility centres",
+      "98% e-sign loan processing",
+      "IPO planned $300M"
+    ],
+    "pain_points": [
+      "Gold price volatility",
+      "RBI compliance across multiple NBFC licenses",
+      "rural digital adoption gap",
+      "fintech disruption"
+    ],
+    "key_news": [
+      "FinCorp planning $300M IPO (Mar 2026)",
+      "SRK as brand ambassador (May 2024)",
+      "AUM \u20b964,279Cr (Q3 FY26)"
+    ]
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "id": "CRM-DS",
+  "title": "CRM Data Scientist",
+  "layer": "L5",
+  "product_line": "CRM",
+  "mission": "Experiments and models. Focused on CRM data and AI.",
+  "business_value": "Ensures CRM has excellent data and AI capabilities.",
+  "reporting_line": {
+    "functional": "Data Director (L5)",
+    "delivery": "CRM Product Director"
+  },
+  "decision_rights": [
+    "CRM data pipelines",
+    "AI feature implementation"
+  ],
+  "approval_rights": [
+    "CRM data changes",
+    "AI deployment"
+  ],
+  "escalation_paths": {
+    "to": "Data Director",
+    "from": "Data/AI",
+    "trigger": "Data quality issue, AI accuracy drop"
+  },
+  "artifacts_owned": [
+    "CRM data pipelines",
+    "AI models",
+    "Analytics reports"
+  ],
+  "kpis": {
+    "leading": [
+      "Data quality",
+      "AI accuracy"
+    ],
+    "lagging": [
+      "Pipeline reliability",
+      "AI feature adoption"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Data-driven decisions"
+    ],
+    "technical": [
+      "Data quality",
+      "AI accuracy"
+    ],
+    "operational": [
+      "Pipeline uptime"
+    ],
+    "customer": [
+      "AI feature satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Member)"
+  ]
+}

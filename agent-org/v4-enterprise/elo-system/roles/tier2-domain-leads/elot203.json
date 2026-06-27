@@ -1,0 +1,52 @@
+{
+  "id": "ELO-T2-03",
+  "title": "L&D Domain Lead — Architecture",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-01",
+  "assigned_operational_agents": "Enterprise architects, solution architects, platform architects, domain architects, integration architects, security architects",
+  "mission": "Continuously improve every architecture agent's capability in enterprise architecture patterns, solution design, domain-driven design, integration patterns, API design, microservices, event-driven architecture, cloud-native patterns, and architecture decision-making.",
+  "business_value": "Ensures architecture agents make sound technical decisions that balance innovation with stability, enabling scalable and maintainable systems.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Architecture Intelligence, Architecture Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (Frontend, Backend, Security, Platform)",
+    "escalation_to": "ELO-T1-01"
+  },
+  "decision_rights": [
+    "Set architecture learning priorities",
+    "Approve architecture certification paths",
+    "Define architecture competency standards",
+    "Approve architecture knowledge sources"
+  ],
+  "approval_rights": [
+    "Architecture learning time",
+    "Architecture platform subscriptions",
+    "Architecture conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-01",
+    "same_day": "ELO-T2 Security Lead for security architecture",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Architecture Competency Matrix",
+    "Architecture Certification Roadmap",
+    "Weekly Architecture Learning Dashboard",
+    "Architecture Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Architecture learning score (+15% quarterly)",
+    "Architecture decision quality (fewer reversals)",
+    "Architecture certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All architecture agents connected within 24 hours",
+    "Zero stale learning",
+    "Architecture decision quality improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate architecture skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

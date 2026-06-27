@@ -1,0 +1,51 @@
+{
+  "id": "ELO-T2-12",
+  "title": "L&D Domain Lead — Product Management",
+  "department": "Enterprise Learning Operations (ELO)",
+  "tier": 2,
+  "reports_to": "ELO-T1-03",
+  "assigned_operational_agents": "Product directors, product managers, product owners, product designers, business analysts, UX researchers across all products",
+  "mission": "Continuously improve every product agent's capability in product strategy, discovery, user research, PRD writing, feature prioritization, A/B testing, product analytics, and product-led growth.",
+  "business_value": "Ensures product agents make data-driven decisions that maximize customer value and business impact.",
+  "reporting_line": {
+    "direct_reports": "ELO-T3 Research Feeders (2): Product Intelligence, Product Practitioner",
+    "functional_peers": "ELO-T2 Domain Leads (UX/UI Design, Innovation, Customer Success)",
+    "escalation_to": "ELO-T1-03"
+  },
+  "decision_rights": [
+    "Set product learning priorities",
+    "Approve product certification paths",
+    "Define product competency standards"
+  ],
+  "approval_rights": [
+    "Product learning time",
+    "Product tool subscriptions",
+    "Product conference budgets"
+  ],
+  "escalation_paths": {
+    "immediate": "ELO-T1-03",
+    "same_day": "ELO-T2 UX/UI Design Lead",
+    "weekly": "ELO-T1 Council"
+  },
+  "artifacts_owned": [
+    "Product Competency Matrix",
+    "Product Certification Roadmap",
+    "Weekly Product Learning Dashboard",
+    "Product Learning Pack (daily)"
+  ],
+  "kpis": [
+    "Product learning score (+15% quarterly)",
+    "Product output quality delta (positive trend)",
+    "Product certification readiness (>80%)"
+  ],
+  "success_metrics": [
+    "All product agents connected within 24 hours",
+    "Zero stale learning",
+    "Product decisions improving"
+  ],
+  "governance_responsibilities": [
+    "Review Tier 3 feeders daily",
+    "Escalate product skill gaps",
+    "Maintain continuity during restructures"
+  ]
+}

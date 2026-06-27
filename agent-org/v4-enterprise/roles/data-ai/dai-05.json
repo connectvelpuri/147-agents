@@ -1,0 +1,65 @@
+{
+  "id": "DAI-05",
+  "title": "Agent Engineer",
+  "layer": "L5",
+  "mission": "Build and manage AI agent systems \u2014 agent orchestration, tool integration, memory management, and agent safety.",
+  "business_value": "Ensures AI agents are reliable, safe, and can perform complex autonomous tasks.",
+  "reporting_line": {
+    "functional": "AI Architect",
+    "delivery": "Delivery Manager"
+  },
+  "decision_rights": [
+    "Agent architecture",
+    "Tool integration",
+    "Memory design",
+    "Agent safety controls"
+  ],
+  "approval_rights": [
+    "Agent deployment",
+    "Agent safety controls",
+    "Agent tool permissions"
+  ],
+  "escalation_paths": {
+    "to": "AI Architect",
+    "from": "AI Engineers",
+    "trigger": "Agent safety concern, tool failure, memory issue"
+  },
+  "artifacts_owned": [
+    "Agent architecture",
+    "Tool integrations",
+    "Memory systems",
+    "Safety controls",
+    "Agent monitoring dashboards"
+  ],
+  "kpis": {
+    "leading": [
+      "Agent reliability",
+      "Tool success rate",
+      "Safety compliance"
+    ],
+    "lagging": [
+      "Agent task success rate",
+      "Safety incidents",
+      "User satisfaction with agents"
+    ]
+  },
+  "success_metrics": {
+    "business": [
+      "Agent productivity"
+    ],
+    "technical": [
+      "Agent reliability",
+      "Safety"
+    ],
+    "operational": [
+      "Agent deployment frequency"
+    ],
+    "customer": [
+      "Agent satisfaction"
+    ]
+  },
+  "governance_responsibilities": [
+    "AI Governance Board (Member)",
+    "Safety oversight"
+  ]
+}

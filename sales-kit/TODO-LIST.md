@@ -1,0 +1,17 @@
+# Todo List
+
+- [✓] Phase 0: Agent cognition - Multi-Model Router + AgentRuntime upgrade (id: p0-router)
+- [○] Phase 0: TEAM_MEMBER specialization (skill+role based) (id: p0-specialize)
+- [○] Phase 0: External knowledge - Agent-Reach + SearXNG + Web Research Agent (id: p0-knowledge)
+- [○] Phase 0: Playwright E2E Test Agent (generic, any app) (id: p0-playwright)
+- [○] Phase 0: Memory architecture - Zep + pgvector + learning loop (id: p0-memory)
+- [○] Phase 1: Multi-provider failover (OpenCode Zen + NVIDIA + OpenRouter) (id: p1-failover)
+- [○] Phase 1: 128K context window + chunked reasoning (id: p1-context)
+- [○] Phase 1: Compliance Agent + Comp AI (SOC 2, ISO 27001) (id: p1-compliance)
+- [○] Phase 1: Enterprise connectors (Salesforce, SAP, Oracle) (id: p1-connectors)
+- [○] Phase 1: Cloud IaC agent (Terraform + Pulumi) (id: p1-iac)
+- [○] Phase 2: Security testing (Bandit, OWASP ZAP) (id: p2-security)
+- [○] Phase 2: Chaos/mutation testing + file locking (id: p2-chaos)
+- [○] Phase 2: 5 missing agent roles (Traceability, Self-Healing, etc) (id: p2-roles)
+- [○] Phase 2: Vision/multimodal + SWE-bench benchmarking (id: p2-vision)
+- [○] Phase 3: Polish - integration tests, doc updates, final verification (id: p3-polish)
