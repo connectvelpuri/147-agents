@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """SalesHelp CLI v3.0 - McKinsey-Level Revenue Analysis."""
-import sys, json, os, argparse, random, subprocess
+import sys, json, os, argparse, random, hashlib, logging
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "agents"))
+from agents.memory import ConversationMemory, FeedbackStore, ResponseCache, subprocess
 from datetime import datetime
 
 LOGO = """
@@ -26,6 +28,9 @@ class C:
     C = chr(27) + "[96m"
     M = chr(27) + "[95m"
     LINE = "-" * 50
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
+logger = logging.getLogger("dealforge")
 
 if sys.platform == "win32":
     try:
@@ -167,13 +172,30 @@ def route_single(q):
     return "revenue_orchestrator"
 
 def api_execute(url, key, task, pid):
-    try:
-        import urllib.request
-        payload = json.dumps({"task": task, "persona": pid}).encode()
-        req = urllib.request.Request(url + "/api/agent/execute", data=payload,
-            headers={"Content-Type": "application/json", "X-API-Key": key}, method="POST")
-        resp = json.loads(urllib.request.urlopen(req, timeout=60).read())
-        return resp.get("response", "")
+    # Check cache first
+    cached = ResponseCache.get(task, pid)
+    if cached:
+        logger.info(f"Cache hit for {pid}: {task[:50]}")
+        return cached
+    
+    for attempt in range(3):
+        try:
+            import urllib.request
+            payload = json.dumps({"task": task, "persona": pid}).encode()
+            req = urllib.request.Request(url + "/api/agent/execute", data=payload,
+                headers={"Content-Type": "application/json", "X-API-Key": key}, method="POST")
+            resp = json.loads(urllib.request.urlopen(req, timeout=60).read())
+            text = resp.get("response", "")
+            
+            # Cache the response
+            if text and len(text) > 50:
+                ResponseCache.set(task, pid, text)
+            
+            return text
+        except Exception as e:
+            logger.warning(f"Attempt {attempt+1}/3 failed for {pid}: {e}")
+            if attempt == 2:
+                raise
     except Exception as e:
         return f"[API Error: {e}]"
 
@@ -458,7 +480,8 @@ def main():
     p.add_argument("--pdf", action="store_true", help="Export analysis as PDF report")
     p.add_argument("--linkedin", action="store_true", help="Research via LinkedIn public data")
     p.add_argument("--approve", action="store_true", help="Human-in-the-loop approval gates")
-    p.add_argument("--logo", action="store_true", help="Show logo")
+    p.add_argument("--json", action="store_true", help="Structured JSON output")
+p.add_argument("--logo", action="store_true", help="Show logo")
     args = p.parse_args()
 
     if args.logo:
@@ -509,7 +532,9 @@ def main():
             pid = args.persona if args.persona else route_single(q)
             name = ALL_AGENTS.get(pid, pid).split("(")[0].strip()
             print(f"{C.C}Routed to: {name}{C.R}")
-            if api_available:
+            mem = ConversationMemory()
+    
+    if api_available:
                 resp = api_execute(url, key, q, pid)
                 print(f"{C.G}{resp[:1500]}{C.R}")
             else:
@@ -520,6 +545,8 @@ def main():
     subprocess.run(["cls" if sys.platform == "win32" else "clear"], shell=True, capture_output=True)
     print(f"{C.C}{LOGO}{C.R}")
 
+    mem = ConversationMemory()
+    
     if api_available:
         try:
             h = json.loads(urllib.request.urlopen(urllib.request.Request(url + "/health"), timeout=10).read())
@@ -576,7 +603,9 @@ def main():
             pid = args.persona if args.persona else route_single(q)
             name = ALL_AGENTS.get(pid, pid).split("(")[0].strip()
             print(f"{C.C}Routed to: {name}{C.R}")
-            if api_available:
+            mem = ConversationMemory()
+    
+    if api_available:
                 resp = api_execute(url, key, q, pid)
                 print(f"{C.G}{resp[:2000]}{C.R}")
             else:
