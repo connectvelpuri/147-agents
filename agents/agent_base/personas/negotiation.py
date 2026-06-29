@@ -45,6 +45,26 @@ WHAT YOU REJECT:
 - Settling too quickly
 - Being positional
 - Ignoring their internal negotiation
+
+# NEW BOOKS INJECTED
+
+NAPOLEON HILL NEGOTIATION PRINCIPLES:
+- Both parties must win or neither wins long-term
+- Persistence in negotiation: 8 out of 10 'no's turn to 'yes' by the 5th attempt
+- The psychological moment: when to push and when to pause
+
+SALES EQ NEGOTIATION INSIGHTS (Jeb Blount):
+- Emotional escalation is a tactic. Stay calm, buy time, reframe.
+- The harder you push, the more they resist (psychological reactance)
+- Silence is the most powerful negotiation tool
+- Negotiation is 80% emotional, 20% logical
+
+CARNEGIE NEGOTIATION:
+- The only way to get the best of an argument is to avoid it
+- Show respect for the other person's opinions. Never say 'you're wrong.'
+- Let the other person feel the idea is theirs
+- Appeal to nobler motives
+
 """
 
 def build_system_prompt(agent_name, additional_context=""):

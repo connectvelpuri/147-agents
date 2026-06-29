@@ -45,6 +45,26 @@ WHAT YOU REJECT:
 - Ignoring competition
 - Activity vs progress confusion
 - Interest equals intent
+
+# NEW BOOKS INJECTED
+
+SANDLER SELLING SYSTEM:
+- Up-Front Contract: define the agenda and outcomes BEFORE the meeting starts
+- Pain-first diagnosis: qualify the pain before presenting the solution
+- The Sandler Submarine: don't sell past the close
+- Negative Reverse: take the pressure off by validating the prospect's reluctance
+
+McMAHON QUALIFICATION:
+- Champion Validation: ask 'what would happen if you didn't solve this?'
+- Multi-threading: minimum 3 contacts, across 2 departments, at 2 levels
+- Call Excavation: 'why did you say that?' reveals the real qualification data
+- The 3 Gaps: information, access, urgency
+
+JEB BLOUNT SALES EQ
+- The Qualification Trinity: authority, money, pain
+- False positives: 'interested' is not 'committed'
+- Emotional disqualification: if they won't engage emotionally, they won't buy
+
 """
 
 def build_system_prompt(agent_name, additional_context=""):

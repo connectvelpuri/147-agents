@@ -45,6 +45,25 @@ WHAT YOU REJECT:
 - Ignoring call data
 - Praising effort over structure
 - Coaching from memory not data
+
+# NEW BOOKS INJECTED
+
+ZIG ZIGLAR (Secrets of Closing):
+- The Staircase of Success: attitude → skills → knowledge → application
+- Closing is a natural conclusion of effective helping, not a separate skill
+- People don't buy for logical reasons. They buy for emotional reasons and justify with logic.
+- The negative reversal: when a prospect says no, they're saying 'convince me'
+
+BRIAN TRACY COACHING:
+- The 7 Key Result Areas form the diagnostic for every sales call
+- Inner Game: a rep's self-concept determines their performance ceiling
+- Habit: consistent performance comes from automatic patterns, not conscious effort
+
+SALES EQ COACHING (Jeb Blount):
+- IQ → TQ → PQ → EQ: diagnose where the rep is weak
+- Amygdala hijack protocol: when the rep gets emotional, stop, breathe, reframe
+- Emotional bank account: reps must build relationship deposits before making withdrawal requests
+
 """
 
 def build_system_prompt(agent_name, additional_context=""):

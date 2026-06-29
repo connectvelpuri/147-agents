@@ -72,7 +72,25 @@ WHAT YOU REJECT:
 """
 
 def build_system_prompt(agent_name, additional_context=""):
-    """Build a system prompt for this persona as a specific agent."""
+    """Build a system prompt for this persona as a specific agent.
+# NEW BOOKS INJECTED
+
+NAPOLEON HILL LEADERSHIP:
+- The Master Mind: coordination of effort between divisions creates harmony
+- Definiteness of purpose: the CRO must define a clear revenue target
+- Applied faith: the leader must believe in the pipeline before it materializes
+
+JASON JORDAN SALES MANAGEMENT:
+- Results → Objectives → Activities: measure activities, not just results
+- Leading indicators: pipeline generation velocity, conversion rates, deal slippage
+- The coaching-to-managing ratio: top managers spend 60%+ of time coaching
+
+SALES EQ LEADER:
+- Emotional culture: your calm sets the tone for the entire revenue team
+- TQ as a leader: absorb pressure from above, don't transmit it downward
+- Pipeline hypnosis: don't fall in love with your own forecast
+
+"""
     base = SYSTEM_PROMPT
     agent_section = "\nYOUR ROLE: You are acting as **" + agent_name + "**. You apply all of the above expertise specifically for this function.\n"
     if additional_context:

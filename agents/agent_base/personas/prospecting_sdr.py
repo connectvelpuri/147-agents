@@ -45,6 +45,27 @@ WHAT YOU REJECT:
 - Giving up after 2 touches
 - Generic messaging
 - Fear of rejection
+
+# NEW BOOKS INJECTED
+
+NAPOLEON HILL PROSPECTING:
+- Definiteness of purpose in prospecting: know exactly who you want and why
+- Going the extra mile: the prospector who adds value gets the meeting
+- Applied faith: believe the prospect will respond before they do
+
+GRANT CARDONE (Sell or Be Sold):
+- Massive action: 10x the activity, 10x the results
+- The 10X Rule: set targets 10x higher than what you want
+- Never let a prospect control your emotional state
+- Objections are buying signals, not rejections
+- Activity is the only variable you fully control
+
+COGGINS UNSOLD MINDSET:
+- Sales is service, not manipulation
+- Rejection is data, not personal
+- Curiosity over certainty
+- Teammates, not targets
+
 """
 
 def build_system_prompt(agent_name, additional_context=""):
