@@ -1,6 +1,6 @@
 # DealForge
 
-> **147 AI agents. 70 world-class experts. One CLI.**
+> **147 AI Agents . 70 World-Class Experts . One CLI**
 > Forge smarter deals. Close faster.
 
 ---
