@@ -84,8 +84,8 @@
 ## Quick Start
 
 ```bash
-git clone https://github.com/connectvelpuri/revenue-os.git
-cd revenue-os
+git clone https://github.com/connectvelpuri/147-agents.git
+cd 147-agents
 pip install -r requirements.txt
 python cli.py --logo
 ```

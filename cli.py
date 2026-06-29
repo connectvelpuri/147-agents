@@ -220,8 +220,8 @@ def main():
     p.add_argument("--persona", default="")
     p.add_argument("--reflect", action="store_true", help="Enable reflection loop (self-critique)")
     p.add_argument("--vote", action="store_true", help="Enable self-consistency voting (3x runs)")
-    p.add_argument("--cot", action="store_true", help="Enable chain-of-thought reasoning")
-    p.add_argument("--logo", action="store_true")
+    p.add_argument("--web --pdf", action="store_true", help="Enable chain-of-thought reasoning")
+    p.add_argument("--web --pdf --logo", action="store_true")
     args = p.parse_args()
 
     if args.logo:
