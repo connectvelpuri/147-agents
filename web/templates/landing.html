@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DealForge - 147 AI Agents. 70 World-Class Experts. One CLI.</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+               background: #0a0a0f; color: #e0e0e0; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; 
+             padding: 20px 0; border-bottom: 1px solid #1a1a2e; }
+        .logo { font-size: 24px; font-weight: 800; color: #fff; }
+        .logo span { color: #6c63ff; }
+        nav a { color: #a0a0b0; text-decoration: none; margin-left: 24px; font-size: 14px; }
+        nav a:hover { color: #fff; }
+        .btn { background: #6c63ff; color: #fff; padding: 10px 24px; border-radius: 8px; 
+               text-decoration: none; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
+        .btn-outline { background: transparent; border: 1px solid #6c63ff; color: #6c63ff; }
+        .btn-outline:hover { background: #6c63ff; color: #fff; }
+        
+        /* HERO */
+        .hero { padding: 100px 0 80px; text-align: center; }
+        .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.15; margin-bottom: 24px;
+                   background: linear-gradient(135deg, #fff 0%, #6c63ff 50%, #ff6b6b 100%);
+                   -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 20px; color: #a0a0b0; max-width: 700px; margin: 0 auto 40px; }
+        .hero-btns { display: flex; gap: 16px; justify-content: center; }
+        .hero-btns .btn { padding: 16px 40px; font-size: 16px; }
+        .hero-stats { display: flex; justify-content: center; gap: 60px; margin-top: 80px; }
+        .stat { text-align: center; }
+        .stat-num { font-size: 36px; font-weight: 800; color: #fff; }
+        .stat-label { font-size: 14px; color: #6c63ff; margin-top: 4px; }
+        
+        /* PAIN SECTION */
+        .pain { padding: 80px 0; background: #0f0f1a; }
+        .pain h2 { text-align: center; font-size: 36px; margin-bottom: 60px; color: #fff; }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+        .pain-card { background: #151525; border-radius: 12px; padding: 32px; border: 1px solid #1a1a2e; }
+        .pain-card .icon { font-size: 32px; margin-bottom: 16px; }
+        .pain-card h3 { font-size: 18px; color: #ff6b6b; margin-bottom: 8px; }
+        .pain-card p { font-size: 14px; color: #808090; }
+        .pain-card .stat { color: #6c63ff; font-size: 13px; font-weight: 600; margin-top: 12px; }
+        
+        /* SOLUTION */
+        .solution { padding: 80px 0; }
+        .solution h2 { text-align: center; font-size: 36px; margin-bottom: 60px; color: #fff; }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .sol-card { background: #151525; border-radius: 12px; padding: 32px; text-align: center;
+                    border: 1px solid #1a1a2e; }
+        .sol-card .icon { font-size: 40px; margin-bottom: 16px; }
+        .sol-card h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
+        .sol-card p { font-size: 13px; color: #808090; }
+        
+        /* PRICING */
+        .pricing { padding: 80px 0; background: #0f0f1a; }
+        .pricing h2 { text-align: center; font-size: 36px; margin-bottom: 12px; color: #fff; }
+        .pricing .subtitle { text-align: center; color: #808090; margin-bottom: 60px; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .price-card { background: #151525; border-radius: 12px; padding: 40px 32px; 
+                      border: 1px solid #1a1a2e; position: relative; }
+        .price-card.featured { border-color: #6c63ff; }
+        .price-card .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+                           background: #6c63ff; color: #fff; padding: 4px 16px; border-radius: 20px;
+                           font-size: 12px; font-weight: 600; }
+        .price-card .name { font-size: 18px; font-weight: 700; color: #fff; }
+        .price-card .price { font-size: 48px; font-weight: 800; color: #fff; margin: 16px 0; }
+        .price-card .price span { font-size: 16px; color: #808090; font-weight: 400; }
+        .price-card ul { list-style: none; margin: 24px 0; }
+        .price-card ul li { padding: 8px 0; font-size: 14px; color: #c0c0d0; }
+        .price-card ul li:before { content: "✓ "; color: #6c63ff; font-weight: 700; }
+        .price-card .btn { width: 100%; text-align: center; display: block; margin-top: 24px; }
+        
+        /* FOOTER */
+        footer { padding: 40px 0; text-align: center; color: #505060; font-size: 14px; }
+        
+        /* MISC */
+        .terminal { background: #0a0a0f; border: 1px solid #1a1a2e; border-radius: 12px; 
+                   padding: 24px; margin: 60px auto; max-width: 700px; font-family: monospace; font-size: 14px; }
+        .terminal .prompt { color: #6c63ff; }
+        .terminal .text { color: #c0c0d0; }
+        .terminal .output { color: #4ade80; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero-stats { flex-direction: column; gap: 24px; }
+            nav a { margin-left: 12px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="container">
+        <div class="logo">Deal<span>Forge</span></div>
+        <div>
+            <a href="/pricing">Pricing</a>
+            <a href="/login">Sign In</a>
+            <a href="/signup" class="btn">Get Started</a>
+        </div>
+    </nav>
+
+    <section class="hero container">
+        <h1>147 AI Agents.<br>70 World-Class Experts.<br>One CLI.</h1>
+        <p>The first open-source multi-agent AI platform for revenue teams. 
+           MEDDPICC, SPIN, Challenger, and Cialdini — executed by agents trained 
+           on the world's best sales minds.</p>
+        <div class="hero-btns">
+            <a href="/signup" class="btn">Start Free →</a>
+            <a href="https://github.com/connectvelpuri/147-agents" class="btn btn-outline">GitHub</a>
+        </div>
+        <div class="terminal">
+            <div><span class="prompt">$</span> <span class="text">python cli.py "qualify this $500K deal" --api-key your-key</span></div>
+            <div><span class="output">>> MEDDPICC Score: 32/40. Gap: Economic buyer not engaged.</span></div>
+            <div><span class="output">>> Action: Schedule CIO briefing this week.</span></div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><div class="stat-num">147</div><div class="stat-label">AI Agents</div></div>
+            <div class="stat"><div class="stat-num">70</div><div class="stat-label">World-Class Experts</div></div>
+            <div class="stat"><div class="stat-num">16</div><div class="stat-label">Sales Bibles Embedded</div></div>
+            <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Open Source</div></div>
+        </div>
+    </section>
+
+    <section class="pain">
+        <div class="container">
+            <h2>😖 The Pain Nobody Talks About</h2>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <div class="icon">🔧</div>
+                    <h3>8+ Disconnected Tools</h3>
+                    <p>Gong records calls but can't prospect. Outreach sequences emails but can't analyze buyer psychology. Salesforce qualifies but can't negotiate. Nothing connects.</p>
+                    <div class="stat">Cost: $1,600+/month in fragmented SaaS</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🧠</div>
+                    <h3>Lost Expertise Drain</h3>
+                    <p>Your best reps have 15+ years of MEDDPICC, Challenger, and SPIN instincts. When they leave, that knowledge walks out. New reps take 12+ months to ramp.</p>
+                    <div class="stat">Cost: $150K+ per lost senior rep</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">💀</div>
+                    <h3>Deals Die Silently</h3>
+                    <p>Stalled at legal because nobody prepped procurement defense. Champions unsupported. Competitive threats unnoticed until the loss review. By then, it's too late.</p>
+                    <div class="stat">Cost: 40% of forecasted deals slip or die</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">📊</div>
+                    <h3>Forecasting is Fiction</h3>
+                    <p>60-80% forecast accuracy. Pipeline reviews are theater. Deals are "optimistically" staged. MEDDPICC is a checkbox exercise, not a real scoring system.</p>
+                    <div class="stat">Cost: Misallocated resources, missed quarters</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🎯</div>
+                    <h3>Coaching Doesn't Stick</h3>
+                    <p>Roleplay once, forget everything. Content dumps nobody reads. Coaching is infrequent, generic, and disconnected from actual deals. Reps plateau.</p>
+                    <div class="stat">Cost: 30% longer ramp time</div>
+                </div>
+                <div class="pain-card">
+                    <div class="icon">🤖</div>
+                    <h3>AI Adds Noise, Not Value</h3>
+                    <p>Generic AI "assistants" that sound like robots. 75+ AI sales tools that don't integrate. Most are wrappers around ChatGPT with no domain expertise.</p>
+                    <div class="stat">Cost: $200+/seat for surface-level AI</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution container">
+        <h2>🔨 DealForge Fixes All of This</h2>
+        <div class="solution-grid">
+            <div class="sol-card">
+                <div class="icon">🎯</div>
+                <h3>One Tool, Full Lifecycle</h3>
+                <p>Prospect → Qualify → Negotiate → Close → Coach. All in one CLI. No more tool sprawl.</p>
+            </div>
+            <div class="sol-card">
+                <div class="icon">🧠</div>
+                <h3>70 Expert Personas</h3>
+                <p>Voss, Cialdini, Kahneman, Jobs, Buffett — embedded as executable reasoning frameworks.</p>
+            </div>
+            <div class="sol-card">
+                <div class="icon">📚</div>
+                <h3>16 Sales Bibles</h3>
+                <p>MEDDPICC, SPIN, Challenger, Gap Selling, Sandler — not "knows about" but executes.</p>
+            </div>
+            <div class="sol-card">
+                <div class="icon">🔄</div>
+                <h3>Self-Improving</h3>
+                <p>Reflection loop, self-consistency voting, learning loop — gets better with every use.</p>
+            </div>
+            <div class="sol-card">
+                <div class="icon">📱</div>
+                <h3>Works Everywhere</h3>
+                <p>CLI, API, WhatsApp. On your machine, your server, or the cloud. Bring your own LLM.</p>
+            </div>
+            <div class="sol-card">
+                <div class="icon">💰</div>
+                <h3>$0. Forever.</h3>
+                <p>Open source (MIT). No per-seat fees. No "contact sales." No surprise bills.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Simple Pricing</h2>
+            <p class="subtitle">Start free. Scale when you need to. No credit card required.</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="name">Open Source</div>
+                    <div class="price">$0<span>/mo</span></div>
+                    <ul>
+                        <li>Local CLI access</li>
+                        <li>7 agent personas (70 experts)</li>
+                        <li>16 sales book frameworks</li>
+                        <li>Reflection & CoT quality stack</li>
+                        <li>Bring your own LLM key</li>
+                        <li>Commercial use allowed (MIT)</li>
+                    </ul>
+                    <a href="https://github.com/connectvelpuri/147-agents" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="badge">POPULAR</div>
+                    <div class="name">Cloud Pro</div>
+                    <div class="price">$29<span>/mo</span></div>
+                    <ul>
+                        <li>All Open Source features</li>
+                        <li>Web dashboard (Streamlit UI)</li>
+                        <li>Persistent conversation memory</li>
+                        <li>Team collaboration (5 seats)</li>
+                        <li>Managed API (no API key needed)</li>
+                        <li>Premium support (email + chat)</li>
+                        <li>CRM sync (HubSpot/Salesforce)</li>
+                    </ul>
+                    <a href="/signup" class="btn">Start Free Trial</a>
+                </div>
+                <div class="price-card">
+                    <div class="name">Enterprise</div>
+                    <div class="price">$99<span>/mo</span></div>
+                    <ul>
+                        <li>All Cloud Pro features</li>
+                        <li>Unlimited team members</li>
+                        <li>SSO / SAML / OAuth</li>
+                        <li>RBAC & audit trails</li>
+                        <li>Dedicated deployment (VPC)</li>
+                        <li>SLA guarantee (99.9%)</li>
+                        <li>Custom agent personas</li>
+                        <li>Priority support (24/7)</li>
+                    </ul>
+                    <a href="/signup" class="btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="container">
+        <p>DealForge — Open source (MIT) • Built with Python • 147 AI Agents • 70 World-Class Experts</p>
+        <p style="margin-top:8px"><a href="https://github.com/connectvelpuri/147-agents" style="color:#6c63ff;">GitHub</a></p>
+    </footer>
+</body>
+</html>

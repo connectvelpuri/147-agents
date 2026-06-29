@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DealForge</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+               background: #0a0a0f; color: #e0e0e0; }
+        .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 240px; 
+                  background: #0f0f1a; border-right: 1px solid #1a1a2e; padding: 24px; }
+        .sidebar .logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 32px; }
+        .sidebar .logo span { color: #6c63ff; }
+        .sidebar nav a { display: block; padding: 12px 16px; color: #808090; text-decoration: none;
+                        border-radius: 8px; margin-bottom: 4px; font-size: 14px; }
+        .sidebar nav a:hover, .sidebar nav a.active { background: #151525; color: #fff; }
+        .main { margin-left: 240px; padding: 32px 48px; }
+        h1 { font-size: 28px; margin-bottom: 8px; color: #fff; }
+        .subtitle { color: #808090; font-size: 14px; margin-bottom: 32px; }
+        .card { background: #151525; border: 1px solid #1a1a2e; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .card h2 { font-size: 16px; color: #c0c0d0; margin-bottom: 16px; }
+        .api-key { display: flex; gap: 12px; align-items: center; }
+        .api-key input { flex: 1; padding: 12px 16px; background: #0a0a0f; border: 1px solid #1a1a2e;
+                        border-radius: 8px; color: #6c63ff; font-family: monospace; font-size: 13px; }
+        .api-key .btn { padding: 12px 24px; background: #6c63ff; color: #fff; border: none;
+                       border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: #151525; border: 1px solid #1a1a2e; border-radius: 12px; padding: 20px; }
+        .stat-card .num { font-size: 28px; font-weight: 800; color: #6c63ff; }
+        .stat-card .label { font-size: 13px; color: #808090; margin-top: 4px; }
+        .quick-actions { display: flex; gap: 12px; margin-bottom: 24px; }
+        .quick-actions .btn { padding: 12px 24px; background: #151525; border: 1px solid #1a1a2e;
+                            color: #e0e0e0; border-radius: 8px; cursor: pointer; font-size: 13px; text-decoration: none; }
+        .quick-actions .btn:hover { border-color: #6c63ff; }
+        .toast { position: fixed; bottom: 24px; right: 24px; background: #1a3d1a; border: 1px solid #4ade80;
+                color: #4ade80; padding: 16px 24px; border-radius: 8px; font-size: 14px; 
+                opacity: 0; transition: opacity 0.3s; }
+        .toast.show { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Deal<span>Forge</span></div>
+        <nav>
+            <a href="/dashboard" class="active">Dashboard</a>
+            <a href="/dashboard/agents">My Agents</a>
+            <a href="/dashboard/deals">Deals</a>
+            <a href="/dashboard/history">History</a>
+            <a href="/dashboard/settings">Settings</a>
+            <a href="/logout" style="margin-top:32px;color:#ff6b6b;">Logout</a>
+        </nav>
+    </div>
+    <div class="main">
+        <h1>Welcome, <span id="user-name">User</span></h1>
+        <p class="subtitle">Your AI-powered sales command center</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="num" id="api-calls">-</div>
+                <div class="label">API Calls Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="num" id="deals-tracked">-</div>
+                <div class="label">Deals Tracked</div>
+            </div>
+            <div class="stat-card">
+                <div class="num" id="avg-score">-</div>
+                <div class="label">Avg MEDDPICC Score</div>
+            </div>
+            <div class="stat-card">
+                <div class="num" id="agents-used">7</div>
+                <div class="label">AI Agents Available</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔑 Your API Key</h2>
+            <div class="api-key">
+                <input type="text" id="api-key-display" readonly value="Loading...">
+                <button class="btn" onclick="copyKey()">Copy</button>
+                <button class="btn" onclick="regenerateKey()">Regenerate</button>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <a href="/dashboard/agents" class="btn">🤖 My Agents</a>
+            <a href="/dashboard/deals" class="btn">📊 My Deals</a>
+            <a href="/dashboard/history" class="btn">📜 History</a>
+            <a href="https://github.com/connectvelpuri/147-agents" class="btn">📖 Docs</a>
+        </div>
+
+        <div class="card">
+            <h2>💻 Quick Start</h2>
+            <pre style="background:#0a0a0f;padding:16px;border-radius:8px;font-size:13px;color:#c0c0d0;">
+pip install openai anthropic httpx
+python cli.py "qualify this $500K deal" --api-key <span id="key-placeholder">YOUR_KEY</span></pre>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        async function loadDashboard() {
+            try {
+                const resp = await fetch("/api/user/profile");
+                const user = await resp.json();
+                if (resp.ok) {
+                    document.getElementById("user-name").textContent = user.name || "User";
+                    document.getElementById("api-key-display").value = user.api_key || "No key";
+                    document.getElementById("key-placeholder").textContent = user.api_key || "YOUR_KEY";
+                }
+            } catch(e) {}
+            
+            try {
+                const resp = await fetch("/api/user/stats");
+                const stats = await resp.json();
+                if (resp.ok) {
+                    document.getElementById("api-calls").textContent = stats.api_calls || 0;
+                    document.getElementById("deals-tracked").textContent = stats.deals || 0;
+                    document.getElementById("avg-score").textContent = (stats.avg_score || 0) + "%";
+                }
+            } catch(e) {}
+        }
+        loadDashboard();
+
+        function copyKey() {
+            const key = document.getElementById("api-key-display");
+            key.select();
+            navigator.clipboard.writeText(key.value);
+            showToast("Copied to clipboard!");
+        }
+
+        async function regenerateKey() {
+            if (!confirm("Regenerate API key? Old key will stop working.")) return;
+            const resp = await fetch("/api/user/regenerate-key", {method: "POST"});
+            const result = await resp.json();
+            if (resp.ok) {
+                document.getElementById("api-key-display").value = result.api_key;
+                showToast("New API key generated!");
+            } else {
+                showToast("Error: " + (result.detail || "Unknown"));
+            }
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById("toast");
+            t.textContent = msg;
+            t.classList.add("show");
+            setTimeout(() => t.classList.remove("show"), 3000);
+        }
+    </script>
+</body>
+</html>
