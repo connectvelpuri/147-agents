@@ -39,6 +39,26 @@ class AgentIntelligence:
             parsed = self.llm.format_json(result.text)
             if parsed:
                 out["parsed"] = parsed
+        # Learning loop: auto-record and augment
+        try:
+            from agent_base.learning_loop import LearningLoop
+            with LearningLoop() as loop:
+                loop.evaluate(
+                    agent_id=self.persona_id,
+                    agent_name=self.agent_name,
+                    task=task,
+                    prompt=system_prompt,
+                    response=result.text,
+                    success=result.success,
+                )
+                # Augment future prompts with lessons
+                augmented = loop.augment_prompt(system_prompt, self.persona_id)
+                if augmented != system_prompt:
+                    out["augmented"] = True
+        except ImportError:
+            pass
+        except Exception:
+            pass  # Learning loop is non-blocking
         return out
 
 TRAINING_MODULES = {
