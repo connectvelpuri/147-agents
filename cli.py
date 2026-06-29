@@ -212,16 +212,253 @@ def local_execute(task, pid, system_prompt="", reflect=False, vote=False, cot=Fa
     except Exception as e:
         return f"[API Error: {e}]"
 
+
+
+# =============================================================================
+# MODULE 1: Web Research Agent (free, no API key needed)
+# =============================================================================
+
+class WebResearch:
+    """Research accounts, competitors, news using free sources."""
+    
+    @staticmethod
+    def search(query, num_results=5):
+        """Search the web using DuckDuckGo (free, no API key)."""
+        try:
+            import httpx
+            encoded = query.replace(" ", "+")
+            url = f"https://html.duckduckgo.com/html/?q={encoded}"
+            r = httpx.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15, follow_redirects=True)
+            if r.status_code == 200:
+                import re
+                # Extract result snippets
+                results = re.findall(r'class="result__snippet">(.*?)</a>', r.text, re.DOTALL)
+                links = re.findall(r'class="result__url"[^>]*href="(https?://[^"]+)"', r.text)
+                titles = re.findall(r'class="result__title"[^>]*>.*?<a[^>]*>(.*?)</a>', r.text, re.DOTALL)
+                
+                snippets = []
+                for i in range(min(num_results, len(results))):
+                    title = titles[i].strip() if i < len(titles) else ""
+                    snip = results[i].strip() if i < len(results) else ""
+                    link = links[i] if i < len(links) else ""
+                    snippets.append(f"  {title}\n  {snip}\n  {link}")
+                
+                return "\n".join(snippets) if snippets else "No results found."
+            return f"Search returned {r.status_code}"
+        except ImportError:
+            return "Install httpx: pip install httpx"
+        except Exception as e:
+            return f"Search error: {e}"
+    
+    @staticmethod
+    def research_company(company_name):
+        """Research a company - news, funding, competitors."""
+        queries = [
+            f"{company_name} company overview 2026",
+            f"{company_name} recent news funding",
+            f"{company_name} competitors market position",
+            f"{company_name} technology stack partnerships",
+        ]
+        results = []
+        for q in queries:
+            result = WebResearch.search(q, 3)
+            results.append(f"=== {q} ===\n{result}")
+        return "\n\n".join(results)
+    
+    @staticmethod
+    def research_person(person_name, company=""):
+        """Research a person - role, background."""
+        query = f"{person_name} {company}" if company else person_name
+        query += " LinkedIn profile bio"
+        return WebResearch.search(query, 5)
+
+
+# =============================================================================
+# MODULE 2: CRM Integration (HubSpot free API)
+# =============================================================================
+
+class CRMConnector:
+    """Connect to HubSpot or Salesforce CRM."""
+    
+    @staticmethod
+    def format_deal(deal):
+        """Format a deal dict for display."""
+        if not deal:
+            return "No deal data"
+        name = deal.get('properties', {}).get('dealname', deal.get('name', 'Unknown'))
+        amount = deal.get('properties', {}).get('amount', deal.get('amount', 'N/A'))
+        stage = deal.get('properties', {}).get('dealstage', deal.get('stage', 'N/A'))
+        return f"  {name} | ${amount} | {stage}"
+    
+    @staticmethod
+    def from_hubspot(api_key=None):
+        """Read pipeline from HubSpot API."""
+        key = api_key or os.environ.get("HUBSPOT_API_KEY", "")
+        if not key:
+            return "No HubSpot API key. Set HUBSPOT_API_KEY or use --crm-key"
+        try:
+            import httpx
+            r = httpx.get(
+                "https://api.hubapi.com/crm/v3/objects/deals",
+                headers={"Authorization": f"Bearer {key}"},
+                params={"limit": 20, "properties": "dealname,amount,dealstage,createdate"},
+                timeout=30
+            )
+            if r.status_code == 200:
+                deals = r.json().get('results', [])
+                if not deals:
+                    return "No deals found in HubSpot"
+                return "\n".join(CRMConnector.format_deal(d) for d in deals)
+            return f"HubSpot error: {r.status_code} {r.text[:200]}"
+        except ImportError:
+            return "Install httpx: pip install httpx"
+        except Exception as e:
+            return f"HubSpot error: {e}"
+    
+    @staticmethod
+    def from_salesforce(api_key=None):
+        """Read pipeline from Salesforce (basic REST API)."""
+        # Placeholder - Salesforce requires OAuth which is complex
+        return "Salesforce integration requires OAuth setup. Use HubSpot for simpler API access."
+
+
+# =============================================================================
+# MODULE 3: PDF Report Generator
+# =============================================================================
+
+class PDFReport:
+    """Generate professional PDF reports from agent analysis."""
+    
+    @staticmethod
+    def generate(text, filename="dealforge_report"):
+        """Generate a PDF report from analysis text."""
+        try:
+            from fpdf import FPDF
+            pdf = FPDF()
+            pdf.add_page()
+            pdf.set_font("Helvetica", "B", 20)
+            pdf.cell(0, 15, "DealForge Analysis Report", align="C")
+            pdf.ln(20)
+            
+            # Add timestamp
+            from datetime import datetime
+            pdf.set_font("Helvetica", "", 10)
+            pdf.cell(0, 10, f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}", align="R")
+            pdf.ln(15)
+            
+            # Add content
+            pdf.set_font("Helvetica", "", 11)
+            for line in text.split("\n"):
+                line = line.strip()
+                if not line:
+                    pdf.ln(5)
+                    continue
+                # Detect headers
+                if line.startswith("PERSPECTIVE") or line.startswith("=="):
+                    pdf.set_font("Helvetica", "B", 13)
+                    pdf.cell(0, 10, line[:80])
+                    pdf.ln(10)
+                    pdf.set_font("Helvetica", "", 11)
+                elif line.startswith("  "):
+                    pdf.cell(10)
+                    pdf.multi_cell(0, 6, line.strip())
+                else:
+                    pdf.multi_cell(0, 6, line)
+            
+            filename += ".pdf"
+            pdf.output(filename)
+            return f"PDF saved: {filename}"
+        except ImportError:
+            # Fallback: save as markdown
+            filename += ".md"
+            with open(filename, 'w') as f:
+                f.write(f"# DealForge Analysis Report\n\n{text}")
+            return f"PDF library not installed. Saved as markdown: {filename}"
+        except Exception as e:
+            return f"PDF error: {e}"
+
+
+# =============================================================================
+# MODULE 4: LinkedIn Research (via public data)
+# =============================================================================
+
+class LinkedInResearch:
+    """Research companies and people on LinkedIn via public sources."""
+    
+    @staticmethod
+    def company(company_name):
+        """Get LinkedIn company info."""
+        return WebResearch.search(f"LinkedIn {company_name} company about", 5)
+    
+    @staticmethod
+    def person(name, company=""):
+        """Get LinkedIn person info."""
+        query = f"LinkedIn {name}"
+        if company:
+            query += f" {company}"
+        return WebResearch.search(query, 5)
+    
+    @staticmethod
+    def mutual_connections(person1, person2):
+        """Find mutual connections (public data only)."""
+        return WebResearch.search(f"{person1} {person2} mutual connections LinkedIn", 3)
+
+
+# =============================================================================
+# MODULE 5: Human-in-the-Loop Gates
+# =============================================================================
+
+class HITLGates:
+    """Human approval gates for critical actions."""
+    
+    @staticmethod
+    def require_approval(action, description, approver="Manager"):
+        """Ask for human approval before proceeding."""
+        print(f"\n{C.Y}[APPROVAL REQUIRED]{C.R}")
+        print(f"  Action: {action}")
+        print(f"  Details: {description}")
+        print(f"  Approver: {approver}")
+        response = input(f"  {C.Y}Approve? (yes/no): {C.R}").strip().lower()
+        if response in ('yes', 'y', 'approve'):
+            print(f"  {C.G}Approved.{C.R}")
+            return True
+        else:
+            print(f"  {C.R}Rejected.{C.R}")
+            return False
+    
+    @staticmethod
+    def review_before_send(content, channel="email"):
+        """Review message content before sending."""
+        print(f"\n{C.Y}[REVIEW BEFORE SENDING - {channel.upper()}]{C.R}")
+        print(f"  Content preview:\n{content[:500]}")
+        response = input(f"  {C.Y}Send? (yes/no/edit): {C.R}").strip().lower()
+        if response == 'yes' or response == 'y':
+            print(f"  {C.G}Sent.{C.R}")
+            return True
+        elif response == 'edit':
+            edited = input(f"  {C.Y}Edit message: {C.R}")
+            print(f"  {C.G}Sent (edited).{C.R}")
+            return True
+        else:
+            print(f"  {C.R}Cancelled.{C.R}")
+            return False
+
 def main():
     p = argparse.ArgumentParser(description="SalesHelp - McKinsey-Level Analysis CLI")
     p.add_argument("query", nargs="*")
     p.add_argument("--api-key", default=os.environ.get("REVENUE_OS_API_KEY", ""))
     p.add_argument("--url", default=os.environ.get("REVENUE_OS_API_URL", "https://saleshouse-production.up.railway.app"))
     p.add_argument("--persona", default="")
-    p.add_argument("--reflect", action="store_true", help="Enable reflection loop (self-critique)")
-    p.add_argument("--vote", action="store_true", help="Enable self-consistency voting (3x runs)")
-    p.add_argument("--web --pdf", action="store_true", help="Enable chain-of-thought reasoning")
-    p.add_argument("--web --pdf --logo", action="store_true")
+    p.add_argument("--reflect", action="store_true", help="Reflection loop - self-critique")
+    p.add_argument("--vote", action="store_true", help="Self-consistency voting (3x runs)")
+    p.add_argument("--cot", action="store_true", help="Chain-of-thought reasoning")
+    p.add_argument("--web", action="store_true", help="Research accounts/competitors via web")
+    p.add_argument("--crm", action="store_true", help="Import pipeline from CRM (HubSpot)")
+    p.add_argument("--crm-key", default="", help="CRM API key")
+    p.add_argument("--pdf", action="store_true", help="Export analysis as PDF report")
+    p.add_argument("--linkedin", action="store_true", help="Research via LinkedIn public data")
+    p.add_argument("--approve", action="store_true", help="Human-in-the-loop approval gates")
+    p.add_argument("--logo", action="store_true", help="Show logo")
     args = p.parse_args()
 
     if args.logo:
@@ -235,6 +472,24 @@ def main():
     # Single query
     if args.query:
         q = " ".join(args.query)
+        
+        # Web research before analysis
+        if args.web:
+            print(f"\n{C.C}Researching the web...{C.R}")
+            if any(term in q.lower() for term in ["company", "competitor", "account", "market"]):
+                company = q.replace("research", "").replace("analyze", "").strip()
+                research = WebResearch.research_company(company)
+                print(f"  {C.D}{research[:500]}...{C.R}")
+            else:
+                research = WebResearch.search(q)
+                print(f"  {C.D}{research[:300]}...{C.R}")
+        
+        # CRM pipeline import
+        if args.crm:
+            print(f"\n{C.C}Importing CRM pipeline...{C.R}")
+            crm_key = args.crm_key or os.environ.get("HUBSPOT_API_KEY", "")
+            deals = CRMConnector.from_hubspot(crm_key)
+            print(f"  {C.D}{deals[:500]}{C.R}")
         intent = detect_intent(q)
         if intent and api_available:
             print(f"\n{C.C}Initial assessment: {intent.upper()} opportunity{C.R}")
