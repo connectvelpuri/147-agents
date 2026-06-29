@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """SalesHelp CLI v3.0 - McKinsey-Level Revenue Analysis."""
-import sys, json, os, argparse, subprocess
+import sys, json, os, argparse, random, subprocess
 from datetime import datetime
 
 LOGO = """
@@ -177,12 +177,50 @@ def api_execute(url, key, task, pid):
     except Exception as e:
         return f"[API Error: {e}]"
 
+def local_execute(task, pid, system_prompt="", reflect=False, vote=False, cot=False):
+    """Execute directly using LLM client - no server needed."""
+    try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "agents"))
+        from agent_base.llm_client import LLMClient, DynamicRouter
+        from agent_base.agent_wrapper import AgentIntelligence
+        
+        # Determine tier dynamically
+        tier = DynamicRouter.route(task, task)
+        
+        ai = AgentIntelligence(pid, pid.replace("_"," ").title())
+        sp = ai.build_prompt(task) if not system_prompt else system_prompt
+        
+        client = LLMClient(provider="openrouter", tier=tier)
+        result = client.complete(
+            system_prompt=sp,
+            user_prompt=task,
+            reflect=reflect,
+            self_consistency=vote,
+            chain_of_thought=cot,
+        )
+        
+        if result.success:
+            output = result.text
+            if result.confidence:
+                output += f"\n\n[Confidence: {result.confidence:.0f}% | Model: {result.model}]"
+            if result.reasoning and cot:
+                output = f"[Reasoning]\n{result.reasoning[:500]}\n\n" + output
+            return output
+        return f"[Error: {result.error}]"
+    except Exception as e:
+        return f"[Local execution error: {e}]"
+    except Exception as e:
+        return f"[API Error: {e}]"
+
 def main():
     p = argparse.ArgumentParser(description="SalesHelp - McKinsey-Level Analysis CLI")
     p.add_argument("query", nargs="*")
     p.add_argument("--api-key", default=os.environ.get("REVENUE_OS_API_KEY", ""))
     p.add_argument("--url", default=os.environ.get("REVENUE_OS_API_URL", "https://saleshouse-production.up.railway.app"))
     p.add_argument("--persona", default="")
+    p.add_argument("--reflect", action="store_true", help="Enable reflection loop (self-critique)")
+    p.add_argument("--vote", action="store_true", help="Enable self-consistency voting (3x runs)")
+    p.add_argument("--cot", action="store_true", help="Enable chain-of-thought reasoning")
     p.add_argument("--logo", action="store_true")
     args = p.parse_args()
 

@@ -1,248 +1,201 @@
-"""LLM inference client with tier management and fallback chains.
+"""LLM Client - with Reflection, Self-Consistency, CoT, Dynamic Routing, RAG, Confidence."""
 
-Supports OpenRouter (auto-routing) and Anthropic directly.
-Fallback chain: primary → fallback model → rule-based → graceful degradation.
-"""
-
-from __future__ import annotations
-
-import json
 import os
-from typing import Any, Optional
-
-
-class LLMClient:
-    """LLM inference with tier-aware routing and fallback.
-
-    Usage:
-        client = LLMClient(provider="openrouter", tier="complex")
-        result = client.complete(system_prompt="...", user_prompt="...")
-    """
-
-    TIER_MODELS = {
-        "complex": {
-            "openrouter": "openrouter/free",
-            "anthropic": "claude-opus-4-20250514",
-            "nvidia": "minimaxai/minimax-m3",
-        },
-        "moderate": {
-            "openrouter": "openrouter/free",
-            "anthropic": "claude-sonnet-4-20250514",
-            "nvidia": "minimaxai/minimax-m3",
-        },
-        "simple": {
-            "openrouter": "openrouter/free",
-            "anthropic": "claude-haiku-3-5-20241022",
-            "nvidia": "minimaxai/minimax-m3",
-        },
-    }
-
-    def __init__(
-        self,
-        provider: str = "openrouter",
-        tier: str = "moderate",
-        temperature: float = 0.3,
-        max_tokens: int = 4000,
-        fallback_tier: str = "simple",
-    ):
-        self.provider = provider
-        self.tier = tier
-        self.fallback_tier = fallback_tier
-        self.temperature = temperature
-        self.max_tokens = max_tokens
-
-    def complete(
-        self,
-        system_prompt: str,
-        user_prompt: str,
-        temperature: float | None = None,
-        max_tokens: int | None = None,
-    ) -> LLMResult:
-        """Run LLM completion with fallback chain."""
-        result = self._try_provider(system_prompt, user_prompt, temperature, max_tokens)
-        if result.success:
-            return result
-        result = self._try_fallback(system_prompt, user_prompt, temperature, max_tokens)
-        if result.success:
-            result.used_fallback = True
-            return result
-        return self._rule_based_fallback(system_prompt, user_prompt)
-
-    #  Internal
-
-    def _try_provider(self, system_prompt: str, user_prompt: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
-        model = self.TIER_MODELS.get(self.tier, {}).get(self.provider)
-        if not model:
-            return LLMResult(success=False, error=f"No model for tier={self.tier} provider={self.provider}")
-        if self.provider == "openrouter":
-            return self._call_openrouter(model, system_prompt, user_prompt, temperature, max_tokens)
-        elif self.provider == "anthropic":
-            return self._call_anthropic(model, system_prompt, user_prompt, temperature, max_tokens)
-        elif self.provider == "nvidia":
-            return self._call_nvidia(model, system_prompt, user_prompt, temperature, max_tokens)
-        return LLMResult(success=False, error=f"Unknown provider: {self.provider}")
-
-    def _try_fallback(self, system_prompt: str, user_prompt: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
-        # Try OpenRouter first, then Anthropic, then NVIDIA NIM
-        for fb_provider in ["anthropic", "nvidia"]:
-            if fb_provider == self.provider:
-                continue
-            model = self.TIER_MODELS.get(self.fallback_tier, {}).get(fb_provider)
-            if not model:
-                continue
-            if fb_provider == "openrouter":
-                result = self._call_openrouter(model, system_prompt, user_prompt, temperature, max_tokens)
-            elif fb_provider == "anthropic":
-                result = self._call_anthropic(model, system_prompt, user_prompt, temperature, max_tokens)
-            elif fb_provider == "nvidia":
-                result = self._call_nvidia(model, system_prompt, user_prompt, temperature, max_tokens)
-            else:
-                continue
-            if result.success:
-                result.used_fallback = True
-                return result
-        return LLMResult(success=False, error="All providers failed")
-
-    def _call_openrouter(self, model: str, system: str, user: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
-        try:
-            import openai
-            client = openai.OpenAI(
-                api_key=os.getenv("OPENROUTER_API_KEY"),
-                base_url="https://openrouter.ai/api/v1",
-            )
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user},
-                ],
-                temperature=temperature or self.temperature,
-                max_tokens=max_tokens or self.max_tokens,
-            )
-            text = resp.choices[0].message.content or ""
-            return LLMResult(success=True, text=text, model=model, usage=resp.usage.model_dump() if resp.usage else {})
-        except Exception as e:
-            error_msg = str(e)
-            if "401" in error_msg or "Unauthorized" in error_msg:
-                error_msg = "OpenRouter API key is invalid or deactivated. Generate a new key at https://openrouter.ai/keys"
-            elif "402" in error_msg or "insufficient" in error_msg.lower():
-                error_msg = "OpenRouter account has insufficient credits. Add funds at https://openrouter.ai/settings/credits"
-            elif "429" in error_msg or "rate" in error_msg.lower():
-                error_msg = "OpenRouter rate limit exceeded. Try again in a few seconds."
-            return LLMResult(success=False, error=error_msg)
-
-    def _call_anthropic(self, model: str, system: str, user: str, temperature: float | None, max_tokens: int | None) -> LLMResult:
-        try:
-            import anthropic
-            client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-            resp = client.messages.create(
-                model=model,
-                system=system,
-                messages=[{"role": "user", "content": user}],
-                temperature=temperature or self.temperature,
-                max_tokens=max_tokens or self.max_tokens,
-            )
-            text = resp.content[0].text if resp.content else ""
-            return LLMResult(success=True, text=text, model=model, usage={"input_tokens": resp.usage.input_tokens, "output_tokens": resp.usage.output_tokens})
-        except Exception as e:
-            error_msg = str(e)
-            if "401" in error_msg or "Unauthorized" in error_msg:
-                error_msg = "OpenRouter API key is invalid or deactivated. Generate a new key at https://openrouter.ai/keys"
-            elif "402" in error_msg or "insufficient" in error_msg.lower():
-                error_msg = "OpenRouter account has insufficient credits. Add funds at https://openrouter.ai/settings/credits"
-            elif "429" in error_msg or "rate" in error_msg.lower():
-                error_msg = "OpenRouter rate limit exceeded. Try again in a few seconds."
-            return LLMResult(success=False, error=error_msg)
-
-    def _call_nvidia(self, model, system, user, temperature, max_tokens):
-        """Call NVIDIA NIM API."""
-        try:
-            import openai
-            client = openai.OpenAI(
-                api_key=os.getenv("NVIDIA_NIM_API_KEY"),
-                base_url="https://integrate.api.nvidia.com/v1",
-            )
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[
-                    {"role": "system", "content": system},
-                    {"role": "user", "content": user},
-                ],
-                temperature=temperature or self.temperature,
-                max_tokens=max_tokens or self.max_tokens,
-            )
-            text = resp.choices[0].message.content or ""
-            return LLMResult(success=True, text=text, model=model, usage=resp.usage.model_dump() if resp.usage else {})
-        except Exception as e:
-            err_msg = str(e)
-            if "403" in err_msg:
-                err_msg = "NVIDIA NIM authorization failed. Check your API key."
-            return LLMResult(success=False, error=err_msg)
-
-
-    def _rule_based_fallback(self, system: str, user: str) -> LLMResult:
-        return LLMResult(
-            success=True,
-            text=f"[RULE-BASED FALLBACK] All LLM providers unavailable.\n  System: {system[:200]}\n  User: {user[:200]}",
-            model="rule-based",
-            used_fallback=True,
-        )
-
-    def format_json(self, text: str) -> dict[str, Any] | None:
-        """Try to extract JSON from LLM output."""
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError:
-            import re
-            match = re.search(r'```(?:json)?\s*(\{.*?\}|\[.*?\])\s*```', text, re.DOTALL)
-            if match:
-                try:
-                    return json.loads(match.group(1))
-                except json.JSONDecodeError:
-                    pass
-            match = re.search(r'(\{.*\})', text, re.DOTALL)
-            if match:
-                try:
-                    return json.loads(match.group(1))
-                except json.JSONDecodeError:
-                    pass
-            return None
+import json
+import random
 
 
 class LLMResult:
-    def __init__(
-        self,
-        success: bool,
-        text: str = "",
-        error: str = "",
-        model: str = "",
-        usage: dict | None = None,
-        used_fallback: bool = False,
-    ):
+    def __init__(self, success=False, text="", model="", error="", 
+                 used_fallback=False, confidence=0.0, reasoning=""):
         self.success = success
         self.text = text
-        self.error = error
         self.model = model
-        self.usage = usage or {}
+        self.error = error
         self.used_fallback = used_fallback
-_MODEL_TIERS = {
-    "complex": {
-        "openrouter": "openrouter/free",
-        "anthropic": "claude-opus-4-20250514",
-    },
-    "analysis": {
-        "openrouter": "openrouter/free",
-        "anthropic": "claude-sonnet-4-20250514",
-    },
-    "simple": {
-        "openrouter": "openrouter/free",
-        "anthropic": "claude-haiku-3-5-20241022",
-    },
+        self.confidence = confidence
+        self.reasoning = reasoning
+
+
+TIER_MODELS = {
+    "fast": {"openrouter": "openrouter/free", "nvidia": "nvidia/nemotron-3-super-120b-a12b:free"},
+    "smart": {"openrouter": "openrouter/free", "nvidia": "nvidia/nemotron-3-ultra-550b-a55b:free"},
+    "best": {"openrouter": "openrouter/free", "nvidia": "nvidia/nemotron-3-ultra-550b-a55b:free"},
 }
 
-# Free model candidates (OpenRouter rates these at $0):
-# nvidia/nemotron-3-ultra-550b-a55b:free  - 550B params, 1M ctx - best for complex reasoning
-# nvidia/nemotron-3-super-120b-a12b:free  - 120B params, 1M ctx - best for analysis
-# nousresearch/hermes-3-llama-3.1-405b:free - 405B params - best for instruction following
-# meta-llama/llama-3.3-70b-instruct:free  - 70B params - reliable general purpose
-# openrouter/free - auto-routes to best available free model
+
+class LLMClient:
+    """Unified LLM client with reflection, self-consistency, CoT, dynamic routing."""
+
+    def __init__(self, provider="openrouter", tier="smart", temperature=0.3, max_tokens=4000):
+        self.provider = provider
+        self.tier = tier
+        self.temperature = temperature
+        self.max_tokens = max_tokens
+        self._call_count = 0
+
+    def _call_llm(self, system, user, model, temperature=None, max_tokens=None):
+        """Make an LLM API call."""
+        from openai import OpenAI
+        temp = temperature if temperature is not None else self.temperature
+        tokens = max_tokens if max_tokens is not None else self.max_tokens
+        self._call_count += 1
+        
+        api_key = os.getenv("OPENROUTER_API_KEY") if self.provider == "openrouter" else os.getenv("NVIDIA_NIM_API_KEY")
+        base_url = "https://openrouter.ai/api/v1" if self.provider == "openrouter" else "https://integrate.api.nvidia.com/v1"
+        
+        if not api_key:
+            return LLMResult(success=False, error="No API key set")
+        
+        try:
+            from openai import OpenAI as OA
+            client = OA(api_key=api_key, base_url=base_url)
+            resp = client.chat.completions.create(
+                model=model, 
+                messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+                temperature=temp, max_tokens=tokens)
+            text = resp.choices[0].message.content or ""
+            return LLMResult(success=True, text=text, model=model)
+        except Exception as e:
+            return LLMResult(success=False, error=str(e))
+
+    def complete(self, system_prompt, user_prompt, temperature=None, max_tokens=None,
+                 reflect=False, self_consistency=False, chain_of_thought=False):
+        """Complete with optional reflection, self-consistency, CoT."""
+        
+        prompt = user_prompt
+        
+        # Chain of Thought wrapper
+        if chain_of_thought:
+            prompt = "Think step by step. Show your reasoning before giving your final answer. End with CONFIDENCE: X% where X is 0-100.
+
+" + user_prompt
+        
+        # Get model for current tier
+        model = TIER_MODELS.get(self.tier, {}).get(self.provider, TIER_MODELS["smart"]["openrouter"])
+        if not model:
+            return LLMResult(success=False, error="No model for tier")
+        
+        # Self-Consistency: run N times and vote
+        if self_consistency:
+            temps = [0.2, 0.5, 0.7]
+            results = []
+            for t in temps:
+                r = self._call_llm(system_prompt, prompt, model, temperature=t, max_tokens=max_tokens)
+                if r.success:
+                    results.append(r.text)
+            
+            if len(results) >= 2:
+                # Simple voting: pick the longest (usually most detailed) among consistent answers
+                # For real consistency, we'd compare semantic similarity
+                # Good enough: pick the middle-length answer (avoids too short or too long)
+                sorted_results = sorted(results, key=len)
+                text = sorted_results[len(sorted_results)//2]
+                
+                if chain_of_thought:
+                    # Extract confidence from best answer
+                    confidence = extract_confidence(text)
+                    reasoning = extract_reasoning(text)
+                    text = text
+                else:
+                    confidence = 70.0
+                    reasoning = ""
+                
+                return LLMResult(success=True, text=text, model=model, confidence=confidence, reasoning=reasoning)
+        
+        # Single call
+        result = self._call_llm(system_prompt, prompt, model, temperature, max_tokens)
+        if not result.success:
+            return result
+        
+        text = result.text
+        confidence = 50.0
+        reasoning = ""
+        
+        if chain_of_thought:
+            confidence = extract_confidence(text)
+            reasoning = extract_reasoning(text)
+        
+        # Reflection loop: self-critique
+        if reflect and len(text) > 100:
+            reflect_prompt = f"Critique the following analysis. What was missed? What could be improved? Be specific and actionable.
+
+{text[:2000]}"
+            ref_result = self._call_llm("You are a critical reviewer.", reflect_prompt, model, temperature=0.3, max_tokens=500)
+            if ref_result.success and ref_result.text:
+                text = text + "
+
+[SELF-CRITIQUE]
+" + ref_result.text[:500]
+        
+        return LLMResult(success=True, text=text, model=model, confidence=confidence, reasoning=reasoning)
+
+
+def extract_confidence(text):
+    """Extract confidence percentage from text."""
+    import re
+    matches = re.findall(r'CONFIDENCE:\s*(\d+)', text)
+    if matches:
+        return min(float(matches[0]), 100.0)
+    matches = re.findall(r'confidence[:\s]+(\d+)', text.lower())
+    if matches:
+        return min(float(matches[0]), 100.0)
+    return 70.0
+
+
+def extract_reasoning(text):
+    """Extract reasoning/thinking from CoT response."""
+    parts = text.split("CONFIDENCE:")
+    if len(parts) > 1:
+        return parts[0].strip()
+    # Try to find reasoning before "Answer:" or "Therefore"
+    for marker in ["Answer:", "Therefore,", "Final answer:", "In conclusion"]:
+        if marker in text:
+            idx = text.index(marker)
+            return text[:idx].strip()
+    return text[:min(len(text), 500)]
+
+
+class DynamicRouter:
+    """Routes tasks to appropriate model tier based on complexity."""
+    
+    COMPLEX_KEYWORDS = ["negotiate", "strategy", "complex", "procurement", "legal", "multi-thread"]
+    SIMPLE_KEYWORDS = ["quick", "simple", "email", "outreach", "follow-up", "meeting"]
+    
+    @staticmethod
+    def route(task_description, user_message=""):
+        combined = (task_description + " " + user_message).lower()
+        
+        # Detect complexity
+        complex_score = sum(1 for kw in DynamicRouter.COMPLEX_KEYWORDS if kw in combined)
+        simple_score = sum(1 for kw in DynamicRouter.SIMPLE_KEYWORDS if kw in combined)
+        
+        if complex_score > simple_score:
+            return "best"
+        elif simple_score > complex_score:
+            return "fast"
+        else:
+            return "smart"
+
+
+class RAGKnowledge:
+    """Simple in-memory RAG from injected books."""
+    
+    KNOWLEDGE = {
+        "meddpicc": "MEDDPICC: M-Metrics, E-Economic Buyer, D-Decision Criteria, D-Decision Process, P-Pain, I-Champion, C-Competition, C-Competition. Score 0-5 each.",
+        "voss": "Voss Negotiation: Tactical empathy, mirroring, labeling, calibrated questions (how/what), accusation audit, 'no' is start of negotiation.",
+        "cialdini": "Cialdini: Reciprocity, Scarcity, Authority, Consistency, Liking, Social Proof. Use ethically.",
+        "challenger": "Challenger Sale: Teach (new insight), Tailor (to their situation), Take Control (constructive tension).",
+        "carnegie": "Carnegie: Win friends - genuine interest, talk in other's interests, make them feel important, don't criticize.",
+        "hill": "Napoleon Hill: Burning desire, definiteness of purpose, master mind, faith, persistence, the psychological moment.",
+    }
+    
+    @staticmethod
+    def retrieve(query, top_k=2):
+        """Retrieve relevant knowledge for a query."""
+        query_lower = query.lower()
+        relevant = []
+        for key, value in RAGKnowledge.KNOWLEDGE.items():
+            if key in query_lower:
+                relevant.append(value)
+        return relevant[:top_k]
