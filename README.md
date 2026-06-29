@@ -7,23 +7,22 @@
 
 ## The Pain
 
-**Sales teams use 8+ disconnected tools.** Gong records calls but can't prospect. Outreach sequences emails but can't analyze buyer psychology. Salesforce qualifies deals but can't run negotiation strategy. Every tool solves ONE piece. Nothing connects them. You pay $1,600+/month for fragmentation.
+**Sales teams use 8+ disconnected tools.** Gong records calls but can't prospect. Outreach sequences emails but can't analyze buyer psychology. Salesforce qualifies deals but can't run negotiation strategy. Every tool solves ONE piece. Nothing connects them.
 
-**Your best reps have 15+ years of instincts.** MEDDPICC. Challenger. SPIN. Gap Selling. Cialdini. Frameworks they've mastered over decades. When they leave, that knowledge walks out the door. New reps take 12+ months to ramp. You lose millions.
+**Your best reps have 15+ years of instincts.** MEDDPICC. Challenger. SPIN. Gap Selling. Cialdini. When they leave, that knowledge walks out. New reps take 12+ months to ramp.
 
-**Deals die silently.** Stalled at legal because nobody prepped procurement defense. Champions go unsupported. Competitive threats go unnoticed until the loss review. By then, it's too late.
+**Deals die silently.** Stalled at legal because nobody prepped procurement defense. Champions go unsupported. Competitive threats go unnoticed until the loss review.
 
 ---
 
-## What DealForge Does
+## What Makes This Different
 
-DealForge embeds **70 world-class sales experts** into one CLI. It covers the full revenue lifecycle:
-
-```
-PROSPECT --> QUALIFY --> NEGOTIATE --> CLOSE --> COACH
-```
-
-Each step is handled by specialized AI agents. Each agent is trained on 10 top experts in that domain. All in one command.
+| Traditional Tools | DealForge |
+|:-----------------|:----------|
+| One function per tool | **Full revenue lifecycle**: prospect > qualify > negotiate > close > coach |
+| Generic AI prompts | **70 world-class experts** as agent personas (Voss, Cialdini, Jobs, Buffett...) |
+| Single-agent response | **Multi-agent orchestration**: 3-4 agents analyze in parallel |
+| Monthly SaaS fees | **$0 open source** - bring your own LLM key |
 
 ---
 
@@ -62,29 +61,27 @@ Each step is handled by specialized AI agents. Each agent is trained on 10 top e
               ------------+-----------
               |  McKinsey-Level      |
               |  Analysis Report     |
-              |  + 5 Follow-up Qs    |
+              |  + Follow-up Qs      |
               ------------------------
 ```
 
-**No server. No database. No cloud. Just Python.**
+---
+
+## 7 Agent Personas (70 Combined Experts)
+
+| Agent | 10 Experts Behind It |
+|-------|---------------------|
+| **MEDDPICC Qualifier** | Dunkel, Gong Labs, Rackham, Dixon, McMahon, Antonio, Whyte, Weisberg, Sandler, Blount |
+| **Master Negotiator** | Voss, Fisher, Ury, Cohen, Camp, Karrass, Cialdini, Kupfer, Shell, Malhotra |
+| **Buyer Behavior** | Cialdini, Kahneman, Ariely, Carnegie, Munger, Greene, Thaler, Ogilvy, Godin, Robbins |
+| **Value Architect** | Porter, Christensen, Moore, Sinek, Thiel, Ferriss, Rose, Tracy, Balfour, Peters |
+| **Elite Prospector** | Ross, Konrath, Barrows, Bertuzzi, Efti, Tyler, Schultz, Coggins, Iannarino, Cardone |
+| **Revenue Conductor** | Jobs, Welch, Grove, Drucker, Bezos, Sandberg, Nadella, Powell, Buffett, Dalio |
+| **Sales Call Coach** | Gong Labs, McMahon, Chorus, Weinberg, Priemer, Dixon, Orlob, Blount, Ziglar, Barrows |
 
 ---
 
-## 7 Expert Personas (70 Total Experts)
-
-| Agent | What It Does | The 10 Experts Behind It |
-|-------|-------------|--------------------------|
-| **MEDDPICC Qualifier** | Scores deals, finds gaps, validates champions | Dunkel, Gong Labs, Rackham, Dixon, McMahon, Antonio, Whyte, Weisberg, Sandler, Blount |
-| **Master Negotiator** | Procurement defense, BATNA, concessions | Voss, Fisher, Ury, Cohen, Camp, Karrass, Cialdini, Kupfer, Shell, Malhotra |
-| **Buyer Behavior** | Stakeholder analysis, influence, objections | Cialdini, Kahneman, Ariely, Carnegie, Munger, Greene, Thaler, Ogilvy, Godin, Robbins |
-| **Value Architect** | ROI/TCO, business cases, board presentations | Porter, Christensen, Moore, Sinek, Thiel, Ferriss, Rose, Tracy, Balfour, Peters |
-| **Elite Prospector** | Lead gen, outreach, pipeline building | Ross, Konrath, Barrows, Bertuzzi, Efti, Tyler, Schultz, Coggins, Iannarino, Cardone |
-| **Revenue Conductor** | Pipeline strategy, forecasting, ops | Jobs, Welch, Grove, Drucker, Bezos, Sandberg, Nadella, Powell, Buffett, Dalio |
-| **Sales Call Coach** | Call analysis, coaching, objection practice | Gong Labs, McMahon, Chorus.ai, Weinberg, Priemer, Dixon, Orlob, Blount, Ziglar, Barrows |
-
----
-
-## Quick Start (30 seconds)
+## Quick Start
 
 ```bash
 git clone https://github.com/connectvelpuri/revenue-os.git
@@ -100,11 +97,23 @@ python cli.py
 ```
 
 Type naturally:
-- `qualify this $500K deal`
-- `negotiate with procurement`
-- `analyze buyer psychology for the CIO`
-- `/help` for commands
-- `/quit` to exit
+
+| You type | What happens |
+|----------|-------------|
+| `qualify this $500K deal` | MEDDPICC Qualifier |
+| `negotiate with procurement` | Master Negotiator |
+| `analyze buyer psychology` | Buyer Behavior Expert |
+| `build an ROI case` | Value Architect |
+| `/help` | Show commands |
+| `/quit` | Exit |
+
+### Multi-Agent Deep Dive (Best Feature)
+
+Asks 5 clarifying questions first, then runs 3-4 agents:
+
+```bash
+python cli.py "I need to win a $2M deal against Oracle" --api-key your-key
+```
 
 ### Single Query
 
@@ -112,47 +121,32 @@ Type naturally:
 python cli.py "qualify this $500K enterprise deal" --api-key your-key
 ```
 
-### Multi-Agent Deep Dive (Best Feature)
-
-Asks 5 clarifying questions, then runs 3-4 agents in parallel:
-
-```bash
-python cli.py "I need to win a $2M deal against Oracle" --api-key your-key
-```
-
 ---
 
-## Example: Multi-Agent Deep Dive
+## Example
 
 ```
-$ python cli.py --api-key sk-or-...
+$ python cli.py --api-key sk-or-...n
 
 > I need to win a $2M enterprise deal
 
 ? Deal value and stage?  $2M, stuck at legal review
 ? Decision-makers?  CIO + Procurement Director
 ? Competitors?  Oracle
-? Buyer's biggest concern?  Implementation risk
-? Who is your champion?  VP of Engineering
+? Biggest concern?  Implementation risk
+? Your champion?  VP of Engineering
 
-Analyzing with 3 agents...
-
-PERSPECTIVE 1: MEDDPICC QUALIFIER
-Score: 32/40 - Gap: Economic buyer not engaged
-Action: Schedule CIO briefing this week
+PERSPECTIVE 1: MEDDPICC QUALIFIER (Score: 32/40)
+Gap: Economic buyer not engaged
+Action: Schedule CIO briefing
 
 PERSPECTIVE 2: BUYER PSYCHOLOGY
-Procurement is risk-averse. Champion lacks budget authority.
-Action: Equip VP Eng with TCO comparison.
+Procurement is risk-averse. Champion needs ammunition.
+Action: Build TCO comparison for VP Eng
 
 PERSPECTIVE 3: MASTER NEGOTIATOR
-Oracle will compete on price. Your advantage: implementation speed.
-Action: Build switching cost narrative.
-
-Follow-up questions:
-1. Deep dive on Oracle's weaknesses
-2. Procurement negotiation scenario
-3. Stakeholder influence map for CIO
+Oracle competes on price. Your speed is the advantage.
+Action: Build switching cost narrative
 ```
 
 ---
@@ -160,38 +154,27 @@ Follow-up questions:
 ## Bring Your Own AI
 
 ```bash
-export OPENROUTER_API_KEY=***
-python cli.py --api-key $OPENROUTER_API_KEY
+export OPENROUTER_API_KEY=*** cli.py --api-key $OPENROUTER_API_KEY
 ```
 
-Free models: openrouter/free, nvidia/nemotron-3-ultra-550b-a55b:free, meta-llama/llama-3.3-70b-instruct:free
+Free models: `openrouter/free`, `nvidia/nemotron-3-ultra-550b-a55b:free`
 
 ---
 
-## Who Benefits
-
-| Role | How |
-|------|-----|
-| **VP Sales / CRO** | Pipeline health, deal inspection, forecasts - in seconds |
-| **Enterprise AE** | MEDDPICC scoring, negotiation strategy - like having 10 experts per call |
-| **SDR / BDR** | Prospect research, outreach scripts, objection handling |
-| **Solutions Architect** | ROI/TCO models, business cases, competitive diffs |
-| **Sales Enablement** | Call coaching, training, ramp acceleration |
-| **Revenue Operations** | Pipeline analytics, process optimization |
-| **Founder / CEO** | Full deal visibility, McKinsey-level analysis, $0 cost |
-
----
-
-## The Value Equation
+## Project Structure (22 files)
 
 ```
-Value = (Deal Velocity x Win Rate x Deal Size) - (Tool Sprawl x Ramp Time)
-       ---------------------------------------------------------------
-                                    $0
+dealforge/
+  cli.py                       # Main CLI (the only file you need)
+  agents/agent_base/
+    llm_client.py              # Routes to OpenRouter / Anthropic / NVIDIA
+    agent_wrapper.py           # Wires persona to LLM
+    personas/                  # 7 expert persona definitions
+  api/webhook.py               # WhatsApp + API server (optional)
+  requirements.txt             # 4 dependencies
+  LICENSE                      # MIT
+  README.md                    # This file
 ```
-
-**Without:** 8 tools x $200/mo = $1,600/mo + 12-month ramp + 60% win rate
-**With DealForge:** $0 + embedded expertise + multi-agent analysis
 
 ---
 
