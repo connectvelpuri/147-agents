@@ -181,3 +181,17 @@ dealforge/
 ## License
 
 MIT - free to use, modify, sell, deploy.
+
+
+## 🔍 Account Intelligence (14+ OSINT Tools)
+
+Research any company or prospect across 100+ data sources:
+
+| Command | What It Does |
+|---------|-------------|
+| `python research.py "Company Name"` | Full account intelligence report |
+| `python research.py "Company Name" --deep` | Deep dive with theHarvester + all tools |
+| `python research.py --tools` | List all 14+ available OSINT tools |
+| `python -m agents.account_intel.engine "Company"` | 20-section strategic report |
+
+**Installed tools:** spiderfoot (846 files), whatweb (1,972), truffleHog (3,457), scrapy (659), recon-ng (75), theHarvester (171), sherlock (83), maigret (184), holehe (191), GHunt (122), emailfinder (51), socialscan (53), twint (69), social-analyzer (92)
