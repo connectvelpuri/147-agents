@@ -54,7 +54,7 @@ init_db()
 
 # FastAPI imports
 try:
-    from fastapi import FastAPI, Request, HTTPException, Depends
+    from fastapi import FastAPI, Request, HTTPException, Depends, Cookie
     from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
     import uvicorn
     HAS_FASTAPI = True
@@ -98,9 +98,11 @@ if HAS_FASTAPI:
         conn.close()
         return dict(row) if row else None
 
-    def require_user(session: str = Cookie(None) if 'Cookie' in dir() else None):
-        # Simplified - requires sessions cookie
-        return {}
+    def require_user(session: str = Cookie(None)):
+        user = get_user_by_session(session)
+        if not user:
+            raise HTTPException(401, "Not authenticated")
+        return user
 
     TEMPLATES = Path(os.path.join(os.path.dirname(__file__), "templates"))
 
