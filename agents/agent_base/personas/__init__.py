@@ -1,9 +1,19 @@
 """
 World-Class Persona Library — Revenue OS Intelligence Layer.
 Each persona combines 10 world-class domain experts.
+Includes Account Intelligence for strategic account research.
 """
 
-PERSONA_IDS = ['revenue_orchestrator', 'buyer_psychology', 'value_engineer', 'negotiation', 'prospecting_sdr', 'meddpicc_qualifier', 'call_coacher']
+PERSONA_IDS = [
+    "revenue_orchestrator",
+    "buyer_psychology", 
+    "value_engineer",
+    "negotiation",
+    "prospecting_sdr",
+    "meddpicc_qualifier",
+    "call_coacher",
+    "account_intelligence",
+]
 
 def get_persona(persona_id):
     """Get a persona definition by ID."""
