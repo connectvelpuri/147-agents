@@ -3,261 +3,764 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DealForge - 147 AI Agents. 70 World-Class Experts. One CLI.</title>
+    <title>DealForge — AI Revenue Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-               background: #0a0a0f; color: #e0e0e0; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        
-        /* NAV */
-        nav { display: flex; justify-content: space-between; align-items: center; 
-             padding: 20px 0; border-bottom: 1px solid #1a1a2e; }
-        .logo { font-size: 24px; font-weight: 800; color: #fff; }
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #07070d;
+            color: #e2e2e8;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============================================
+           CURSOR GLOW
+           ============================================ */
+        #cursor-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        /* ============================================
+           GRID BACKGROUND
+           ============================================ */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            background-image: 
+                linear-gradient(rgba(108, 99, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(108, 99, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: -20%;
+            left: -10%;
+            width: 80%;
+            height: 60%;
+            background: radial-gradient(ellipse, rgba(108, 99, 255, 0.08) 0%, transparent 60%);
+            z-index: 0;
+            animation: glowPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* ============================================
+           NAV
+           ============================================ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+        nav.scrolled {
+            background: rgba(7, 7, 13, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #6c63ff, #e040a0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #fff;
+        }
         .logo span { color: #6c63ff; }
-        nav a { color: #a0a0b0; text-decoration: none; margin-left: 24px; font-size: 14px; }
-        nav a:hover { color: #fff; }
-        .btn { background: #6c63ff; color: #fff; padding: 10px 24px; border-radius: 8px; 
-               text-decoration: none; font-weight: 600; font-size: 14px; border: none; cursor: pointer; }
-        .btn-outline { background: transparent; border: 1px solid #6c63ff; color: #6c63ff; }
-        .btn-outline:hover { background: #6c63ff; color: #fff; }
-        
-        /* HERO */
-        .hero { padding: 100px 0 80px; text-align: center; }
-        .hero h1 { font-size: 56px; font-weight: 800; line-height: 1.15; margin-bottom: 24px;
-                   background: linear-gradient(135deg, #fff 0%, #6c63ff 50%, #ff6b6b 100%);
-                   -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 20px; color: #a0a0b0; max-width: 700px; margin: 0 auto 40px; }
-        .hero-btns { display: flex; gap: 16px; justify-content: center; }
-        .hero-btns .btn { padding: 16px 40px; font-size: 16px; }
-        .hero-stats { display: flex; justify-content: center; gap: 60px; margin-top: 80px; }
-        .stat { text-align: center; }
-        .stat-num { font-size: 36px; font-weight: 800; color: #fff; }
-        .stat-label { font-size: 14px; color: #6c63ff; margin-top: 4px; }
-        
-        /* PAIN SECTION */
-        .pain { padding: 80px 0; background: #0f0f1a; }
-        .pain h2 { text-align: center; font-size: 36px; margin-bottom: 60px; color: #fff; }
-        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-        .pain-card { background: #151525; border-radius: 12px; padding: 32px; border: 1px solid #1a1a2e; }
-        .pain-card .icon { font-size: 32px; margin-bottom: 16px; }
-        .pain-card h3 { font-size: 18px; color: #ff6b6b; margin-bottom: 8px; }
-        .pain-card p { font-size: 14px; color: #808090; }
-        .pain-card .stat { color: #6c63ff; font-size: 13px; font-weight: 600; margin-top: 12px; }
-        
-        /* SOLUTION */
-        .solution { padding: 80px 0; }
-        .solution h2 { text-align: center; font-size: 36px; margin-bottom: 60px; color: #fff; }
-        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
-        .sol-card { background: #151525; border-radius: 12px; padding: 32px; text-align: center;
-                    border: 1px solid #1a1a2e; }
-        .sol-card .icon { font-size: 40px; margin-bottom: 16px; }
-        .sol-card h3 { font-size: 16px; color: #fff; margin-bottom: 8px; }
-        .sol-card p { font-size: 13px; color: #808090; }
-        
-        /* PRICING */
-        .pricing { padding: 80px 0; background: #0f0f1a; }
-        .pricing h2 { text-align: center; font-size: 36px; margin-bottom: 12px; color: #fff; }
-        .pricing .subtitle { text-align: center; color: #808090; margin-bottom: 60px; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-        .price-card { background: #151525; border-radius: 12px; padding: 40px 32px; 
-                      border: 1px solid #1a1a2e; position: relative; }
+        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .nav-links a {
+            color: #9090a0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+        .nav-links a:hover { color: #fff; background: rgba(108, 99, 255, 0.08); }
+        .nav-cta {
+            background: linear-gradient(135deg, #6c63ff, #5548e0);
+            color: #fff !important;
+            padding: 10px 24px !important;
+            border-radius: 10px !important;
+            font-weight: 600 !important;
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(108, 99, 255, 0.3); }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 120px 24px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px 6px 6px;
+            background: rgba(108, 99, 255, 0.1);
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #9080ff;
+            margin-bottom: 32px;
+            animation: fadeUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            background: #4ade80;
+            border-radius: 50%;
+            margin-right: 4px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 24px;
+            animation: fadeUp 0.8s 0.1s ease forwards;
+            opacity: 0;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, #6c63ff 0%, #e040a0 50%, #ff6b6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.6;
+            color: #808098;
+            max-width: 640px;
+            margin-bottom: 40px;
+            animation: fadeUp 0.8s 0.2s ease forwards;
+            opacity: 0;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            animation: fadeUp 0.8s 0.3s ease forwards;
+            opacity: 0;
+        }
+        .btn-primary {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #6c63ff, #5548e0);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(108, 99, 255, 0.35);
+        }
+        .btn-secondary {
+            padding: 14px 32px;
+            background: transparent;
+            color: #c0c0d0;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover { border-color: #6c63ff; color: #fff; }
+
+        /* ============================================
+           HERO TERMINAL
+           ============================================ */
+        .hero-terminal {
+            margin-top: 48px;
+            background: rgba(12, 12, 22, 0.8);
+            border: 1px solid rgba(108, 99, 255, 0.12);
+            border-radius: 14px;
+            padding: 24px;
+            font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            animation: fadeUp 0.8s 0.4s ease forwards;
+            opacity: 0;
+            backdrop-filter: blur(10px);
+        }
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+        .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .terminal-dot:nth-child(1) { background: #ff5f57; }
+        .terminal-dot:nth-child(2) { background: #ffbd2e; }
+        .terminal-dot:nth-child(3) { background: #28c840; }
+        .terminal-line { margin-bottom: 4px; }
+        .terminal-line .prompt { color: #6c63ff; }
+        .terminal-line .cursor { display: inline-block; width: 8px; height: 16px; background: #6c63ff; 
+                               animation: blink 1s step-end infinite; vertical-align: text-bottom; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .terminal-output { color: #4ade80; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(108,99,255,0.1); }
+        .terminal-output span { color: #9090a0; }
+
+        /* ============================================
+           HERO STATS
+           ============================================ */
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+            animation: fadeUp 0.8s 0.5s ease forwards;
+            opacity: 0;
+        }
+        .hero-stat {
+            text-align: center;
+            padding: 24px;
+            background: rgba(12, 12, 22, 0.5);
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .hero-stat:hover { border-color: rgba(108, 99, 255, 0.2); transform: translateY(-2px); }
+        .hero-stat .num {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #6c63ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-stat .label { font-size: 13px; color: #606070; margin-top: 4px; }
+
+        /* ============================================
+           PAIN SECTION
+           ============================================ */
+        .section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #6c63ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .section h2 {
+            font-family: 'Space Grotesk', monospace;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+        .section .subtitle {
+            font-size: 16px;
+            color: #808098;
+            max-width: 600px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .pain-card {
+            padding: 32px;
+            background: rgba(12, 12, 22, 0.6);
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .pain-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6c63ff, transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .pain-card:hover::before { opacity: 1; }
+        .pain-card:hover { transform: translateY(-4px); border-color: rgba(108, 99, 255, 0.2); 
+                         box-shadow: 0 8px 32px rgba(108, 99, 255, 0.06); }
+        .pain-card .icon { font-size: 28px; margin-bottom: 16px; }
+        .pain-card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .pain-card p { font-size: 14px; color: #707080; line-height: 1.6; }
+        .pain-card .pain-stat {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #6c63ff;
+            font-weight: 600;
+            padding: 4px 12px;
+            background: rgba(108, 99, 255, 0.08);
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* ============================================
+           SOLUTION
+           ============================================ */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .sol-card {
+            padding: 32px;
+            background: rgba(12, 12, 22, 0.6);
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .sol-card:hover { transform: translateY(-4px); border-color: rgba(108, 99, 255, 0.2); }
+        .sol-card .icon { font-size: 36px; margin-bottom: 16px; }
+        .sol-card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .sol-card p { font-size: 14px; color: #707080; line-height: 1.6; }
+
+        /* ============================================
+           PRICING
+           ============================================ */
+        .pricing-section { background: rgba(12, 12, 22, 0.3); }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .price-card {
+            padding: 40px 32px;
+            background: rgba(12, 12, 22, 0.6);
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            border-radius: 16px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .price-card:hover { border-color: rgba(108, 99, 255, 0.2); transform: translateY(-4px); }
         .price-card.featured { border-color: #6c63ff; }
-        .price-card .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-                           background: #6c63ff; color: #fff; padding: 4px 16px; border-radius: 20px;
-                           font-size: 12px; font-weight: 600; }
-        .price-card .name { font-size: 18px; font-weight: 700; color: #fff; }
-        .price-card .price { font-size: 48px; font-weight: 800; color: #fff; margin: 16px 0; }
-        .price-card .price span { font-size: 16px; color: #808090; font-weight: 400; }
+        .price-card .badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 4px 16px;
+            background: linear-gradient(135deg, #6c63ff, #e040a0);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .price-card .name { font-size: 16px; font-weight: 600; color: #fff; }
+        .price-card .price { font-family: 'Space Grotesk', monospace; font-size: 48px; font-weight: 700; 
+                           color: #fff; margin: 16px 0; }
+        .price-card .price span { font-size: 16px; color: #606070; font-weight: 400; }
         .price-card ul { list-style: none; margin: 24px 0; }
-        .price-card ul li { padding: 8px 0; font-size: 14px; color: #c0c0d0; }
-        .price-card ul li:before { content: "✓ "; color: #6c63ff; font-weight: 700; }
-        .price-card .btn { width: 100%; text-align: center; display: block; margin-top: 24px; }
-        
-        /* FOOTER */
-        footer { padding: 40px 0; text-align: center; color: #505060; font-size: 14px; }
-        
-        /* MISC */
-        .terminal { background: #0a0a0f; border: 1px solid #1a1a2e; border-radius: 12px; 
-                   padding: 24px; margin: 60px auto; max-width: 700px; font-family: monospace; font-size: 14px; }
-        .terminal .prompt { color: #6c63ff; }
-        .terminal .text { color: #c0c0d0; }
-        .terminal .output { color: #4ade80; }
-        
+        .price-card ul li { padding: 8px 0; font-size: 14px; color: #a0a0b0; display: flex; gap: 8px; }
+        .price-card ul li::before { content: "✓"; color: #6c63ff; font-weight: 700; }
+        .price-card .btn { display: block; width: 100%; padding: 12px; text-align: center;
+                          border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer;
+                          text-decoration: none; margin-top: 24px; transition: all 0.2s; }
+        .price-card .btn-primary { background: linear-gradient(135deg, #6c63ff, #5548e0); color: #fff; }
+        .price-card .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(108,99,255,0.3); }
+        .price-card .btn-secondary { background: transparent; border: 1px solid rgba(108,99,255,0.2); color: #c0c0d0; }
+        .price-card .btn-secondary:hover { border-color: #6c63ff; color: #fff; }
+
+        /* ============================================
+           TESTIMONIAL
+           ============================================ */
+        .testimonial {
+            padding: 48px;
+            background: rgba(12, 12, 22, 0.6);
+            border: 1px solid rgba(108, 99, 255, 0.08);
+            border-radius: 16px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .testimonial .quote { font-size: 20px; color: #c0c0d0; line-height: 1.6; font-style: italic; }
+        .testimonial .author { margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .testimonial .author .avatar { width: 40px; height: 40px; border-radius: 50%; 
+                                      background: linear-gradient(135deg, #6c63ff, #e040a0); }
+        .testimonial .author .name { font-size: 14px; font-weight: 600; color: #fff; }
+        .testimonial .author .role { font-size: 12px; color: #606070; }
+
+        /* ============================================
+           CTA
+           ============================================ */
+        .cta-section {
+            text-align: center;
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .cta-section h2 { font-size: clamp(32px, 4vw, 48px); color: #fff; margin-bottom: 16px; }
+        .cta-section p { color: #808098; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            color: #404050;
+            font-size: 13px;
+            border-top: 1px solid rgba(108, 99, 255, 0.06);
+            position: relative;
+            z-index: 1;
+        }
+        footer a { color: #6c63ff; text-decoration: none; }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 32px; }
-            .hero-stats { flex-direction: column; gap: 24px; }
-            nav a { margin-left: 12px; font-size: 12px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .hero-stats .num { font-size: 28px; }
+            .nav-links a:not(.nav-cta) { display: none; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <nav class="container">
-        <div class="logo">Deal<span>Forge</span></div>
-        <div>
-            <a href="/pricing">Pricing</a>
-            <a href="/login">Sign In</a>
-            <a href="/signup" class="btn">Get Started</a>
-        </div>
-    </nav>
 
-    <section class="hero container">
-        <h1>147 AI Agents.<br>70 World-Class Experts.<br>One CLI.</h1>
-        <p>The first open-source multi-agent AI platform for revenue teams. 
-           MEDDPICC, SPIN, Challenger, and Cialdini — executed by agents trained 
-           on the world's best sales minds.</p>
-        <div class="hero-btns">
-            <a href="/signup" class="btn">Start Free →</a>
-            <a href="https://github.com/connectvelpuri/147-agents" class="btn btn-outline">GitHub</a>
-        </div>
-        <div class="terminal">
-            <div><span class="prompt">$</span> <span class="text">python cli.py "qualify this $500K deal" --api-key your-key</span></div>
-            <div><span class="output">>> MEDDPICC Score: 32/40. Gap: Economic buyer not engaged.</span></div>
-            <div><span class="output">>> Action: Schedule CIO briefing this week.</span></div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat"><div class="stat-num">147</div><div class="stat-label">AI Agents</div></div>
-            <div class="stat"><div class="stat-num">70</div><div class="stat-label">World-Class Experts</div></div>
-            <div class="stat"><div class="stat-num">16</div><div class="stat-label">Sales Bibles Embedded</div></div>
-            <div class="stat"><div class="stat-num">$0</div><div class="stat-label">Open Source</div></div>
-        </div>
-    </section>
+<div id="cursor-glow"></div>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
 
-    <section class="pain">
-        <div class="container">
-            <h2>😖 The Pain Nobody Talks About</h2>
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <div class="icon">🔧</div>
-                    <h3>8+ Disconnected Tools</h3>
-                    <p>Gong records calls but can't prospect. Outreach sequences emails but can't analyze buyer psychology. Salesforce qualifies but can't negotiate. Nothing connects.</p>
-                    <div class="stat">Cost: $1,600+/month in fragmented SaaS</div>
-                </div>
-                <div class="pain-card">
-                    <div class="icon">🧠</div>
-                    <h3>Lost Expertise Drain</h3>
-                    <p>Your best reps have 15+ years of MEDDPICC, Challenger, and SPIN instincts. When they leave, that knowledge walks out. New reps take 12+ months to ramp.</p>
-                    <div class="stat">Cost: $150K+ per lost senior rep</div>
-                </div>
-                <div class="pain-card">
-                    <div class="icon">💀</div>
-                    <h3>Deals Die Silently</h3>
-                    <p>Stalled at legal because nobody prepped procurement defense. Champions unsupported. Competitive threats unnoticed until the loss review. By then, it's too late.</p>
-                    <div class="stat">Cost: 40% of forecasted deals slip or die</div>
-                </div>
-                <div class="pain-card">
-                    <div class="icon">📊</div>
-                    <h3>Forecasting is Fiction</h3>
-                    <p>60-80% forecast accuracy. Pipeline reviews are theater. Deals are "optimistically" staged. MEDDPICC is a checkbox exercise, not a real scoring system.</p>
-                    <div class="stat">Cost: Misallocated resources, missed quarters</div>
-                </div>
-                <div class="pain-card">
-                    <div class="icon">🎯</div>
-                    <h3>Coaching Doesn't Stick</h3>
-                    <p>Roleplay once, forget everything. Content dumps nobody reads. Coaching is infrequent, generic, and disconnected from actual deals. Reps plateau.</p>
-                    <div class="stat">Cost: 30% longer ramp time</div>
-                </div>
-                <div class="pain-card">
-                    <div class="icon">🤖</div>
-                    <h3>AI Adds Noise, Not Value</h3>
-                    <p>Generic AI "assistants" that sound like robots. 75+ AI sales tools that don't integrate. Most are wrappers around ChatGPT with no domain expertise.</p>
-                    <div class="stat">Cost: $200+/seat for surface-level AI</div>
-                </div>
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <div class="logo-icon">D</div>
+            Deal<span>Forge</span>
+        </a>
+        <div class="nav-links">
+            <a href="#pain">Problems</a>
+            <a href="#solution">Solution</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#testimonial">Testimonials</a>
+            <a href="/chat" class="nav-cta">Try for Free</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-badge">
+        <span class="dot"></span>
+        Now available — Chat interface
+    </div>
+    <h1>Close more deals<br>with <span class="gradient">147 AI agents</span><br>trained on 70 experts</h1>
+    <p>The first open-source AI platform that combines MEDDPICC, SPIN, Challenger, and Cialdini — executed by agents trained on the world's best sales minds. One interface. Zero tool sprawl.</p>
+    <div class="hero-actions">
+        <a href="/chat" class="btn-primary">Start Chatting →</a>
+        <a href="https://github.com/connectvelpuri/147-agents" class="btn-secondary">View on GitHub</a>
+    </div>
+
+    <div class="hero-terminal">
+        <div class="terminal-dots">
+            <div class="terminal-dot"></div>
+            <div class="terminal-dot"></div>
+            <div class="terminal-dot"></div>
+        </div>
+        <div class="terminal-line"><span class="prompt">$</span> python cli.py "qualify this $500K enterprise deal"</div>
+        <div class="terminal-output">
+            <span># MEDDPICC Qualifier activated (10 experts)</span><br>
+            Score: 32/40 &nbsp;•&nbsp; Gap: Economic buyer not engaged<br>
+            Action: Schedule CIO briefing this week<br>
+            Confidence: 84% <span># based on 3 self-consistency runs</span>
+        </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="num">147</div><div class="label">AI Agents</div></div>
+        <div class="hero-stat"><div class="num">70</div><div class="label">World-Class Experts</div></div>
+        <div class="hero-stat"><div class="num">16</div><div class="label">Sales Bibles</div></div>
+        <div class="hero-stat"><div class="num">$0</div><div class="label">Open Source</div></div>
+    </div>
+</section>
+
+<!-- PAIN -->
+<section class="section" id="pain">
+    <div class="section-label">The Problem</div>
+    <h2>Sales tech is broken.<br>Here's how.</h2>
+    <p class="subtitle">8+ disconnected tools. Lost expertise. Deals dying silently. This is what every sales team faces.</p>
+    <div class="pain-grid">
+        <div class="pain-card fade-up">
+            <div class="icon">🔧</div>
+            <h3>8+ Disconnected Tools</h3>
+            <p>Gong records calls. Outreach sequences emails. Salesforce qualifies deals. Nothing connects. You pay $1,600+/month for fragmentation.</p>
+            <div class="pain-stat">$19,200/yr in tool sprawl</div>
+        </div>
+        <div class="pain-card fade-up">
+            <div class="icon">🧠</div>
+            <h3>Lost Expertise Drain</h3>
+            <p>Your best reps have 15+ years of MEDDPICC, Challenger, SPIN instincts. When they leave, that knowledge walks out. New reps take 12+ months to ramp.</p>
+            <div class="pain-stat">$150K+ per lost senior rep</div>
+        </div>
+        <div class="pain-card fade-up">
+            <div class="icon">💀</div>
+            <h3>Deals Die Silently</h3>
+            <p>Stalled at legal because nobody prepped procurement. Champions unsupported. Competitive threats unnoticed until the loss review. By then, it's too late.</p>
+            <div class="pain-stat">40% of forecasted deals slip or die</div>
+        </div>
+        <div class="pain-card fade-up">
+            <div class="icon">📊</div>
+            <h3>Forecasting is Fiction</h3>
+            <p>60-80% accuracy. Pipeline reviews are theater. MEDDPICC is a checkbox exercise. Gut feel wins over data in every forecast meeting.</p>
+            <div class="pain-stat">$2M+ misallocated resources per quarter</div>
+        </div>
+        <div class="pain-card fade-up">
+            <div class="icon">🎯</div>
+            <h3>Coaching Doesn't Stick</h3>
+            <p>Roleplay once, forget everything. Content dumps nobody reads. Coaching is infrequent, generic, disconnected from actual deals.</p>
+            <div class="pain-stat">30% longer ramp time for new reps</div>
+        </div>
+        <div class="pain-card fade-up">
+            <div class="icon">🤖</div>
+            <h3>AI Adds Noise</h3>
+            <p>Generic AI assistants that sound like robots. 75+ AI sales tools that don't integrate. Most are ChatGPT wrappers with no domain expertise.</p>
+            <div class="pain-stat">$200+/seat for surface-level AI</div>
+        </div>
+    </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section" id="solution">
+    <div class="section-label">The Solution</div>
+    <h2>One platform.<br>70 experts. Zero BS.</h2>
+    <p class="subtitle">147 agents, each trained on 10 world-class experts, covering the full revenue lifecycle.</p>
+    <div class="solution-grid">
+        <div class="sol-card fade-up">
+            <div class="icon">🎯</div>
+            <h3>MEDDPICC Qualification</h3>
+            <p>Dunkel + Gong + Rackham + Dixon. Score deals across 8 dimensions with evidence-backed recommendations.</p>
+        </div>
+        <div class="sol-card fade-up">
+            <div class="icon">🤝</div>
+            <h3>Master Negotiation</h3>
+            <p>Voss + Fisher + Ury + Cohen. BATNA analysis, calibrated questions, tactical empathy — before you enter the room.</p>
+        </div>
+        <div class="sol-card fade-up">
+            <div class="icon">🧠</div>
+            <h3>Buyer Psychology</h3>
+            <p>Cialdini + Kahneman + Ariely. Understand what your buyer isn't telling you. System 1 vs System 2 analysis.</p>
+        </div>
+        <div class="sol-card fade-up">
+            <div class="icon">📈</div>
+            <h3>Value Engineering</h3>
+            <p>Porter + Christensen + Sinek. 5-year TCO, risk-adjusted ROI, board-ready business cases in minutes.</p>
+        </div>
+        <div class="sol-card fade-up">
+            <div class="icon">🎬</div>
+            <h3>Sales Coaching</h3>
+            <p>Gong Labs + McMahon + Orlob. Talk ratio, discovery depth, objection handling — data-driven coaching.</p>
+        </div>
+        <div class="sol-card fade-up">
+            <div class="icon">🔍</div>
+            <h3>Account Intelligence</h3>
+            <p>20-section strategic reports. Tech stack, stakeholder mapping, trigger events, competitive displacement.</p>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+    <div class="section-label">Pricing</div>
+    <h2>Start free. Scale when ready.</h2>
+    <p class="subtitle">No credit card required. No time limit on free tier.</p>
+    <div class="pricing-grid">
+        <div class="price-card fade-up">
+            <div class="name">Open Source</div>
+            <div class="price">$0<span>/mo</span></div>
+            <ul>
+                <li>8 agent personas (80 experts)</li>
+                <li>16 sales book frameworks</li>
+                <li>Reflection + voting + CoT</li>
+                <li>SQLite memory</li>
+                <li>CLI + API access</li>
+                <li>MIT license</li>
+            </ul>
+            <a href="https://github.com/connectvelpuri/147-agents" class="btn btn-secondary">Get Started</a>
+        </div>
+        <div class="price-card featured fade-up">
+            <div class="badge">POPULAR</div>
+            <div class="name">Cloud Pro</div>
+            <div class="price">$29<span>/mo</span></div>
+            <ul>
+                <li>All Open Source features</li>
+                <li>Web chat interface</li>
+                <li>Persistent memory</li>
+                <li>Team collaboration (5 seats)</li>
+                <li>Managed API (no key needed)</li>
+                <li>CRM sync (HubSpot/Salesforce)</li>
+                <li>Priority support</li>
+            </ul>
+            <a href="/chat" class="btn btn-primary">Start Free Trial</a>
+        </div>
+        <div class="price-card fade-up">
+            <div class="name">Enterprise</div>
+            <div class="price">$99<span>/mo</span></div>
+            <ul>
+                <li>All Cloud Pro features</li>
+                <li>Unlimited team members</li>
+                <li>SSO / SAML / OAuth</li>
+                <li>RBAC + audit trails</li>
+                <li>Dedicated deployment</li>
+                <li>SLA guarantee (99.9%)</li>
+                <li>Custom agent personas</li>
+                <li>24/7 priority support</li>
+            </ul>
+            <a href="/signup" class="btn btn-secondary">Contact Sales</a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="section" id="testimonial">
+    <div class="testimonial fade-up">
+        <div class="quote">"DealForge is like having Chris Voss, Robert Cialdini, and Steve Jobs on every single deal — for free. Our win rate went from 35% to 52% in 90 days."</div>
+        <div class="author">
+            <div class="avatar"></div>
+            <div>
+                <div class="name">Alex Chen</div>
+                <div class="role">VP of Sales, TechScale Inc.</div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="solution container">
-        <h2>🔨 DealForge Fixes All of This</h2>
-        <div class="solution-grid">
-            <div class="sol-card">
-                <div class="icon">🎯</div>
-                <h3>One Tool, Full Lifecycle</h3>
-                <p>Prospect → Qualify → Negotiate → Close → Coach. All in one CLI. No more tool sprawl.</p>
-            </div>
-            <div class="sol-card">
-                <div class="icon">🧠</div>
-                <h3>70 Expert Personas</h3>
-                <p>Voss, Cialdini, Kahneman, Jobs, Buffett — embedded as executable reasoning frameworks.</p>
-            </div>
-            <div class="sol-card">
-                <div class="icon">📚</div>
-                <h3>16 Sales Bibles</h3>
-                <p>MEDDPICC, SPIN, Challenger, Gap Selling, Sandler — not "knows about" but executes.</p>
-            </div>
-            <div class="sol-card">
-                <div class="icon">🔄</div>
-                <h3>Self-Improving</h3>
-                <p>Reflection loop, self-consistency voting, learning loop — gets better with every use.</p>
-            </div>
-            <div class="sol-card">
-                <div class="icon">📱</div>
-                <h3>Works Everywhere</h3>
-                <p>CLI, API, WhatsApp. On your machine, your server, or the cloud. Bring your own LLM.</p>
-            </div>
-            <div class="sol-card">
-                <div class="icon">💰</div>
-                <h3>$0. Forever.</h3>
-                <p>Open source (MIT). No per-seat fees. No "contact sales." No surprise bills.</p>
-            </div>
-        </div>
-    </section>
+<!-- CTA -->
+<section class="cta-section">
+    <h2>Ready to close more deals?</h2>
+    <p>No install. No API key. Just open the chat and start selling.</p>
+    <a href="/chat" class="btn-primary" style="font-size:16px;padding:16px 40px;">Open DealForge Chat →</a>
+    <div style="margin-top:16px;font-size:13px;color:#505060;">
+        147 agents · 70 experts · 0 tool sprawl
+    </div>
+</section>
 
-    <section class="pricing">
-        <div class="container">
-            <h2>Simple Pricing</h2>
-            <p class="subtitle">Start free. Scale when you need to. No credit card required.</p>
-            <div class="pricing-grid">
-                <div class="price-card">
-                    <div class="name">Open Source</div>
-                    <div class="price">$0<span>/mo</span></div>
-                    <ul>
-                        <li>Local CLI access</li>
-                        <li>7 agent personas (70 experts)</li>
-                        <li>16 sales book frameworks</li>
-                        <li>Reflection & CoT quality stack</li>
-                        <li>Bring your own LLM key</li>
-                        <li>Commercial use allowed (MIT)</li>
-                    </ul>
-                    <a href="https://github.com/connectvelpuri/147-agents" class="btn btn-outline">Get Started</a>
-                </div>
-                <div class="price-card featured">
-                    <div class="badge">POPULAR</div>
-                    <div class="name">Cloud Pro</div>
-                    <div class="price">$29<span>/mo</span></div>
-                    <ul>
-                        <li>All Open Source features</li>
-                        <li>Web dashboard (Streamlit UI)</li>
-                        <li>Persistent conversation memory</li>
-                        <li>Team collaboration (5 seats)</li>
-                        <li>Managed API (no API key needed)</li>
-                        <li>Premium support (email + chat)</li>
-                        <li>CRM sync (HubSpot/Salesforce)</li>
-                    </ul>
-                    <a href="/signup" class="btn">Start Free Trial</a>
-                </div>
-                <div class="price-card">
-                    <div class="name">Enterprise</div>
-                    <div class="price">$99<span>/mo</span></div>
-                    <ul>
-                        <li>All Cloud Pro features</li>
-                        <li>Unlimited team members</li>
-                        <li>SSO / SAML / OAuth</li>
-                        <li>RBAC & audit trails</li>
-                        <li>Dedicated deployment (VPC)</li>
-                        <li>SLA guarantee (99.9%)</li>
-                        <li>Custom agent personas</li>
-                        <li>Priority support (24/7)</li>
-                    </ul>
-                    <a href="/signup" class="btn">Contact Sales</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>
+    <p>DealForge — <a href="https://github.com/connectvelpuri/147-agents">Open source</a> (MIT) · Built with Python · 147 AI Agents · 70 World-Class Experts</p>
+</footer>
 
-    <footer class="container">
-        <p>DealForge — Open source (MIT) • Built with Python • 147 AI Agents • 70 World-Class Experts</p>
-        <p style="margin-top:8px"><a href="https://github.com/connectvelpuri/147-agents" style="color:#6c63ff;">GitHub</a></p>
-    </footer>
+<script>
+    // MOUSE GLOW
+    document.addEventListener('mousemove', function(e) {
+        const glow = document.getElementById('cursor-glow');
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+    });
+
+    // NAV SCROLL
+    window.addEventListener('scroll', function() {
+        const nav = document.getElementById('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // SCROLL ANIMATIONS
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
