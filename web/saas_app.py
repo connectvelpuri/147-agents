@@ -132,6 +132,10 @@ if HAS_FASTAPI:
     async def dashboard():
         return HTMLResponse(Path(TEMPLATES / "dashboard.html").read_text())
 
+    @_app.get("/chat")
+    async def chat_page():
+        return HTMLResponse(Path(TEMPLATES / "chat.html").read_text())
+
     @_app.post("/api/auth/signup")
     async def signup(request: Request):
         body = await request.json()

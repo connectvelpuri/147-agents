@@ -67,9 +67,8 @@ class LLMClient:
         
         # Chain of Thought wrapper
         if chain_of_thought:
-            prompt = "Think step by step. Show your reasoning before giving your final answer. End with CONFIDENCE: X% where X is 0-100.
-
-" + user_prompt
+            prompt = ("Think step by step. Show your reasoning before giving your final answer. "
+                      "End with CONFIDENCE: X% where X is 0-100.\n\n") + user_prompt
         
         # Get model for current tier
         model = TIER_MODELS.get(self.tier, {}).get(self.provider, TIER_MODELS["smart"]["openrouter"])
@@ -118,15 +117,13 @@ class LLMClient:
         
         # Reflection loop: self-critique
         if reflect and len(text) > 100:
-            reflect_prompt = f"Critique the following analysis. What was missed? What could be improved? Be specific and actionable.
-
-{text[:2000]}"
+            reflect_prompt = (
+                f"Critique the following analysis. What was missed? What could be improved? "
+                f"Be specific and actionable.\n\n{text[:2000]}"
+            )
             ref_result = self._call_llm("You are a critical reviewer.", reflect_prompt, model, temperature=0.3, max_tokens=500)
             if ref_result.success and ref_result.text:
-                text = text + "
-
-[SELF-CRITIQUE]
-" + ref_result.text[:500]
+                text = text + "\n\n[SELF-CRITIQUE]\n" + ref_result.text[:500]
         
         return LLMResult(success=True, text=text, model=model, confidence=confidence, reasoning=reasoning)
 
