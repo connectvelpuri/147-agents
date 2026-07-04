@@ -473,6 +473,16 @@
             if (r.ok && d.response) {
                 addMsg('agent', formatResponse(d.response), getPersonaName(detectPersona(text)));
             } else if (d.detail && d.detail.includes('API key')) {
+                addMsg('agent', 'Sign in to get an API key, or use the CLI: <code>python cli.py \"' + text + '\"</code>', 'System');
+            } else {
+                addMsg('agent', 'Your question was received. Sign in for full AI analysis.', 'System');
+            }
+        } catch(e) {
+            removeTyping();
+            addMsg('agent', 'Could not connect to the server.', 'System');
+        }
+    }ext)));
+            } else if (d.detail && d.detail.includes('API key')) {
                 addMsg('agent', 'Sign in to get an API key, or use the CLI: <code>python cli.py "' + text + '"</code>', 'System');
             } else {
                 addMsg('agent', 'Your question was received. Sign in for full AI analysis.', 'System');
