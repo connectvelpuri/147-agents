@@ -212,7 +212,7 @@
 <body>
 
 <!-- LOGIN MODAL -->
-<div class="modal-overlay" id="loginOverlay">
+<div class="modal-overlay" id="loginOverlay" style="pointer-events:auto">
     <div class="modal">
         <h2 id="authTitle">Sign in</h2>
         <p class="sub" id="authSub">Access your DealForge AI sales agents</p>
@@ -326,6 +326,7 @@
             const d = await r.json();
             if (r.ok) {
                 document.getElementById('loginOverlay').classList.add('hidden');
+        document.getElementById('loginOverlay').style.display = 'none';
                 isLoggedIn = true;
                 await loadProfile();
             } else showError(d.detail || 'Login failed');
@@ -367,6 +368,8 @@
 
     function skipLogin() {
         document.getElementById('loginOverlay').classList.add('hidden');
+        document.getElementById('loginOverlay').style.display = 'none';
+        document.getElementById('loginOverlay').style.display = 'none';
     }
 
     function showError(msg, color) {
