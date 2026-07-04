@@ -326,7 +326,7 @@
             const d = await r.json();
             if (r.ok) {
                 document.getElementById('loginOverlay').classList.add('hidden');
-        document.getElementById('loginOverlay').style.display = 'none';
+        var el = document.getElementById('loginOverlay'); if (el) el.remove();
                 isLoggedIn = true;
                 await loadProfile();
             } else showError(d.detail || 'Login failed');
@@ -367,9 +367,8 @@
     }
 
     function skipLogin() {
-        document.getElementById('loginOverlay').classList.add('hidden');
-        document.getElementById('loginOverlay').style.display = 'none';
-        document.getElementById('loginOverlay').style.display = 'none';
+        var el = document.getElementById('loginOverlay');
+        if (el) el.remove();
     }
 
     function showError(msg, color) {
