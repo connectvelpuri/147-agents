@@ -488,4 +488,10 @@
             .replace(/\*(.*?)\*/g, '<em>$1</em>');
     }
 
-    function newChat() {/html>
+    function newChat() {
+        document.getElementById('messages').innerHTML = '';
+        addMsg('agent', 'Hi again. Ready to work on your deals.');
+    }
+</script>
+</body>
+</html>
