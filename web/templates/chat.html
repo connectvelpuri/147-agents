@@ -481,19 +481,11 @@
         }
     }
 
-    function formatResponsefunction formatResponse(text) {
+    function formatResponse(text) {
         return text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-            .replace(/\\n/g, '<br>')
-            .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
-            .replace(/\\*(.*?)\\*/g, '<em>$1</em>');
+            .replace(/\n/g, '<br>')
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
     }
 
-    function newChat() {
-        document.getElementById('messages').innerHTML = '';
-        addMsg('agent', 'Hi again. Ready to work on your deals. What's on your mind?');
-    }
-
-    loadProfile();
-</script>
-</body>
-</html>
+    function newChat() {/html>
