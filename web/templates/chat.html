@@ -314,7 +314,7 @@
     }
 
     // === AUTH ===
-    async async function login() {
+    async function login() {
         const email = document.getElementById('loginEmail').value;
         const pw = document.getElementById('loginPassword').value;
         if (!email || !pw) return showError('Fill all fields');
@@ -333,7 +333,7 @@
         } catch(e) { showError('Connection error'); }
     }
 
-    async async function signup() {
+    async function signup() {
         const name = document.getElementById('signupName').value;
         const email = document.getElementById('signupEmail').value;
         const pw = document.getElementById('signupPassword').value;
