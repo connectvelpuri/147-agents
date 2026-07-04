@@ -5,3 +5,4 @@ __pycache__/
 *.sqlite
 .git-rewrite/
 tools/
+test_screenshots/
