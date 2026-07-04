@@ -456,10 +456,8 @@
         const text = input.value.trim();
         if (!text) return;
         input.value = ''; input.style.height = 'auto';
-
         addMsg('user', text);
         showTyping();
-
         try {
             const r = await fetch('/api/agent/execute', {
                 method: 'POST', headers: {
@@ -473,27 +471,17 @@
             if (r.ok && d.response) {
                 addMsg('agent', formatResponse(d.response), getPersonaName(detectPersona(text)));
             } else if (d.detail && d.detail.includes('API key')) {
-                addMsg('agent', 'Sign in to get an API key, or use the CLI: <code>python cli.py \"' + text + '\"</code>', 'System');
+                addMsg('agent', 'Please sign in to get an API key.', 'System');
             } else {
-                addMsg('agent', 'Your question was received. Sign in for full AI analysis.', 'System');
+                addMsg('agent', 'Question received. Sign in for full analysis.', 'System');
             }
         } catch(e) {
             removeTyping();
-            addMsg('agent', 'Could not connect to the server.', 'System');
-        }
-    }ext)));
-            } else if (d.detail && d.detail.includes('API key')) {
-                addMsg('agent', 'Sign in to get an API key, or use the CLI: <code>python cli.py "' + text + '"</code>', 'System');
-            } else {
-                addMsg('agent', 'Your question was received. Sign in for full AI analysis.', 'System');
-            }
-        } catch(e) {
-            removeTyping();
-            addMsg('agent', 'Could not connect to the server.', 'System');
+            addMsg('agent', 'Connection error. Please try again.', 'System');
         }
     }
 
-    function formatResponse(text) {
+    function formatResponsefunction formatResponse(text) {
         return text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
             .replace(/\\n/g, '<br>')
             .replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>')
