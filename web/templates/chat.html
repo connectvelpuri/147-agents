@@ -212,7 +212,7 @@
 <body>
 
 <!-- LOGIN MODAL -->
-<div class="modal-overlay" id="loginOverlay" style="pointer-events:auto">
+<div class="modal-overlay" id="loginOverlay" style="display:flex">
     <div class="modal">
         <h2 id="authTitle">Sign in</h2>
         <p class="sub" id="authSub">Access your DealForge AI sales agents</p>
@@ -228,8 +228,8 @@
             <input type="password" id="signupPassword" placeholder="Password (8+ characters)">
             <button class="btn btn-primary" onclick="signup()">Create account</button>
         </div>
-        <div class="switch" id="authSwitch">Don't have an account? <a onclick="showSignup()">Sign up</a></div>
-        <div class="guest-link" onclick="skipLogin()">Continue as guest →</div>
+        <div class="switch" id="authSwitch">Don't have an account? <a href="#" onclick="showSignup();return false;">Sign up</a></div>
+        <button class="guest-link" onclick="skipLogin()" style="background:none;border:none;color:#a1a1aa;cursor:pointer;display:block;margin:12px auto;font-size:13px;font-family:inherit">Continue as guest →</button>
     </div>
 </div>
 
@@ -265,7 +265,7 @@
             <div class="chat-header-right">
                 <span id="agentCount" style="font-size:13px;color:#52525b;">8 agents</span>
                 <a href="/" class="header-btn">← Home</a>
-                <button class="header-btn" onclick="document.getElementById('loginOverlay').classList.remove('hidden')">Sign in</button>
+                <button class="header-btn" onclick="document.getElementById('loginOverlay').style.display = 'flex'">Sign in</button>
             </div>
         </div>
 
@@ -355,7 +355,7 @@
         document.getElementById('signupForm').style.display = 'block';
         document.getElementById('authTitle').textContent = 'Create account';
         document.getElementById('authSub').textContent = 'Free. No credit card.';
-        document.getElementById('authSwitch').innerHTML = 'Already have an account? <a onclick="showLogin()">Sign in</a>';
+        document.getElementById('authSwitch').innerHTML = 'Already have an account? <a href="#" onclick="showLogin();return false;">Sign in</a>';
     }
 
     function showLogin() {
@@ -363,7 +363,7 @@
         document.getElementById('signupForm').style.display = 'none';
         document.getElementById('authTitle').textContent = 'Sign in';
         document.getElementById('authSub').textContent = 'Access your DealForge AI sales agents';
-        document.getElementById('authSwitch').innerHTML = 'Don\'t have an account? <a onclick="showSignup()">Sign up</a>';
+        document.getElementById('authSwitch').innerHTML = 'Don\'t have an account? <a href="#" onclick="showSignup();return false;">Sign up</a>';
     }
 
     function skipLogin() {
